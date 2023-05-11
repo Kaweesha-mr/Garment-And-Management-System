@@ -50,9 +50,18 @@ header {
   left: 0;
   display: flex;
   justify-content: center;
+  transition: 0.5s ease;
+  transition-property: height, background;
 
 }
 
+
+header.sticky{
+  height: calc(2.5rem + 1rem);
+  background:rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1ps solid rgba(255, 255, 255, 0.1);
+}
 header .nav-bar {
 
   position: relative;
@@ -62,6 +71,10 @@ header .nav-bar {
   justify-content: space-between;
   padding: 0 200px;
   transition: 0.3s ease;
+  background-color: #ffffff49;
+  backdrop-filter: blur(20px);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .nav-bar .logo {
@@ -338,4 +351,16 @@ background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 
 .media-icons a .uil-whatsapp:hover{
 
 color: #25D366;
+}
+
+
+::-webkit-scrollbar{
+
+  width: 11px;
+  background: var(--scroll-bar-color);
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: var(--scroll-thumb-hover-color);
 }
