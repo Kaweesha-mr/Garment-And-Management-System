@@ -217,7 +217,7 @@ header .nav-bar {
 
 .swiper-slide .text-content .read-btn i {
   font-size: 1.6rem;
-  transition: 0.3 ease;
+  transition: 0.3s ease;
 }
 
 .swiper-slide .text-content .read-btn:hover i {
@@ -294,11 +294,15 @@ header .nav-bar {
   transition: transform 372ms ease-out;
 
 }
+
+
+/* media icons hover scale change */
 .media-icons a:hover{
   transform: scale(1.5,1.5);
 
 }
 
+/* facebook icon hover color change */
 .media-icons a .uil-facebook-f{
 
   transition: 0.3s ease-out;
@@ -309,6 +313,8 @@ header .nav-bar {
   color: rgb(29, 85, 255);
 }
 
+
+/* instergram icon hover color chanage */
 .media-icons a .uil-instagram{
 
   transition: 0.3s ease-out;
@@ -323,7 +329,7 @@ background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 
   color: rgb(29, 85, 255);
 }
 
-
+/* whatsapp icon hover color change */
 .media-icons a .uil-whatsapp{
 
   transition: 0.3s ease-out;
