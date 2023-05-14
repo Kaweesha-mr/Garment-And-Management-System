@@ -51,7 +51,7 @@ header {
   display: flex;
   justify-content: center;
   transition: 0.5s ease;
-  transition-property: height, background;
+  transition-property: height,background;
 
 }
 
