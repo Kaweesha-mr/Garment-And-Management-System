@@ -48,6 +48,12 @@
 
 }
 
+
+h1> .counter{
+
+    color: black;
+}
+
 /* Added animation to the card slider */
 .card:hover .card-body{
     right: 0;

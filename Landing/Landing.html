@@ -11,12 +11,15 @@
     <link rel="stylesheet" href="./css/Slider_style.css">
     <link rel="stylesheet" href="./css/Navigation_bar.css">
     <link rel="stylesheet" href="./css/Cards.css">
-        <!-- font awesome library -->
     <link rel="stylesheet" href="./css/counting.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font-awesome libarary for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 
 <body>
+
+    <!-- navigation Bar -->
     <header>
         <div class="nav-bar">
             <a href="" class="logo"> ABC Garments</a>
@@ -24,10 +27,10 @@
                 <div class="nav-items">
                     <i class="uil uil-times nav-close-btn"></i>
                     <a href="#"> <i class="uil uil-home"></i>Home</a>
-                    <a href="#"> <i class="uil uil-compass"></i>Explore</a>
-                    <a href="#"> <i class="uil uil-info-circle"></i>about us</a>
-                    <a href="#"> <i class="uil uil-document-layout-left"></i>about us</a>
-                    <a href="#"> <i class="uil uil-envelope"></i>about us</a>
+                    <a href="#"> <i class="uil uil-compass"></i>Blog</a>
+                    <a href="#"> <i class="uil uil-info-circle"></i>Contact Us</a>
+                    <a href="#"> <i class="uil uil-document-layout-left"></i>About Us</a>
+                    <a href="#"> <i class="uil uil-envelope"></i>Login</a>
                 </div>
             </div>
 
@@ -84,7 +87,7 @@
                 <div class="swiper-slide dark-layer">
                     <img src="./Img/7.jpg" alt="" height="750px" width="1500px">
                     <div class="text-content">
-                        <h2 class="title">Technology</h2>
+                        <h2 class="title">Technology<span>advanced technology and equipment used in our factory</span>
                         </h2>
                         <p>
                             At our factory, we use cutting-edge technology and equipment to ensure
@@ -125,7 +128,7 @@
                 </div>
             </div>
     </section>
-
+<!-- navigation bar completed here -->
     
    <!-- Cards deisgn starts here -->
 
@@ -180,31 +183,50 @@
         </div>
     </section>
 
-
-    <section class="counting-container">
-
-        <div class="wrapper-counting">
-            <div class="container-coutning">
-                <i class="fas fa-tshirt icon"></i>
-                <span class="num" data-val = "400">000</span>
-                <span class="text">Meals Delivered</span>
-
+    <section id="section_counter">
+        <div class="container-counting">
+          <h1 class="section-heading">We've completed</h1>
+        </div>
+        <div class="container-counting">
+          <div class="counter-grid">
+            <div class="counter-item">
+              <img src="images/web-design.png" alt="Image" class="counter-img" />
+              <h1 class="counter" data-target="200">0</h1>
             </div>
+            <div class="counter-item">
+              <img
+                src="images/web-development.png"
+                alt="Image"
+                class="counter-img"
+              />
+              <h1 class="counter" data-target="300">0</h1>
+            </div>
+            <div class="counter-item">
+              <img src="images/ux-design.png" alt="Image" class="counter-img" />
+              <h1 class="counter" data-target="250">0</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="pricing">
+        <div class="container-counting">
+            
+                <h1 class="section-heading">Customer Feedback</h1>
+                <h3 class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                   Asperiores deserunt, ut voluptatem laboriosam repudiandae, <br> quo non dolorum excepturi optio rem itaque.
+                   Inventore reprehenderit aliquid ab, libero laudantium laboriosam <br> corporis. Amet.</h3>
         </div>
 
-
-
-
-    </section>
-
-
+        </div>
+      </section>
+      
 
 
 
 
+
+    <script src="./JS/couting.js"></script>
     <script src="./JS/swiper-bundle.min.js"></script>
-
-
     <script>
         var swiper = new Swiper(".bg-slider-thumbs", {
             loop: true,
