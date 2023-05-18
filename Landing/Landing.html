@@ -11,9 +11,15 @@
     <link rel="stylesheet" href="./css/Slider_style.css">
     <link rel="stylesheet" href="./css/Navigation_bar.css">
     <link rel="stylesheet" href="./css/Cards.css">
+    <link rel="stylesheet" href="./css/counting.css">
+
+    <!-- font-awesome libarary for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 
 <body>
+
+    <!-- navigation Bar -->
     <header>
         <div class="nav-bar">
             <a href="" class="logo"> ABC Garments</a>
@@ -21,10 +27,10 @@
                 <div class="nav-items">
                     <i class="uil uil-times nav-close-btn"></i>
                     <a href="#"> <i class="uil uil-home"></i>Home</a>
-                    <a href="#"> <i class="uil uil-compass"></i>Explore</a>
-                    <a href="#"> <i class="uil uil-info-circle"></i>about us</a>
-                    <a href="#"> <i class="uil uil-document-layout-left"></i>about us</a>
-                    <a href="#"> <i class="uil uil-envelope"></i>about us</a>
+                    <a href="#"> <i class="uil uil-compass"></i>Blog</a>
+                    <a href="#"> <i class="uil uil-info-circle"></i>Contact Us</a>
+                    <a href="#"> <i class="uil uil-document-layout-left"></i>About Us</a>
+                    <a href="#"> <i class="uil uil-envelope"></i>Login</a>
                 </div>
             </div>
 
@@ -122,7 +128,7 @@
                 </div>
             </div>
     </section>
-
+<!-- navigation bar completed here -->
     
    <!-- Cards deisgn starts here -->
 
@@ -174,19 +180,53 @@
                 </div>
 
             </div>
-
-
-
-
         </div>
     </section>
 
+    <section id="section_counter">
+        <div class="container-counting">
+          <h1 class="section-heading">We've completed</h1>
+        </div>
+        <div class="container-counting">
+          <div class="counter-grid">
+            <div class="counter-item">
+              <img src="images/web-design.png" alt="Image" class="counter-img" />
+              <h1 class="counter" data-target="200">0</h1>
+            </div>
+            <div class="counter-item">
+              <img
+                src="images/web-development.png"
+                alt="Image"
+                class="counter-img"
+              />
+              <h1 class="counter" data-target="300">0</h1>
+            </div>
+            <div class="counter-item">
+              <img src="images/ux-design.png" alt="Image" class="counter-img" />
+              <h1 class="counter" data-target="250">0</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="pricing">
+        <div class="container-counting">
+            
+                <h1 class="section-heading">Customer Feedback</h1>
+                <h3 class="section-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                   Asperiores deserunt, ut voluptatem laboriosam repudiandae, <br> quo non dolorum excepturi optio rem itaque.
+                   Inventore reprehenderit aliquid ab, libero laudantium laboriosam <br> corporis. Amet.</h3>
+        </div>
+
+        </div>
+      </section>
+      
 
 
 
+
+
+    <script src="./JS/couting.js"></script>
     <script src="./JS/swiper-bundle.min.js"></script>
-
-
     <script>
         var swiper = new Swiper(".bg-slider-thumbs", {
             loop: true,
