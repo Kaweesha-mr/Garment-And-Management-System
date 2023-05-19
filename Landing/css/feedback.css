@@ -32,6 +32,7 @@
   width: 100%;
   padding: 50px 0;
   overflow: hidden;
+  background-color: #00000043;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -60,7 +61,7 @@
   padding: 0 160px;
   font-size: 14px;
   font-weight: 400;
-  color: #b8b8b8;
+  color: #070606;
 }
 .slide .quote-icon {
   font-size: 30px;
@@ -70,16 +71,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: 600;
 }
 .details .name {
   font-size: 14px;
   font-weight: 600;
-  color: #b8b8b8;
+  color: #070606;
 }
 .details .job {
   font-size: 12px;
   font-weight: 400;
-  color: #b8b8b8;
+  color: #040303;
 }
 /* swiper button css */
 .nav-btn {
