@@ -28,7 +28,7 @@ body {
   padding: 0 1rem;
 }
 section:not(#section_counter) {
-  height: 100vh;
+  height: 5;
 }
 .section-heading {
   font-size: 4rem;
@@ -48,8 +48,9 @@ h3.section-description{
 #pricing {
   background: transparent;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  flex-direction: row;
 }
 #section_counter {
   padding: 5rem 0;
