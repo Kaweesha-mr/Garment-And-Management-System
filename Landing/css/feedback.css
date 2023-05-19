@@ -7,6 +7,18 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+
+.rating{
+
+    display: flex;
+}
+
+.rating > span{
+    
+    flex-direction: column;
+   padding-left:20px ;
+}
 .container-testi {
   height: 100vh;
   width: 100%;
