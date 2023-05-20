@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,24 @@
   <title>Garment And Management System</title>
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
   <link rel="stylesheet" href="./css/Slider_style.css">
   <link rel="stylesheet" href="./css/Navigation_bar.css">
   <link rel="stylesheet" href="./css/Cards.css">
   <link rel="stylesheet" href="./css/counting.css">
   <link rel="stylesheet" href="./css/feedback.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/form.css">
 
   <!-- font-awesome libarary for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <style>
     .checked {
       color: orange;
     }
-    </style>
+  </style>
 
 </head>
 
@@ -34,26 +37,101 @@
       <a href="" class="logo"> ABC Garments</a>
       <div class="navigation">
         <div class="nav-items">
-          <i class="uil uil-times nav-close-btn"></i>
           <a href="#"> <i class="uil uil-home"></i>Home</a>
           <a href="#"> <i class="uil uil-compass"></i>Blog</a>
           <a href="#"> <i class="uil uil-info-circle"></i>Contact Us</a>
           <a href="#"> <i class="uil uil-document-layout-left"></i>About Us</a>
-          <a href="#"> <i class="uil uil-envelope"></i>Login</a>
+          <button type="button" class="btn btn-dark btnlogin-popup">Login</button>
         </div>
       </div>
-
       <i class="uil uil-apps nav-menu-btn"></i>
     </div>
-  </header>
-  <section class="home">
-    <div class="media-icons">
+    <div class="wrapper">
 
+      <span class="icon-close"> <ion-icon name="close"></ion-icon>
+
+      </span>
+
+      <!-- Login form start -->
+      <div class="form-box login">
+
+        <h2>Login</h2>
+        <h5>Garmnet and Textile Management System</h5>
+        <form action="./validation.php" method="post">
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="text" name="log_name" required>
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="Password" required name="log_password">
+            <label>Password</label>
+          </div>
+
+          <div class="remeber-forget">
+            <label><input type="checkbox">Remember me</label>
+            <a href="#">Forget Password</a>
+          </div>
+          <button type="submit" class="btn" name="login">Login</button>
+          <div class="login-register">
+            <p>Don't Have an acount &nbsp; <a href="#" class="register-link">Register</a></p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Login form End -->
+
+      <!-- register form start -->
+
+      <div class="form-box Register">
+
+        <h2>Registeration</h2>
+        <form action="./register.php" method="post">
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="text" required name="reg_username">
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required name="reg_mail">
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="Password" required name="reg_password">
+            <label>Password</label>
+          </div>
+
+          <div class="remeber-forget">
+            <label><input type="checkbox">Terms & Conditions</label>
+          </div>
+          <button type="submit" class="btn">Register</button>
+          <div class="login-register">
+            <p>Already have a acount &nbsp; <a href="#" class="login-link">Login</a></p>
+          </div>
+
+        </form>
+
+        <!-- register form end -->
+
+      </div>
+  </header>
+
+  <section class="home">
+
+
+    <div class="media-icons">
       <a href="#"><i class="uil uil-facebook-f"></i></a>
       <a href="#"><i class="uil uil-instagram"></i></a>
       <a href="#"><i class="uil uil-whatsapp"></i></a>
-
     </div>
+
+    <!-- ! login and Register form starts from here  -->
     <div class="swiper bg-slider">
       <!-- Image slide 1 -->
       <div class="swiper-wrapper dark-layer">
@@ -136,6 +214,7 @@
           <img src="./Img/5.jpg" class="swiper-slide" alt="">
         </div>
       </div>
+    </div>
   </section>
   <!-- navigation bar completed here -->
 
@@ -310,34 +389,38 @@
     </section>
   </section>
 
-<section class="footer-container">
+  <section class="footer-container">
 
-  <footer>
-    <div class="footer-content">
-      <h3>Sri Lanka Institute of Information Technology</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatum, necessitatibus eveniet provident ducimus dignissimos veniam nisi consequatur dolore eligendi reiciendis tempora quod aspernatur explicabo iste quae impedit, officia sit.</p>
-      <ul class="socials">
-        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-        <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-        <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
-        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-      </ul>
-    </div>
+    <footer>
+      <div class="footer-content">
+        <h3>Sri Lanka Institute of Information Technology</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatum, necessitatibus eveniet
+          provident ducimus dignissimos veniam nisi consequatur dolore eligendi reiciendis tempora quod aspernatur
+          explicabo iste quae impedit, officia sit.</p>
+        <ul class="socials">
+          <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+        </ul>
+      </div>
 
-    <div class="footer-bottem">
-      <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
-    </div>
+      <div class="footer-bottem">
+        <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
+      </div>
 
-  </footer>
-
-
-</section>
-  
+    </footer>
 
 
+  </section>
+
+
+  <!-- <script src="./JS/Form.js"></script> -->
   <script src="./JS/couting.js"></script>
   <script src="./JS/swiper-bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script>
     var swiper = new Swiper(".bg-slider-thumbs", {
       loop: true,
@@ -351,6 +434,40 @@
         swiper: swiper,
       },
     });
+
+
+    const wrapper = document.querySelector('.wrapper');
+    const loginLink = document.querySelector('.login-link');
+    const registerLink = document.querySelector('.register-link');
+    const btnPopup = document.querySelector('.btnlogin-popup');
+    const iconclose = document.querySelector('.icon-close');
+
+    registerLink.addEventListener('click', () => {
+
+      wrapper.classList.add('active');
+
+    })
+    loginLink.addEventListener('click', () => {
+
+      wrapper.classList.remove('active');
+
+    })
+    loginLink.addEventListener('click', () => {
+
+      wrapper.classList.remove('active');
+
+    })
+
+    btnPopup.addEventListener('click', () => {
+
+      wrapper.classList.add('active-popup');
+    })
+
+
+    iconclose.addEventListener('click', () => {
+
+      wrapper.classList.remove('active-popup');
+    })
   </script>
 
 

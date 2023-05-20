@@ -52,7 +52,11 @@ header {
   justify-content: center;
   transition: 0.5s ease;
   transition-property: height,background;
+}
 
+header .wrapper{
+
+  margin-top: 200px;
 }
 
 
@@ -98,8 +102,9 @@ header .nav-bar {
 }
 
 .navigation .nav-items a i {
-  display: none;
+
 }
+
 
 .navigation .nav-items a:not(:last-child) {
   margin-right: 45px;
