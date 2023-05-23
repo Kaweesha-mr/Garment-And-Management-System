@@ -16,7 +16,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 83px;
+    width: 85px;
     background-color: rgb(53, 58, 79);
     padding: 0.4rem 0.8rem; /* are relative units that are based on the document's font-size. The document's default font size is 16 pixels, so 1.5rems x 16px is the equivalent of 24 pixels. */
     transition: all 0.5s ease;
@@ -66,7 +66,7 @@
 .user {
     display: flex;
     align-items: center;
-    margin: 1rem 0px;
+    margin: 2rem 0rem 3rem;
 }
 
 .user p{
@@ -92,7 +92,7 @@
     position: relative;
     list-style-type: none;
     height: 50px;
-    width: 90%;
+    width: 80%;
     margin: 0.8rem auto;
     line-height: 50px;
 }
@@ -116,7 +116,6 @@
 .sidebar ul li a:hover{
     background-color: aliceblue;
     color: darkslategray;
-
 }
 
 .sidebar .nav_item{
@@ -136,7 +135,7 @@
     border-radius: .6rem;
     padding: .4rem 1.2rem;
     line-height: 1.8rem;
-
+    z-index: 20;
     opacity: 0;
 }
 
@@ -148,3 +147,73 @@
     display:none;
 }
 
+.sidebar .logout{
+    position: relative;
+    list-style-type: none;
+    top: 50px;
+    height: 50px;
+    width: 80%;
+    margin: 0.8rem 0.5rem;
+    line-height: 50px;
+}
+
+.sidebar .logout a{
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8rem;
+}
+
+.sidebar .logout a span{
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .logout a:hover{
+    background-color: aliceblue;
+    color: darkslategray;
+}
+
+.sidebar.active .logout a{
+    color: rgb(255, 0, 0);
+    background-color: rgb(254, 254, 254);
+    font-weight: 650;
+    font-size: 1.1rem;
+}
+
+.sidebar .logout .tooltip{
+    position: absolute;
+    left: 75px;
+    text-align: center;
+    top: 50%;
+    box-shadow: 0 0.5rem 0.8rem rgb(174, 176, 182);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar .logout:hover .tooltip{
+    opacity: 1;
+}
+
+.sidebar.active .logout .tooltip{
+    display:none;
+}
+
+
+.main-content{
+    position: relative;
+    background-color: rgb(224, 222, 222);
+    min-height: 100vh;
+    top: 0;
+    left: 85px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+}
