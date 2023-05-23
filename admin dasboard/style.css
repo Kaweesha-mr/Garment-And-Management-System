@@ -1,0 +1,10 @@
+.logoimg{
+    width: 100px;
+}
+
+.userimg{
+    width: 60px;
+    border-radius: 100%;
+    border: 1px solid white;
+}
+
