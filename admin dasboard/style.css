@@ -105,3 +105,46 @@
     border-radius: 0.8rem;
 }
 
+.sidebar ul li a span{
+    min-width: 50px;
+    text-align: center;
+    /* height: 50px; */
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar ul li a:hover{
+    background-color: aliceblue;
+    color: darkslategray;
+
+}
+
+.sidebar .nav_item{
+    opacity: 0;
+}
+
+.sidebar.active .nav_item{
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 75px;
+    text-align: center;
+    top: 50%;
+    box-shadow: 0 0.5rem 0.8rem rgb(174, 176, 182);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip{
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip{
+    display:none;
+}
+
