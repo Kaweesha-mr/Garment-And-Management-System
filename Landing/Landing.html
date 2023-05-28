@@ -6,9 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Garment And Management System</title>
+
+  <!-- !external resouces that are got to style the landing page and login,register popup -->
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
+
+  <!-- !styles for main landing page -->
   <link rel="stylesheet" href="./css/Slider_style.css">
   <link rel="stylesheet" href="./css/Navigation_bar.css">
   <link rel="stylesheet" href="./css/Cards.css">
@@ -41,85 +45,13 @@
           <a href="#"> <i class="uil uil-compass"></i>Blog</a>
           <a href="#"> <i class="uil uil-info-circle"></i>Contact Us</a>
           <a href="#"> <i class="uil uil-document-layout-left"></i>About Us</a>
-          <button type="button" class="btn btn-dark btnlogin-popup">Login</button>
+          <!-- make this button blue ane make it red when hover -->
+          <a href="form.html"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+          
         </div>
       </div>
       <i class="uil uil-apps nav-menu-btn"></i>
-    </div>
-    <div class="wrapper">
-
-      <span class="icon-close"> <ion-icon name="close"></ion-icon>
-
-      </span>
-
-      <!-- Login form start -->
-      <div class="form-box login">
-
-        <h2>Login</h2>
-        <h5>Garmnet and Textile Management System</h5>
-        <form action="./validation.php" method="post">
-
-          <div class="input-box">
-            <span class="icon"><ion-icon name="mail"></ion-icon></span>
-            <input type="text" name="log_name" required>
-            <label>Username</label>
-          </div>
-          <div class="input-box">
-            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-            <input type="Password" required name="log_password">
-            <label>Password</label>
-          </div>
-
-          <div class="remeber-forget">
-            <label><input type="checkbox">Remember me</label>
-            <a href="#">Forget Password</a>
-          </div>
-          <button type="submit" class="btn" name="login">Login</button>
-          <div class="login-register">
-            <p>Don't Have an acount &nbsp; <a href="#" class="register-link">Register</a></p>
-          </div>
-
-        </form>
-      </div>
-
-      <!-- Login form End -->
-
-      <!-- register form start -->
-
-      <div class="form-box Register">
-
-        <h2>Registeration</h2>
-        <form action="./register.php" method="post">
-
-          <div class="input-box">
-            <span class="icon"><ion-icon name="mail"></ion-icon></span>
-            <input type="text" required name="reg_username">
-            <label>Username</label>
-          </div>
-          <div class="input-box">
-            <span class="icon"><ion-icon name="mail"></ion-icon></span>
-            <input type="email" required name="reg_mail">
-            <label>Email</label>
-          </div>
-          <div class="input-box">
-            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-            <input type="Password" required name="reg_password">
-            <label>Password</label>
-          </div>
-
-          <div class="remeber-forget">
-            <label><input type="checkbox">Terms & Conditions</label>
-          </div>
-          <button type="submit" class="btn">Register</button>
-          <div class="login-register">
-            <p>Already have a acount &nbsp; <a href="#" class="login-link">Login</a></p>
-          </div>
-
-        </form>
-
-        <!-- register form end -->
-
-      </div>
+    </div>      
   </header>
 
   <section class="home">
@@ -131,7 +63,7 @@
       <a href="#"><i class="uil uil-whatsapp"></i></a>
     </div>
 
-    <!-- ! login and Register form starts from here  -->
+   
     <div class="swiper bg-slider">
       <!-- Image slide 1 -->
       <div class="swiper-wrapper dark-layer">
@@ -447,11 +379,21 @@
       wrapper.classList.add('active');
 
     })
+
+    //created to hide the login form completely insted of moving to right side
+    registerLink.addEventListener('click', () => {
+
+    wrapper.classList.add('display');
+
+    })
+
     loginLink.addEventListener('click', () => {
 
       wrapper.classList.remove('active');
+      wrapper.classList.remove('display');
 
     })
+
     loginLink.addEventListener('click', () => {
 
       wrapper.classList.remove('active');
@@ -467,6 +409,8 @@
 
       wrapper.classList.remove('active-popup');
     })
+
+
   </script>
 
 
