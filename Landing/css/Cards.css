@@ -1,4 +1,8 @@
 
+
+/* lets add comments to all of these codes*/
+
+
 .class-container{
 
     width: 100%;
@@ -11,6 +15,7 @@
 
 }
 
+
 .card{
 
     width: 320px;
@@ -21,6 +26,7 @@
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* adjust the image to fit the card */
 .card-img{
 
     width: 100%;
@@ -28,6 +34,7 @@
     object-fit: cover;
     border-radius: 15px;
 }
+
 
 .card-body{
 
@@ -48,13 +55,13 @@
 
 }
 
-
+/* adding colours to the h1 tag in the card */
 h1> .counter{
 
     color: black;
 }
 
-/* Added animation to the card slider */
+/* !Added animation to the card slider */
 .card:hover .card-body{
     right: 0;
 }

@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 *,
+
+
+
+
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
+
+
+/* creating css varibales */
 :root {
   --container: 200rem;
   --m-auto: 0 auto;
@@ -14,6 +21,7 @@
   --bg-counter: #2f2371;
   --bg-item: #5d46e2;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -72,13 +80,16 @@ h3.section-description{
   padding: 3rem 1.5rem;
   text-align: center;
   border-radius: 1rem;
-  /* Glass effect is added here */
+  
+  /* !Glass effect is added here */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   border:1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* animation tranisition and transform added */
   transition: all 0.5s ease-in-out;
   transform: translateY(6rem);
 }
@@ -109,6 +120,9 @@ color: black;
   -ms-text-stroke-color: var(--white);
   -o-text-stroke-color: var(--white);
 }
+
+
+/* write a comment for below code */
 
 @keyframes slide-up {
   0% {

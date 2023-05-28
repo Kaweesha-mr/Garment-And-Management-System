@@ -35,7 +35,7 @@
 
 <body>
 
-  <!-- navigation Bar -->
+  <!-- !navigation Bar -->
   <header>
     <div class="nav-bar">
       <a href="" class="logo"> ABC Garments</a>
@@ -53,17 +53,17 @@
       <i class="uil uil-apps nav-menu-btn"></i>
     </div>      
   </header>
+    <!-- !navigation Bar ended-->
+
 
   <section class="home">
-
-
     <div class="media-icons">
       <a href="#"><i class="uil uil-facebook-f"></i></a>
       <a href="#"><i class="uil uil-instagram"></i></a>
       <a href="#"><i class="uil uil-whatsapp"></i></a>
     </div>
 
-   
+   <!-- ! slider with animation starts here -->
     <div class="swiper bg-slider">
       <!-- Image slide 1 -->
       <div class="swiper-wrapper dark-layer">
@@ -149,10 +149,9 @@
     </div>
   </section>
   <!-- navigation bar completed here -->
+     <!-- ! slider with animation ends -->
 
-  <!-- Cards deisgn starts here -->
-
-
+  <!-- !Cards deisgn starts here -->
   <section class="Cards">
     <div class="class-container">
 
@@ -210,6 +209,9 @@
         </div>
       </div>
   </section>
+  <!-- !Cards deisgn ends here -->
+
+  <!-- !counting cards starts here -->
 
   <section id="section_counter">
     <div class="container-counting">
@@ -234,6 +236,10 @@
   </section>
   <section id="pricing">
     <div class="container-counting">
+      <!-- !counting cards ends here -->
+
+
+      <!-- !Review card starts here -->
 
       <h1 class="section-heading">Customer Feedback</h1>
 
@@ -320,6 +326,10 @@
       </div>
     </section>
   </section>
+  <!-- ! review card ends here -->
+
+
+  <!-- !footer starts here -->
 
   <section class="footer-container">
 
@@ -344,16 +354,27 @@
 
     </footer>
 
+    <!-- !footer ends here -->
+
 
   </section>
 
 
   <!-- <script src="./JS/Form.js"></script> -->
+
+  <!-- !counting cards js connected -->
   <script src="./JS/couting.js"></script>
+
+  <!-- !swiper.js library is added  -->
   <script src="./JS/swiper-bundle.min.js"></script>
+
+  <!-- !iconicons icons pack js is added here -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
   <script>
+
+    // !swiper js starts here
     var swiper = new Swiper(".bg-slider-thumbs", {
       loop: true,
       spaceBetween: 0,
@@ -366,58 +387,14 @@
         swiper: swiper,
       },
     });
-
-
-    const wrapper = document.querySelector('.wrapper');
-    const loginLink = document.querySelector('.login-link');
-    const registerLink = document.querySelector('.register-link');
-    const btnPopup = document.querySelector('.btnlogin-popup');
-    const iconclose = document.querySelector('.icon-close');
-
-    registerLink.addEventListener('click', () => {
-
-      wrapper.classList.add('active');
-
-    })
-
-    //created to hide the login form completely insted of moving to right side
-    registerLink.addEventListener('click', () => {
-
-    wrapper.classList.add('display');
-
-    })
-
-    loginLink.addEventListener('click', () => {
-
-      wrapper.classList.remove('active');
-      wrapper.classList.remove('display');
-
-    })
-
-    loginLink.addEventListener('click', () => {
-
-      wrapper.classList.remove('active');
-
-    })
-
-    btnPopup.addEventListener('click', () => {
-
-      wrapper.classList.add('active-popup');
-    })
-
-    iconclose.addEventListener('click', () => {
-
-      wrapper.classList.remove('active-popup');
-    })
-
-
+    // !swiper js ends here
   </script>
 
 
 </body>
-<!-- Swiper JS -->
+<!-- !Swiper JS -->
 <script src="js/swiper-bundle.min.js"></script>
-<!-- JavaScript -->
+<!-- !JavaScript -->
 <script src="./JS/feedback.js"></script>
 
 </html>

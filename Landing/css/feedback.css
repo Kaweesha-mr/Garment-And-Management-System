@@ -45,6 +45,8 @@
   object-fit: cover;
   border-radius: 50%;
   backdrop-filter: blur(10px);
+
+  /* use to blur the image */
   -webkit-backdrop-filter: blur(10px);
 }
 .testimonial .slide {
@@ -83,6 +85,7 @@
   font-weight: 400;
   color: #040303;
 }
+
 /* swiper button css */
 .nav-btn {
   height: 40px;
@@ -106,6 +109,9 @@
 .swiper-pagination-bullet-active {
   background-color: #4070f4;
 }
+
+
+/* use to make the cards responsive */
 @media screen and (max-width: 768px) {
   .slide p {
     padding: 0 20px;
