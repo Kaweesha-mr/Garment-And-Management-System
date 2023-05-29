@@ -179,7 +179,17 @@
             </div>
         </main>
     </div>
-    
-    
+
+    <script>
+
+        const closeBtn = document.querySelector('#close-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const main = document.querySelector('main');
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            main.classList.toggle('full');
+        });
+     </script>
 </body>
 </html>
