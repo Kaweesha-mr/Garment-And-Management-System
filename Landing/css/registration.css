@@ -56,17 +56,22 @@ box-shadow: 0 0 15px rgba(0, 0, 0, 0.41);
 }
 .input-box label {
   color: #ffffff;
-}.Register-form :where(.input-box input) {
+}
+
+.Register-form :where(.input-box input) {
+  
   position: relative;
   height: 50px;
   width: 100%;
   outline: none;
   font-size: 1rem;
-  color: #ffffff;
+  color: #171717;
   margin-top: 8px;
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 0 15px;
+
+
 }
 
 .input-box input:focus {
