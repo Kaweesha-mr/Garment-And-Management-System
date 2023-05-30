@@ -9,23 +9,30 @@ session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+
     //!check hashed password inside the database is same with the password user entered
     $password = md5($password);
 
-    //!query to check password and username are correct
+    //send query if to validate username and password
 
-    $sql = "SELECT * FROM `register_user` WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM `register_user` WHERE `username` = ' $username' and `Passwords` = '$password' ";
+
+
+
+
     $result = $conn->query($sql);
 
+    //output a query result
 
     if($result->num_rows > 0){
-      //create script alert using script tag
-        echo '<script>alert("Login Successful")</script>';
+        //create a js alert to say successfully registered
+        echo '<script>alert("Successfully Logged In")</script>';
     }
     else{
-      //!if username and password are incorrect, create a js alert
-      echo '<script>alert("Username or Password is incorrect")</script>';
+        //create a js alert to say error
+        echo '<script>alert("Invalid Username or Password")</script>';
     }
+
  }
 ?>
 
