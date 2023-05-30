@@ -3,8 +3,8 @@
 session_start();
 
 //include db_connect.php file for database connection
-include('db_connect.php');
-
+ require 'db_connect.php';
+ 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   $fullName = $_POST['fullName'];
@@ -15,23 +15,44 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $password = $_POST['password'];
   $rePassword = $_POST['rePassword'];
 
-  //send query if email,fullname,password,repassword are not empty
-
-  if(!empty($gmail) && !empty($password)&& !empty($rePassword))
-  {
-    $sql = "INSERT INTO `register_user` (`fullName`, `email`, `phone`, `gender`, `address`, `password`, `rePassword`) VALUES ('$fullName', '$email', '$phone','$gender', '$address', '$password', '$rePassword')";
-    $result = mysqli_query($conn,$sql);
-
-    //create a script tag to alert success message
-    echo '<script>alert("Registration Successfull")</script>';
+  
+  //check if password and re-password are same
+  if($password != $rePassword){
+    echo '<script>alert("Password and Re-Password are not same")</script>';
   }
   else{
-    //create a script tag to alert error message
-    echo '<script>alert("Registration Failed")</script>';
+    //check if email already exists
+    $sql = "SELECT * FROM `register_user` WHERE email='$email'";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+      echo '<script>alert("Email already exists")</script>';
+    }
   }
-      //close connection
-      mysqli_close($conn);
+
+  //hash password and store in a new variable
+  $password = md5($password);
+
+
+
+    //send query if email,fullname,password,repassword are not empty
+    $sql = "INSERT INTO `register_user` (`username`, `email`, `gender`, `HAddress_lane`, `password`) VALUES ('$fullName', '$email','$gender', '$address', '$password')";
+
+    if($conn->query($sql)) {
+
+      //create a js alert to say successfully registered
+      echo '<script>alert("Successfully Registered")</script>';
+
+      //redirect to login page
+      header("Location: login.php");
+    }
+    else{
+      //create a js alert to say error
+      echo '<script>alert("Error")</script>';
+    }
+
 }
+
 ?>
 
 
@@ -92,18 +113,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
           </div>
         </div>
 
+        
         <div class="input-box address">
           <label>Address</label>
-          <input type="text" name="address" placeholder="Enter street address" required />
-          <input type="text" name="address" placeholder="Enter street address line 2" />
+          <input type="text" name="Haddress" placeholder="Enter Home address" required />
+          <input type="text" name="Daddress" placeholder="Enter dilivary address" required />
         </div>
 
+        
         <div class="input-box password">
             <label>Enter Password</label>
             <input type="password"  name="password" placeholder="Enter Password" required>
             <label>Re-Enter Password</label>
             <input type="password" name="rePassword" placeholder="Re-Enter Password" required>
         </div>
+        
         <button>Register</button>
       
       </form>
