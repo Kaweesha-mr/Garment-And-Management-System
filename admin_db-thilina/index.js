@@ -7,7 +7,7 @@ btn.onclick = function (){
 
 // show greetings functions
 
-function clock(){
+function greeting(){
 
     var time = new Date().getHours;
     let massages;
@@ -25,6 +25,6 @@ function clock(){
 
 }
 
-clock();
+greeting();
 
 // end of greetings
