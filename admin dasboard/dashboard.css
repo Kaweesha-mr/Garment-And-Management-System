@@ -17,6 +17,7 @@
     --color-primary-variant:#111e88;
     --color-dark-variant:#677483;
     --color-background:#ffffff;
+    --form-background-color: rgba(232, 219, 255, 0.8);
 
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
@@ -32,11 +33,12 @@
 /*----------------------- DARK THEME VARIABLES -------------------------------*/
 .dark-theme-variables{
     --color-background: #181a1e;
-    --color-whigte: #202528;
+    --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
-    --color-light: rgba(0, 0, 0, 0.4);
+    --color-light: rgba(52, 52, 52, 0.4);
     --box-shadow:0 2rem 3rem var(--color-light);
+    --form-background-color: #333333;;
 }
 
 * {
@@ -68,10 +70,15 @@ body{
     display: grid;
     width: 96%;
     margin: auto;
-    background: rgb(255, 255, 255);
+    background: var(--color-background);
     gap: 1.8rem;
     grid-template-columns: 14rem auto 23rem;
 
+}
+
+.container > .title >h2{
+
+    font-size: small;
 }
 
 a{
@@ -147,7 +154,7 @@ aside{
     
 }
 aside .top{
-    background: white ;
+    background: --color-white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -169,7 +176,7 @@ aside .close{
 
 /*--------------- SIDEBAR -----------------*/
 aside .sidebar{
-    background: white;
+    background: --color-white;
     display: flex;
     flex-direction: column;
     height: 86vh;
@@ -308,6 +315,10 @@ main .insight .progress{
     height: 92px;
     border-radius: 50%;
 }
+main .insight .sales{
+
+    padding-left: 50px;
+}
 
 main .insight svg{
     width: 7rem;
@@ -399,6 +410,7 @@ main .recent-orders a {
 /*------------------------right TOP part ------------------- */
 .right{
     margin-top: 1.4rem;
+    z-index: 499;
 }
 
 .right .top{
@@ -537,9 +549,27 @@ right .recent-updates .updates:hover{
     font-weight: 600;
 }
 
+
+
+
+
+/* form heading */
+
+.form-heading{
+    font-size: 1.5rem;
+}
+
+.form-container{
+
+    background-color: var(--form-background-color);
+}
+
+
+
+
 /*--------------------------------- MEDIA QUERIES --------------------------------*/
 
-/*@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px){
     .container{
         width: 94%;
         grid-template-columns: 7rem auto 23rem;
@@ -565,6 +595,4 @@ right .recent-updates .updates:hover{
     main .recent-orders table {
         width: 83vw;
     }
-    main table tbody tr th:last-child,
-    main table tbody tr td:first-child
-}*/
+};

@@ -11,7 +11,22 @@
 
     <!---------CSS ----------->
     <link rel="stylesheet" href="dashboard.css">
-    
+
+
+    <style>
+        #clock {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding-top: 5vh;
+  display: flex;
+  justify-content:center;
+  align-items:start;
+  background-color: #ffffff;
+  height: 2vh;;
+}
+    </style>
 
 
 </head>
@@ -24,49 +39,25 @@
             <div class="top">
                 <div class="logo">
                     <img src="./images/logo.png">
-                    <h2 id="k">EGA <span class="danger"></span>TOR</h2>
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">close </span>
+                    <h2 id="k">Fashion<span class="danger"></span>Treak</h2>
                 </div>
             </div>
             <div class="sidebar" >
                 <a href="#">
                     <span class="material-icons-sharp">grid_view</span>
-                    <h3>dashboard</h3>
+                    <h3>Dashboard</h3>
                 </a>
                 <a href="#" >
                     <span class="material-icons-sharp">person_outline </span>
-                    <h3>customers</h3>
+                    <h3>Place Order</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">receipt_long</span>
-                    <h3>orders</h3>
+                    <h3>Update Details</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">insights</span>
-                    <h3>analytics</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">mail_outline </span>
-                    <h3>massages</h3>
-                    <span class="massage-count">26</span>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">inventory</span>
-                    <h3>products</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">report_gmailerrorred </span>
-                    <h3>reports</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">settings </span>
-                    <h3>settings</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">add </span>
-                    <h3>Add products</h3>
+                    <h3>Review Us</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">logout </span>
@@ -78,64 +69,43 @@
         <!---------------- END OF ASIDE---------------->
         <main>
             <h1>dashboard</h1>
-
-            <div class="date">
-                <input type="date">
-            </div>
-
             <div class="insight">
                 <div class="sales">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>total sales</h3>
+                            <h2>No Of Orders</h2>
                             <h1>$25,024</h1>
                         </div>
-                        <div class="progress">
+
+                        <!-- !progress bar removed -->
+                        <!-- <div class="progress">
                             <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="number">
                                 <p>81%</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <small class="text-muted">Last 24 Hours</small>
                 </div>
                 <!---------------------- END OF SALES---------------->
                 <div class="Expenses">
-                    <span class="material-icons-sharp">bar_chart</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Expenses</h3>
-                            <h1>$14,160</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>61%</p>
+                            <div id="clock">
+                                <h1 id="date-time"></h1>
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Last 24 Hours</small>
                 </div>
                 <!---------------------- END OF EXPENSES---------------->
                 <div class="Income">
                     <span class="material-icons-sharp">stacked_line_chart</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Income</h3>
+                            <h2>To be paid</h2>
                             <h1>$20,024</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>44%</p>
-                            </div>
                         </div>
                     </div>
                     <small class="text-muted">Last 24 Hours</small>
@@ -224,8 +194,66 @@
 
     </div>
 
-<script src="script.js">
-    
+<script src="script.js"></script>
+
+<script>
+window.addEventListener("load", () => {
+  clock();
+  function clock() {
+    const today = new Date();
+
+    // get time components
+    const hours = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+
+    //add '0' to hour, minute & second when they are less 10
+    const hour = hours < 10 ? "0" + hours : hours;
+    const minute = minutes < 10 ? "0" + minutes : minutes;
+    const second = seconds < 10 ? "0" + seconds : seconds;
+
+    //make clock a 12-hour time clock
+    const hourTime = hour > 12 ? hour - 12 : hour;
+
+    // if (hour === 0) {
+    //   hour = 12;
+    // }
+    //assigning 'am' or 'pm' to indicate time of the day
+    const ampm = hour < 12 ? "AM" : "PM";
+
+    // get date components
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const day = today.getDate();
+
+    //declaring a list of all months in  a year
+    const monthList = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+
+    //get current date and time
+    const date = monthList[month] + " " + day + ", " + year;
+    const time = hourTime + ":" + minute + ":" + second + ampm;
+
+    //combine current date and time
+    const dateTime = date + " - " + time;
+
+    //print current date and time to the DOM
+    document.getElementById("date-time").innerHTML = dateTime;
+    setTimeout(clock, 1000);
+  }
+});
 </script>
 </body>
 
