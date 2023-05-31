@@ -5,6 +5,7 @@
 /* ---------------- Root Variables ------------- */
 
 :root {
+
     --color-primary:#7380ec;
     --color-danger:#ff7782;
     --color-success:#41f1b6;
@@ -17,7 +18,7 @@
     --color-primary-variant:#111e88;
     --color-dark-variant:#677483;
     --color-background:#ffffff;
-    --form-background-color: rgba(232, 219, 255, 0.8);
+    --form-background: rgba(243, 236, 255, 0.8);
 
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
@@ -31,6 +32,7 @@
 
 }
 /*----------------------- DARK THEME VARIABLES -------------------------------*/
+
 .dark-theme-variables{
     --color-background: #181a1e;
     --color-white: #202528;
@@ -38,7 +40,8 @@
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(52, 52, 52, 0.4);
     --box-shadow:0 2rem 3rem var(--color-light);
-    --form-background-color: #333333;;
+    --form-background: #202528;
+    --form-textarea-background: #ffffff;
 }
 
 * {
@@ -64,6 +67,7 @@ body{
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
+    transition: all 300ms ease;
 }
 
 .container{
@@ -73,6 +77,19 @@ body{
     background: var(--color-background);
     gap: 1.8rem;
     grid-template-columns: 14rem auto 23rem;
+    transition: all 300ms ease;
+
+}
+
+.form-container{
+
+    background-color: var(--form-background);
+    transition: all 300ms ease;
+}
+
+select, input[type="text"], input[type="date"], textarea{
+
+    background-color: var(--color-info-light);
 
 }
 
@@ -81,8 +98,15 @@ body{
     font-size: small;
 }
 
+aside .logo > .title{
+
+    color: var(--color-dark);
+    transition: all 300ms ease;
+}
+
 a{
     color: var(--color-dark);
+    transition: all 300ms ease;
 }
 
 img{
@@ -215,6 +239,7 @@ aside .sidebar a.active{
     background: var(--color-light);
     color: var(--color-primary);
     margin-left: 0;
+    transition: all 300ms ease;
 }
 
 aside .sidebar a.active:before{
@@ -394,6 +419,7 @@ main table tbody td{
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+    transition: all 300ms ease;
 }
 
 main table tbody tr:last-child td{
@@ -432,6 +458,7 @@ main .recent-orders a {
     width: 4.2rem;
     cursor: pointer;
     border-radius: var(--border-radius-1);
+    transition: all 300ms ease;
 }
 
 .right .theme-toggler span{
@@ -549,20 +576,18 @@ right .recent-updates .updates:hover{
     font-weight: 600;
 }
 
-
-
-
-
 /* form heading */
 
 .form-heading{
     font-size: 1.5rem;
+    color:var(--color-dark);
 }
 
-.form-container{
 
-    background-color: var(--form-background-color);
-}
+
+
+
+
 
 
 
