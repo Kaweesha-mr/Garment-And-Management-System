@@ -37,7 +37,7 @@
               justify-content: space-between;
               box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
               margin-top: 2rem;
-              height: 40rem;
+              height: 35rem;
             }
           
             .form-container > div {
@@ -108,28 +108,28 @@
                 </div>
             </div>
             <div class="sidebar" >
-                <a href="#">
-                    <span class="material-icons-sharp">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="#" >
-                    <span class="material-icons-sharp">person_outline </span>
-                    <h3>Place Order</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">receipt_long</span>
-                    <h3>Update Details</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">insights</span>
-                    <h3>Review Us</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">logout </span>
-                    <h3>logout</h3>
-                </a>
+              <a href="#">
+                  <span class="material-icons-sharp">grid_view</span>
+                  <h3>Dashboard</h3>
+              </a>
+              <a href="./place_an_order.html" >
+                  <span class="material-icons-sharp">person_outline </span>
+                  <h3>Place Order</h3>
+              </a>
+              <a href="./update_details.html">
+                  <span class="material-icons-sharp">receipt_long</span>
+                  <h3>Update Details</h3>
+              </a>
+              <a href="#">
+                  <span class="material-icons-sharp">insights</span>
+                  <h3>Review Us</h3>
+              </a>
+              <a href="#">
+                  <span class="material-icons-sharp">logout </span>
+                  <h3>logout</h3>
+              </a>
 
-            </div>
+          </div>
         </aside>
         <!---------------- END OF ASIDE---------------->
         <main>
@@ -153,60 +153,42 @@
                 </div>
             </div>
             
-          <h2 class="form-heading" >Place your order here</h2>
+          <h2 class="form-heading" >Update Details</h2>
           
           <div class="form-container">
             <div class="left-align">
               <form>
                 
                 
-                <label for="order-type">Select Order Type:</label>
-                <select id="order-type" name="order-type">
-                  <option value="standard">Standard</option>
-                  <option value="express">Express</option>
-                  <option value="custom">Custom</option>
-                </select>
-          
-                <br><br>
-          
-                <label for="material-type">Select Material Type:</label>
-                <select id="material-type" name="material-type">
-                  <option value="cotton">Cotton</option>
-                  <option value="silk">Silk</option>
-                  <option value="polyester">Polyester</option>
-                  <option value="wool">Wool</option>
-                </select>
+                <label for="Full name">Full Name</label>
+                <input type="text" name="Full name">
+
+                <br>
+
+                <label for="Email">Email</label>
+                <input type="text" name="Email">
                 
-                <label for="material-type">Select Material Type:</label>
-                <select id="material-type" name="material-type">
-                  <option value="cotton">Cotton</option>
-                  <option value="silk">Silk</option>
-                  <option value="polyester">Polyester</option>
-                  <option value="wool">Wool</option>
-                </select>
+                <label for="DOB">Date Of Birth</label>
+                <input type="date" name="DOB">
 
-                <label for="material-type">Select Material Type:</label>
-                <select id="material-type" name="material-type">
-                  <option value="cotton">Cotton</option>
-                  <option value="silk">Silk</option>
-                  <option value="polyester">Polyester</option>
-                  <option value="wool">Wool</option>
-                </select>
+                <label for="Gender">Gender</label>
+                <input type="radio"> Male 
+                <input type="radio"> Female
           
                 <br><br>
           
-                <label for="color-code">Color Code:</label>
-                <input type="text" id="color-code" name="color-code">
+                <label for="color-code">Home Address</label>
+                <input type="text" name="HomeAddress">
           
                 <br><br>
 
-                <label for="color-code">Color Code:</label>
-                <input type="text" id="color-code" name="color-code">
+                <label for="color-code">delivery Address</label>
+                <input type="text" name="DeliveryAddress">
           
                 <br><br>
 
-                <label for="color-code">Color Code:</label>
-                <input type="text" id="color-code" name="color-code">
+                <label for="color-code">Phone Number</label>
+                <input type="text" name="Phone Number">
           
                 <br><br>
 
@@ -216,39 +198,21 @@
             </div>
           
             <div class="left-align">
-              <form>
 
-                          
-                <label for="embroidered">Embroidered:</label>
-                <input type="radio" id="embroidered-yes" name="embroidered" value="yes">
-                <label for="embroidered-yes">Yes</label>
-                <input type="radio" id="embroidered-no" name="embroidered" value="no">
-                <label for="embroidered-no">No</label>
-
-                <label for="collar">Collar:</label>
-                <select id="collar" name="collar">
-                  <option value="round">Round</option>
-                  <option value="v-neck">V-neck</option>
-                  <option value="polo">Polo</option>
-                  <option value="button-down">Button-down</option>
-                </select>
+                <label for="password">Enter Current Password</label>
+                <input type="text" name="password">
                 
-                <label for="order-deadline">Order Deadline:</label>
-                <input type="date" id="order-deadline" name="order-deadline">
+                <label for="new-password">new-password</label>
+                <input type="text" name="new-password">
+          
+                <br><br>
+                
+                <label for="re-new-password">Re-Enter New password</label>
+                <input type="text" name="re-new-password">
           
                 <br><br>
           
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4" cols="50"></textarea>
-          
-                <br><br>
-          
-                <label for="sample-design">Sample Design:</label>
-                <input type="file" id="sample-design" name="sample-design">
-          
-                <br><br>
-          
-                <input type="submit" value="Place Order">
+                <input style="margin-left: 15rem;" type="submit" value="Update Details">
               </form>
             </div>
           </div>
