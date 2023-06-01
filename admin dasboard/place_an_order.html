@@ -37,7 +37,7 @@
               justify-content: space-between;
               box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
               margin-top: 2rem;
-              height: 40rem;
+              height: 32rem;
             }
           
             .form-container > div {
@@ -91,12 +91,24 @@
             input[type="submit"]:hover {
               background-color: #2a972e;
             }
+
+            .view-order-details{
+
+              padding: 20px;
+            }
+
+            .view-order-details h3{
+              padding: 20px;
+            }
+
     </style>
 
 
 </head>
 
 <body>
+
+
 
     <div class="container">
 
@@ -195,18 +207,18 @@
           
                 <br><br>
           
-                <label for="color-code">Color Code:</label>
-                <input type="text" id="color-code" name="color-code">
+                <label for="color-code">Color Code 1:</label>
+                <input type="color" id="color-code" name="color-code1">
           
                 <br><br>
 
                 <label for="color-code">Color Code:</label>
-                <input type="text" id="color-code" name="color-code">
+                <input type="color" id="color-code" name="color-code2">
           
                 <br><br>
 
                 <label for="color-code">Color Code:</label>
-                <input type="text" id="color-code" name="color-code">
+                <input type="color" id="color-code" name="color-code3">
           
                 <br><br>
 
@@ -232,6 +244,9 @@
                   <option value="polo">Polo</option>
                   <option value="button-down">Button-down</option>
                 </select>
+
+                <label for="qty">Quantity</label>
+                <input type="text">
                 
                 <label for="order-deadline">Order Deadline:</label>
                 <input type="date" id="order-deadline" name="order-deadline">
@@ -240,21 +255,29 @@
           
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="4" cols="50"></textarea>
-          
-                <br><br>
-          
-                <label for="sample-design">Sample Design:</label>
-                <input type="file" id="sample-design" name="sample-design">
-          
                 <br><br>
           
                 <input type="submit" value="Place Order">
               </form>
             </div>
           </div>
+
+            
+          
+
+
+
+          <div class="view-order-details">
+
+            <h3> <a href="./display_order.html"> <span class="material-icons-sharp">arrow_back</span>View Previous orders</a></h3>
+
+          </div>
             
         </main>
         <!-------------------------------------- END OF MAIN---------------------------------------->
+
+
+
 
             <!---------END OF RIGHT TOP---------->
 
