@@ -38,6 +38,7 @@
               box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9);
               margin-top: 2rem;
               height: 40rem;
+              overflow: hidden;
             }
           
             .form-container > div {
@@ -111,10 +112,9 @@
             /* make all 4 borders round */
             .table th,
             .table td {
-              padding: 15px;
-              background-color: #fff;
+              padding: 10px;
+              background-color:#fff;
               color: #333;
-
               text-align: center;
               font-size: 14px;
             }
@@ -132,7 +132,7 @@
 
             .table thead th {
               padding: 15px;
-              background-color: #4d2d52;
+              background-color:#4d2d52;
               color: #fff;
               text-align: center;
               font-weight: 500;
@@ -222,23 +222,31 @@
                   <tr>
                     <th class="left-corner-top">Order ID</th>
                     <th>Employee_Id</th>
-                    <th>C</th>
-                    <th>Customer Contact</th>
-                    <th>Order Date</th>
-                    <th>Order Status</th>
+                    <th>Type #1</th>
+                    <th>Type #2</th>
+                    <th>Type #3</th>
+                    <th>Color #1</th>
+                    <th>Color #2</th>
+                    <th>Color #3</th>
+                    <th>Quantity</th>
+                    <th>Delivary date</th>
                     <th>Order Total</th>
                     <th class="right-corner-top">Order Details</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>Colombo</td>
-                    <td>0771234567</td>
-                    <td>2021-09-01</td>
+                    <td>2</td>
+                    <td>Jane Doe</td>
+                    <td>Kandy</td>
+                    <td>0777654321</td>
+                    <td>2021-09-02</td>
                     <td>Delivered</td>
-                    <td>Rs. 5000.00</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Rs. 10000.00</td>
                     <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
                   </tr>
                   <tr>
@@ -248,49 +256,68 @@
                     <td>0777654321</td>
                     <td>2021-09-02</td>
                     <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
                     <td>Rs. 10000.00</td>
                     <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
                   </tr>
                   <tr>
-                    <td>3</td>
-                    <td>John Doe</td>
-                    <td>Colombo</td>
-                    <td>0771234567</td>
-                    <td>2021-09-03</td>
-                    <td>Delivered</td>
-                    <td>Rs. 5000.00</td>
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                  </tr>
-                  <tr>
-                    <td>4</td>
+                    <td>2</td>
                     <td>Jane Doe</td>
                     <td>Kandy</td>
                     <td>0777654321</td>
-                    <td>2021-09-04</td>
+                    <td>2021-09-02</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
                     <td>Delivered</td>
                     <td>Rs. 10000.00</td>
                     <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
                   </tr>
                   <tr>
-                    <td>5</td>
-                    <td>John Doe</td>
-                    <td>Colombo</td>
-                    <td>0771234567</td>
-                    <td>2021-09-05</td>
+                    <td>2</td>
+                    <td>Jane Doe</td>
+                    <td>Kandy</td>
+                    <td>0777654321</td>
+                    <td>2021-09-02</td>
                     <td>Delivered</td>
-                    <td>Rs. 5000.00</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Rs. 10000.00</td>
+                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jane Doe</td>
+                    <td>Kandy</td>
+                    <td>0777654321</td>
+                    <td>2021-09-02</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Delivered</td>
+                    <td>Rs. 10000.00</td>
                     <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
                     </tr>
                     <tr>
-                    <td>6</td>
-                    <td>Jane Doe</td>
-                    <td>Kandy</td>
-                    <td>0777654321</td>
-                    <td>2021-09-06</td>
-                    <td>Delivered</td>
-                    <td>Rs. 10000.00</td>
-                    <
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
+                      <td>2</td>
+                      <td>Jane Doe</td>
+                      <td>Kandy</td>
+                      <td>0777654321</td>
+                      <td>2021-09-02</td>
+                      <td>Delivered</td>
+                      <td>Delivered</td>
+                      <td>Delivered</td>
+                      <td>Delivered</td>
+                      <td>Delivered</td>
+                      <td>Rs. 10000.00</td>
+                      <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
                     </tr>
                 
                 </tbody>
