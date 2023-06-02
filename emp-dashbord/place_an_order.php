@@ -337,7 +337,7 @@
 
           <div class="view-order-details">
 
-            <h3> <a href="./display_order.html"> <span class="material-icons-sharp">arrow_back</span>View Previous orders</a></h3>
+            <h3> <a href="./display_order.php"> <span class="material-icons-sharp">arrow_back</span>View Previous orders</a></h3>
 
           </div>
             

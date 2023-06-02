@@ -1,3 +1,19 @@
+
+<?php
+
+session_start();
+require "../Landing/db_connect.php";
+
+$sql = "SELECT Order_Id,Emp_Id,Type1,Type2,Type3,Color_1,Color_2,Color_3,Quantity,Delivery_date,Total FROM `order_tbl`;";
+
+//run sql query and store in result variable
+$result = mysqli_query($conn, $sql);
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -236,90 +252,28 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>Kandy</td>
-                    <td>0777654321</td>
-                    <td>2021-09-02</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Rs. 10000.00</td>
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>Kandy</td>
-                    <td>0777654321</td>
-                    <td>2021-09-02</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Rs. 10000.00</td>
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>Kandy</td>
-                    <td>0777654321</td>
-                    <td>2021-09-02</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Rs. 10000.00</td>
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>Kandy</td>
-                    <td>0777654321</td>
-                    <td>2021-09-02</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Rs. 10000.00</td>
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>Kandy</td>
-                    <td>0777654321</td>
-                    <td>2021-09-02</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Delivered</td>
-                    <td>Rs. 10000.00</td>
-                    <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jane Doe</td>
-                      <td>Kandy</td>
-                      <td>0777654321</td>
-                      <td>2021-09-02</td>
-                      <td>Delivered</td>
-                      <td>Delivered</td>
-                      <td>Delivered</td>
-                      <td>Delivered</td>
-                      <td>Delivered</td>
-                      <td>Rs. 10000.00</td>
+                  
+                  <?php
+                    //get data from database to table using fetch assoc
+                      while($row = mysqli_fetch_assoc($result)){
+                  ?>
+                      <td><?php echo $row['Order_Id']; ?></td>
+                      <td><?php echo $row['Emp_Id']; ?></td>
+                      <td><?php echo $row['Type1']; ?></td>
+                      <td><?php echo $row['Type2']; ?></td>
+                      <td><?php echo $row['Type3']; ?></td>
+                      <td><?php echo $row['Color_1']; ?></td>
+                      <td><?php echo $row['Color_2']; ?></td>
+                      <td><?php echo $row['Color_3']; ?></td>
+                      <td><?php echo $row['Quantity']; ?></td>
+                      <td><?php echo $row['Delivery_date']; ?></td>
+                      <td><?php echo $row['Total']; ?></td>
                       <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
-                    </tr>
-                
+                    </Tr>
+                  <?php
+                    }
+                  
+                  ?>
                 </tbody>
                 </table>
           </div>
@@ -327,16 +281,12 @@
         </div>
         <div class="view-order-details">
 
-          <h3> <a href="./place_an_order.html"> <span class="material-icons-sharp">arrow_back</span>Back to orders</a></h3>
+          <h3> <a href="./place_an_order.php"> <span class="material-icons-sharp">arrow_back</span>Back to orders</a></h3>
 
         </div>
             
         </main>
         <!-------------------------------------- END OF MAIN---------------------------------------->
-
-            <!---------END OF RIGHT TOP---------->
-
-            <!-- !if somthing needed for right side add here -->
         </div>
 
     </div>
@@ -344,4 +294,4 @@
 <script src="script.js"></script>
 </body>
 
-</html>
+</html>XX
