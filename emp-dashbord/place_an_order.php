@@ -7,9 +7,9 @@
   if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $order_type = $_POST['order-type'];
-    $material_type_1 = $_POST['$material_type_1'];
-    $material_type_2 = $_POST['$material_type_2'];
-    $material_type_3 = $_POST['$material_type_3'];
+    $material_type_1 = $_POST['material-type-1'];
+    $material_type_2 = $_POST['material-type-2'];
+    $material_type_3 = $_POST['material-type-3'];
     $color_code_1 = $_POST['color-code-1'];
     $color_code_2 = $_POST['color-code-2'];
     $color_code_3 = $_POST['color-code-3'];
@@ -19,7 +19,6 @@
     $description = $_POST['description'];
 
     //condition if order deadline is empty
-
     if(empty($order_deadline)){
 
       //die conenction
@@ -34,6 +33,8 @@
   
         //create a js alert to say successfully registered
         echo "<script>alert('Order Placed Successfully!')</script>";
+        //redirect to PLACE ORDER page
+        header("Location: place_an_order.php");
       }
       else{
         //create a js alert to say error
