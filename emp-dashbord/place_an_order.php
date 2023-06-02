@@ -10,35 +10,39 @@
     $material_type_1 = $_POST['$material_type_1'];
     $material_type_2 = $_POST['$material_type_2'];
     $material_type_3 = $_POST['$material_type_3'];
-    $color_code_1 = $_POST['color_code_1'];
-    $color_code_2 = $_POST['color_code_2'];
-    $color_code_3 = $_POST['color_code_3'];
+    $color_code_1 = $_POST['color-code-1'];
+    $color_code_2 = $_POST['color-code-2'];
+    $color_code_3 = $_POST['color-code-3'];
     $collar = $_POST['collar'];
     $quantity = $_POST['quantity'];
     $order_deadline = $_POST['order-deadline'];
     $description = $_POST['description'];
 
-    //insert data into database
+    //condition if order deadline is empty
 
-    $sql = "INSERT INTO order_details (Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, collar, Quantity, Delivery_date, Description ) VALUES ('$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3', '$collar', '$quantity', '$order_deadline', '$description')";
+    if(empty($order_deadline)){
 
-    //run sql command
-
-    if($conn->query($sql) == TRUE){
-      
-      //write a script to alert the user that the order has been placed successfully
-      echo "<script>alert('Order Placed Successfully!')</script>";
+      //die conenction
+      die();
     }
     else{
 
-      //write a script to altert user that the order has not been placed successfully
-      echo "<script>alert('Order Not Placed Successfully!')</script>";
+      $sql = "INSERT INTO order_tbl (Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, collar, Quantity, Delivery_date, Description ) VALUES ('$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3', '$collar', '$quantity', '$order_deadline', '$description')";
+
+
+      if($conn->query($sql)) {
+  
+        //create a js alert to say successfully registered
+        echo "<script>alert('Order Placed Successfully!')</script>";
+      }
+      else{
+        //create a js alert to say error
+        echo '<script>alert("Error")</script>';
+      }
+  
+      $conn->close();
+
     }
-
-    $conn->close();
-
-
-
 
   }
 
@@ -59,7 +63,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
     <!---------CSS ----------->
-    <link rel="stylesheet" href="./update_details.css">
+    <link rel="stylesheet" href="./place_order.css">
 
 
     <style>
@@ -70,7 +74,7 @@
   font-size: 1.5rem;
   padding-top: 5vh;
   display: flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:start;
   background-color: #ffffff;
   height: 2vh;;
@@ -80,13 +84,13 @@
               padding: 20px;
               border-radius: 50px;
               margin: 0 auto;
-              width: 80rem;
+              width: 70rem;
               display: flex;
               flex-wrap: wrap;
-              justify-content: space-between;
+              justify-content: flex-start;
               box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
               margin-top: 2rem;
-              height: 32rem;
+              height: 65rem;
             }
           
             .form-container > div {
@@ -112,6 +116,11 @@
               font-size: 45px;
               font-weight: bold;
               color: #333;
+            }
+            form{
+
+              width: 65rem;
+              padding-left: 0;
             }
           
             select,
@@ -152,6 +161,13 @@
 
             .view-order-details h3{
               padding: 20px;
+            }
+
+            .btn-submit{
+
+              /* get this button to center inside form tag */
+              margin-left: 30rem;
+
             }
 
     </style>
@@ -226,7 +242,8 @@
                 
                 
                   <label for="order-type">Select Order Type:</label>
-                  <select id="order-type" name="order-type">
+                  <select id="order-type" name="order-type" required>
+                  <option value=""></option>
                   <option value="standard">Standard</option>
                   <option value="express">Express</option>
                   <option value="custom">Custom</option>
@@ -234,8 +251,9 @@
           
                   <br><br>
           
-                  <label for="material-type">Select Material Type:</label>
+                  <label for="material-type" required>Select Material Type:</label>
                   <select id="material-type" name="material-type-1">
+                  <option value=""></option>
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
                   <option value="polyester">Polyester</option>
@@ -244,6 +262,7 @@
                 
                   <label for="material-type">Select Material Type:</label>
                   <select id="material-type" name="material-type-2">
+                  <option value=""></option>
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
                   <option value="polyester">Polyester</option>
@@ -252,6 +271,7 @@
 
                   <label for="material-type">Select Material Type:</label>
                   <select id="material-type" name="material-type-3">
+                  <option value=""></option>
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
                   <option value="polyester">Polyester</option>
@@ -260,18 +280,18 @@
           
                   <br><br>
           
-                  <label for="color-code">Color Code 1:</label>
-                  <input type="color" id="color-code" name="color-code-1">
+                  <label for="color-code" required>Color Code 1:</label>
+                  <input type="color" id="color-code-1" name="color-code-1">
           
                   <br><br>
 
                   <label for="color-code">Color Code:</label>
-                  <input type="color" id="color-code" name="color-code2">
+                  <input type="color" id="color-code" name="color-code-2">
           
                   <br><br>
 
                   <label for="color-code">Color Code:</label>
-                  <input type="color" id="color-code" name="color-code3">
+                  <input type="color" id="color-code" name="color-code-3">
           
                   <br><br>
 
@@ -286,24 +306,25 @@
 
                   <label for="collar">Collar:</label>
                   <select id="collar" name="collar">
+                  <option value=""></option>
                   <option value="round">Round</option>
                   <option value="v-neck">V-neck</option>
                   <option value="polo">Polo</option>
                   <option value="button-down">Button-down</option>
                   </select>
 
-                  <label for="qty">Quantity</label>
-                  <input type="text" name = "quantity">
+                  <label for="qty"  >Quantity</label>
+                  <input type="text" name = "quantity" required>
                 
                   <label for="order-deadline">Order Deadline:</label>
-                  <input type="date" id="order-deadline" name="order-deadline">
+                  <input type="date" id="order-deadline" name="order-deadline" required>
           
                   <br><br>
           
                   <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="4" cols="50"></textarea>
                 <br><br>
-              <input type="submit" value="Place Order">
+              <input type="submit" value="Place Order" class="btn-submit">
             </form>
           </div>
           </div>

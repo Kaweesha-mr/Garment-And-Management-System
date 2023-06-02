@@ -10,7 +10,7 @@
     else{
 
         //create a script alert success
-        
+        echo "<script>console.log('Connection Successful');</script>";
     }
     
 ?>
