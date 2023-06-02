@@ -72,6 +72,8 @@ body{
     transition: all 300ms ease;
 }
 
+
+
 .container{
     display: grid;
     width: 96%;
@@ -95,18 +97,7 @@ select, input[type="text"], input[type="date"], textarea{
 
 }
 
-.table thead th{
 
-    background-color:var(--table-heading) ;
-    transition: all 300ms ease;
-}
-
-.table td{
-
-    background-color:var(--color-white) ;
-    color: var(--color-dark);
-    transition: all 300ms ease;
-}
 
 .container > .title >h2{
 
@@ -359,6 +350,18 @@ main .insight .progress{
 main .insight .sales{
 
     padding-left: 50px;
+}
+
+.table thead th{
+
+    background-color:var(--table-heading) ;
+    transition: all 300ms ease;
+}
+main > .container > .table-container >.table td{
+
+    background-color:var(--color-white) ;
+    color: var(--color-dark);
+    transition: all 300ms ease;
 }
 
 

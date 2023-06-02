@@ -6,6 +6,11 @@
     //check connection
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
-    } 
+    }
+    else{
+
+        //create a script alert success
+        
+    }
     
 ?>

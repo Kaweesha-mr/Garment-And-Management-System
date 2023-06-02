@@ -69,7 +69,7 @@
   font-size: 30px;
   color: #4070f4;
 }
-.slide .details {
+ .slide .details {
   display: flex;
   flex-direction: column;
   align-items: center;

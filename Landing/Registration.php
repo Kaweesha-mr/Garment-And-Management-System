@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $rePassword = $_POST['rePassword'];
 
     //hash password and store in a new variable
-    $password = md5($password);
+    $password = md5($password); 
 
     //Hash rePassword and store in a new variable
     $rePassword = md5($rePassword);

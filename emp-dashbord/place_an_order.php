@@ -1,6 +1,48 @@
 
 <?php
   
+  require "../Landing/db_connect.php";
+
+  //get values from form
+  if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+    $order_type = $_POST['order-type'];
+    $material_type_1 = $_POST['$material_type_1'];
+    $material_type_2 = $_POST['$material_type_2'];
+    $material_type_3 = $_POST['$material_type_3'];
+    $color_code_1 = $_POST['color_code_1'];
+    $color_code_2 = $_POST['color_code_2'];
+    $color_code_3 = $_POST['color_code_3'];
+    $collar = $_POST['collar'];
+    $quantity = $_POST['quantity'];
+    $order_deadline = $_POST['order-deadline'];
+    $description = $_POST['description'];
+
+    //insert data into database
+
+    $sql = "INSERT INTO order_details (Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, collar, Quantity, Delivery_date, Description ) VALUES ('$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3', '$collar', '$quantity', '$order_deadline', '$description')";
+
+    //run sql command
+
+    if($conn->query($sql) == TRUE){
+      
+      //write a script to alert the user that the order has been placed successfully
+      echo "<script>alert('Order Placed Successfully!')</script>";
+    }
+    else{
+
+      //write a script to altert user that the order has not been placed successfully
+      echo "<script>alert('Order Not Placed Successfully!')</script>";
+    }
+
+    $conn->close();
+
+
+
+
+  }
+
+
 
 
 ?>
@@ -49,6 +91,10 @@
           
             .form-container > div {
               width: calc(50% - 10px);
+            }
+
+            .form-container > form{
+              
             }
           
             .left-align {
@@ -176,97 +222,90 @@
           
           <div class="form-container">
             <div class="left-align">
-              <form>
+              <form method="POST">
                 
                 
-                <label for="order-type">Select Order Type:</label>
-                <select id="order-type" name="order-type">
+                  <label for="order-type">Select Order Type:</label>
+                  <select id="order-type" name="order-type">
                   <option value="standard">Standard</option>
                   <option value="express">Express</option>
                   <option value="custom">Custom</option>
-                </select>
+                  </select>
           
-                <br><br>
+                  <br><br>
           
-                <label for="material-type">Select Material Type:</label>
-                <select id="material-type" name="material-type">
+                  <label for="material-type">Select Material Type:</label>
+                  <select id="material-type" name="material-type-1">
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
                   <option value="polyester">Polyester</option>
                   <option value="wool">Wool</option>
-                </select>
+                  </select>
                 
-                <label for="material-type">Select Material Type:</label>
-                <select id="material-type" name="material-type">
+                  <label for="material-type">Select Material Type:</label>
+                  <select id="material-type" name="material-type-2">
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
                   <option value="polyester">Polyester</option>
                   <option value="wool">Wool</option>
-                </select>
+                  </select>
 
-                <label for="material-type">Select Material Type:</label>
-                <select id="material-type" name="material-type">
+                  <label for="material-type">Select Material Type:</label>
+                  <select id="material-type" name="material-type-3">
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
                   <option value="polyester">Polyester</option>
                   <option value="wool">Wool</option>
-                </select>
+                  </select>
           
-                <br><br>
+                  <br><br>
           
-                <label for="color-code">Color Code 1:</label>
-                <input type="color" id="color-code" name="color-code1">
+                  <label for="color-code">Color Code 1:</label>
+                  <input type="color" id="color-code" name="color-code-1">
           
-                <br><br>
+                  <br><br>
 
-                <label for="color-code">Color Code:</label>
-                <input type="color" id="color-code" name="color-code2">
+                  <label for="color-code">Color Code:</label>
+                  <input type="color" id="color-code" name="color-code2">
           
-                <br><br>
+                  <br><br>
 
-                <label for="color-code">Color Code:</label>
-                <input type="color" id="color-code" name="color-code3">
+                  <label for="color-code">Color Code:</label>
+                  <input type="color" id="color-code" name="color-code3">
           
-                <br><br>
+                  <br><br>
 
           
-                <br><br>
-              </form>
-            </div>
-          
-            <div class="left-align">
-              <form>
+                  <br><br>
+                     
+                  <label for="embroidered">Embroidered:</label>
+                  <input type="radio" id="embroidered-yes" name="embroidered" value="yes">
+                  <label for="embroidered-yes">Yes</label>
+                  <input type="radio" id="embroidered-no" name="embroidered" value="no">
+                  <label for="embroidered-no">No</label>
 
-                          
-                <label for="embroidered">Embroidered:</label>
-                <input type="radio" id="embroidered-yes" name="embroidered" value="yes">
-                <label for="embroidered-yes">Yes</label>
-                <input type="radio" id="embroidered-no" name="embroidered" value="no">
-                <label for="embroidered-no">No</label>
-
-                <label for="collar">Collar:</label>
-                <select id="collar" name="collar">
+                  <label for="collar">Collar:</label>
+                  <select id="collar" name="collar">
                   <option value="round">Round</option>
                   <option value="v-neck">V-neck</option>
                   <option value="polo">Polo</option>
                   <option value="button-down">Button-down</option>
-                </select>
+                  </select>
 
-                <label for="qty">Quantity</label>
-                <input type="text">
+                  <label for="qty">Quantity</label>
+                  <input type="text" name = "quantity">
                 
-                <label for="order-deadline">Order Deadline:</label>
-                <input type="date" id="order-deadline" name="order-deadline">
+                  <label for="order-deadline">Order Deadline:</label>
+                  <input type="date" id="order-deadline" name="order-deadline">
           
-                <br><br>
+                  <br><br>
           
-                <label for="description">Description:</label>
+                  <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="4" cols="50"></textarea>
                 <br><br>
-          
-                <input type="submit" value="Place Order">
-              </form>
-            </div>
+              <input type="submit" value="Place Order">
+            </form>
+          </div>
           </div>
 
             
