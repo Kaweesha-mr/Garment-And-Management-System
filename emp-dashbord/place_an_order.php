@@ -47,9 +47,6 @@
 
   }
 
-
-
-
 ?>
 
 <!DOCTYPE html>
