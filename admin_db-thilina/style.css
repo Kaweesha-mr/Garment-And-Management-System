@@ -251,7 +251,7 @@ body{
 
 .greetings{
     margin: 20px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 /* Cards */
@@ -271,7 +271,7 @@ body{
     border-radius: 10px;
     background-color: aliceblue;
     box-shadow: 5px 5px 10px rgb(172, 174, 180);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .card:hover{
@@ -419,14 +419,14 @@ body{
     color: mediumpurple;
 
     background-color: aliceblue;
-    height: 6rem;
+    height: 3rem;
     font-size: 1.6rem;
     border-left: 1px solid;
 }
 
 .tablewrap{         /* inside of table-outer & outside of table */
 
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: scroll;
     margin: 20px;
 }
@@ -445,4 +445,110 @@ body{
 
 .table-outer:hover{
     box-shadow: 15px 15px 14px rgb(172, 174, 180);
+}
+
+/*=======================Add a new EMPLOYEE ======================= */
+
+.form-first{
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    width: 60%;
+    display: none;
+
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin: 20px;
+    
+    box-shadow: 5px 5px 10px rgb(172, 174, 180);
+    transition: all 0.5s ease;
+}
+
+.form-first.active{
+    display: block;
+}
+
+.title{
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.field{
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.field .input-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% / 3 - 15px);
+    margin-bottom: 18px;
+}
+
+ input{
+    outline: none;
+    height: 2rem;
+    margin-top: 5px;
+    border: 1px solid rgb(117, 119, 125);
+    border-radius: 5px;
+    color: darkgrey;
+    padding: 0 2px;
+
+}
+
+select{
+    outline: none;
+    height: 2rem;
+    margin-top: 5px;
+    border: 1px solid rgb(117, 119, 125);
+    border-radius: 5px;
+    color: rgb(7, 7, 7);
+    padding: 0 2px;
+}
+
+.field .input-field-address{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% / 2 - 15px);
+    margin-bottom: 18px;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin: 0px 15px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgb(172, 174, 180);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit{
+    color:  rgb(90, 95, 114);
+    border: 2px solid  rgb(90, 95, 114);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.cancel{
+    border: 2px solid red;
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+}
+
+button:hover{
+    box-shadow: 5px 5px 5px rgb(172, 174, 180);
+    transition: all 0.5s ease;
 }
