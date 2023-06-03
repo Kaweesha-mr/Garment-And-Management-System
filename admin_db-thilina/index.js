@@ -20,8 +20,11 @@ function greeting(){
     else if (time < 18){
         massages = "Good afternoon";
     }
-    else{
+    else if (time < 24){
         massages = "Good evenning";
+    }
+    else{
+        massages = "It's time to sleep!!!";
     }
     document.getElementById("massage").innerHTML = "Hi! " + massages;
 
