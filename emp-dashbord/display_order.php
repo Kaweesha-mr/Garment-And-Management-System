@@ -56,11 +56,6 @@ $result = mysqli_query($conn, $sql);
               height: 40rem;
               overflow: hidden;
             }
-          
-            .form-container > div {
-              width: calc(50% - 10px);
-            }
-          
             .left-align {
               text-align: left;
             }
@@ -116,35 +111,33 @@ $result = mysqli_query($conn, $sql);
               overflow-x: auto;
             }
 
-            .table {
-              width: 100%;
-              border-collapse: collapse;
-              border-spacing: 0;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-              margin-top: 2rem;
-
-            }
-
-            /* make all 4 borders round */
-            .table th,
-            .table td {
-              padding: 10px;
-              background-color:#fff;
-              color: #333;
-              text-align: center;
-              font-size: 14px;
-            }
-
             table{
+              background: var(--color-white);
+              width: 100%;
+              border-radius: var(--card-border-radius);
+              padding: var(--card-padding);
+              text-align: center;
+              box-shadow: var(--box-shadow);
+              border-right: 2px solid #500072;
+              border-bottom:2px solid #500072; 
+              border-radius: 30px;
+              transition: all 300ms ease;
+}
 
-                border-radius: 50px;
+            table:hover{
+                box-shadow: none;
+              }
+            table tbody td{
+              height: 2.8rem;
+              border-bottom: 1px solid var(--color-light);
+              color: var(--color-dark-variant);
+              transition: all 300ms ease;
             }
 
-            .form-container > div {
-
-                width: 200rem;
-
+            table tbody tr:last-child td{
+              border: none;
             }
+
 
             .table thead th {
               padding: 15px;
@@ -250,6 +243,7 @@ $result = mysqli_query($conn, $sql);
                     <th class="right-corner-top">Order Details</th>
                   </tr>
                 </thead>
+                
                 <tbody>
                   <tr>
                   

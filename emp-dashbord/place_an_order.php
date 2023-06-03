@@ -31,15 +31,14 @@
 
       if($conn->query($sql)) {
   
-        //create a js alert to say successfully registered
         echo "<script>alert('Order Placed Successfully!')</script>";
-        //redirect to PLACE ORDER page
-        header("Location: place_an_order.php");
       }
       else{
         //create a js alert to say error
         echo '<script>alert("Error")</script>';
       }
+
+      header("Location: place_an_order.php");
   
       $conn->close();
 
