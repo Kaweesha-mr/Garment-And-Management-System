@@ -251,7 +251,7 @@ body{
 
 .greetings{
     margin: 20px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 /* Cards */
@@ -459,7 +459,7 @@ body{
 .form-first{
     position: absolute;
     top: 0%;
-    left: 15%;
+    left: 18%;
     width: 60%;
     display: none;
 
@@ -558,4 +558,16 @@ button{
 button:hover{
     box-shadow: 5px 5px 5px rgb(172, 174, 180);
     transition: all 0.5s ease;
+}
+
+#addEmp{
+    margin-top: 30px;
+    color:  rgb(90, 95, 114);
+    border: 2px solid  rgb(90, 95, 114);
+    font-size: 1rem;
+    text-align: center;
+}
+
+#addEmp span{
+    margin-right: 5px;
 }
