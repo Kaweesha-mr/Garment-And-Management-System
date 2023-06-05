@@ -63,7 +63,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
     <!---------CSS ----------->
-    <link rel="stylesheet" href="./place_order.css">
+    <link rel="stylesheet" href="place_order.css">
 
 
     <style>
@@ -109,14 +109,8 @@
               text-align: right;
             }
           
-            h2 {
-              text-align: center;
-              margin-top: 0;
-              font-family: Georgia, Arial, Helvetica;
-              font-size: 45px;
-              font-weight: bold;
-              color: #333;
-            }
+
+            
             form{
 
               width: 60rem;
@@ -169,6 +163,14 @@
               margin-left: 30rem;
 
             }
+            h2 {
+              text-align: center;
+              margin-top: 0;
+              font-family: Georgia, Arial, Helvetica;
+              font-size: 1.4rem;
+              font-weight: bold;
+              color: #333;
+            }
 
     </style>
 
@@ -182,8 +184,14 @@
     <div class="container">
 
         <aside>
+        <div class="top">
+                <div class="logo">
+                    <img src="./images/logo.png">
+                    <h2>Fashion<span class="danger"></span>Treak</h2>
+                </div>
+            </div>
             <div class="sidebar" >
-              <a href="dashboard.html">
+              <a href="dashboard.php">
                   <span class="material-icons-sharp">grid_view</span>
                   <h3>Dashboard</h3>
               </a>
