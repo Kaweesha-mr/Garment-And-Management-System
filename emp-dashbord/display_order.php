@@ -190,7 +190,7 @@ $result = mysqli_query($conn, $sql);
                   <span class="material-icons-sharp">insights</span>
                   <h3>Review Us</h3>
               </a>
-              <a href="#">
+              <a href="../Landing/login.php">
                   <span class="material-icons-sharp">logout </span>
                   <h3>logout</h3>
               </a>
@@ -252,6 +252,10 @@ $result = mysqli_query($conn, $sql);
                   <tr>
                   
                   <?php
+                    $sql = "SELECT Order_Id,Emp_Id,Type1,Type2,Type3,Color_1,Color_2,Color_3,Quantity,Delivery_date,Total FROM `order_tbl` where User_Id = $_SESSION[userid];;";
+
+                  //run sql query and store in result variable
+                    $result = mysqli_query($conn, $sql);
                     //get data from database to table using fetch assoc
                       while($row = mysqli_fetch_assoc($result)){
                   ?>

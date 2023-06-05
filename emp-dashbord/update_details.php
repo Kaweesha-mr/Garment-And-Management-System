@@ -129,7 +129,7 @@ session_start();
                   <span class="material-icons-sharp">insights</span>
                   <h3>Review Us</h3>
               </a>
-              <a href="#">
+              <a href="../Landing/login.php">
                   <span class="material-icons-sharp">logout </span>
                   <h3>logout</h3>
               </a>

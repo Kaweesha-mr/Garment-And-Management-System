@@ -51,7 +51,7 @@ session_start();
                 </div>
             </div>
             <div class="sidebar" >
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -67,7 +67,7 @@ session_start();
                     <span class="material-icons-sharp">insights</span>
                     <h3>Review Us</h3>
                 </a>
-                <a href="#">
+                <a href="../Landing/login.php">
                     <span class="material-icons-sharp">logout </span>
                     <h3>logout</h3>
                 </a>
@@ -83,27 +83,18 @@ session_start();
                     <div class="middle">
                         <div class="left">
                             <h2>No Of Orders</h2>
-                            <h1>
-
-                            //php code to get the number of orders
+                            
                             <?php
-                            $sql = "SELECT * FROM order_tbl where User_Id = $_session[User_Id]";
+                            
+                            $sql = "SELECT * FROM order_tbl where User_Id = $_SESSION[userid];";
 
                             $result = mysqli_query($conn, $sql);
 
-                            //get the count of results
                             $resultCheck = mysqli_num_rows($result);
 
-                            //display the count
-                            echo $resultCheck;
-                            
-
+                            echo "<h1>$resultCheck</h1>";
 
                             ?>
-
-
-
-                            </h1>
                         </div>
 
                         <!-- !progress bar removed -->
@@ -146,49 +137,30 @@ session_start();
                 <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Product Number</th>
-                            <th>Payment</th>
-                            <th>status</th>
-                            <th></th>
+                        <th>Order_Id</th>
+                        <th>Employee_Id</th>
+                        <th>Quantity</th>
+                        <th>Delivary date</th>
+                        <th>Order Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr>
+                    <tr>
+                  
+                  <?php
+                    //get data from database to table using fetch assoc
+                      while($row = mysqli_fetch_assoc($result)){
+                  ?>
+                    <td><?php echo $row['Order_Id']; ?></td>
+                      <td><?php echo $row['Emp_Id']; ?></td>
+                      <td><?php echo $row['Quantity']; ?></td>
+                      <td><?php echo $row['Delivery_date']; ?></td>
+                      <td><?php echo $row['Total']; ?></td>
+                    </Tr>
+                  <?php
+                    }
+                  
+                  ?>
                     </tbody>
                 </table>
                 <a href="#">Show All</a>

@@ -1,5 +1,7 @@
 <?php
-
+//destroy previous session
+unset($_SESSION['username']);
+unset($_SESSION['userid']);
 session_start();
 //include db_connect.php file for database connection
  require 'db_connect.php';
@@ -44,8 +46,8 @@ session_start();
         //store the resluts in session names userid
         $_SESSION['userid'] = $result[0];
 
-        //redirect to dashboard
-        header("location: emp-dashbord/dashboard.php");
+        //redirect to dashboard in emp-dashbord file
+        header("location: ../emp-dashbord/dashboard.php");
 
 
 
