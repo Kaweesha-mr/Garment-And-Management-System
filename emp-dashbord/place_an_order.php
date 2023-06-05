@@ -1,5 +1,8 @@
 
 <?php
+
+  //start session
+  session_start();
   
   require "../Landing/db_connect.php";
 
@@ -26,7 +29,7 @@
     }
     else{
 
-      $sql = "INSERT INTO order_tbl (Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, collar, Quantity, Delivery_date, Description ) VALUES ('$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3', '$collar', '$quantity', '$order_deadline', '$description')";
+      $sql = "INSERT INTO order_tbl (User_Id,Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, collar, Quantity, Delivery_date, Description ) VALUES ('$_SESSION[userid]','$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3', '$collar', '$quantity', '$order_deadline', '$description')";
 
 
       if($conn->query($sql)) {
@@ -81,7 +84,7 @@
               padding: 20px;
               border-radius: 50px;
               margin: 0 auto;
-              width: 70rem;
+              width: 65rem;
               display: flex;
               flex-wrap: wrap;
               justify-content: flex-start;
@@ -116,7 +119,7 @@
             }
             form{
 
-              width: 65rem;
+              width: 60rem;
               padding-left: 0;
             }
           
@@ -179,22 +182,16 @@
     <div class="container">
 
         <aside>
-            <div class="top">
-                <div class="logo">
-                    <img src="./images/logo.png">
-                    <h2 class="title">Fashion<span class="danger"></span>Treak</h2>
-                </div>
-            </div>
             <div class="sidebar" >
-              <a href="#">
+              <a href="dashboard.html">
                   <span class="material-icons-sharp">grid_view</span>
                   <h3>Dashboard</h3>
               </a>
-              <a href="./place_an_order.html" >
+              <a href="./place_an_order.php" >
                   <span class="material-icons-sharp">person_outline </span>
                   <h3>Place Order</h3>
               </a>
-              <a href="./update_details.html">
+              <a href="./update_details.php">
                   <span class="material-icons-sharp">receipt_long</span>
                   <h3>Update Details</h3>
               </a>
@@ -211,25 +208,6 @@
         </aside>
         <!---------------- END OF ASIDE---------------->
         <main>
-          <div class="right">
-            <div class="top">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">menu</span>
-                </button>
-                <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
-                </div>
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="./images/profile-1.jpg">
-                    </div>
-                </div>
-            </div>
             
           <h2 class="form-heading" >Place your order here</h2>
           
@@ -340,10 +318,33 @@
         </main>
         <!-------------------------------------- END OF MAIN---------------------------------------->
 
-
-
-
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                <div class="info">
+                        <p>Hey, <b>                    
+                        <?php
+                        echo $_SESSION['username'];
+                        ?>
+                        </b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.jpg">
+                    </div>
+                </div>
+            </div>
             <!---------END OF RIGHT TOP---------->
+
+            <!-- !if somthing needed for right side add here -->
+        </div>
 
             <!-- !if somthing needed for right side add here -->
         </div>

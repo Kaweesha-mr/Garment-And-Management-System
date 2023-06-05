@@ -1,3 +1,10 @@
+<?php
+require "../Landing/db_connect.php";
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +42,7 @@
 
     <div class="container">
 
+
         <aside>
             <div class="top">
                 <div class="logo">
@@ -43,15 +51,15 @@
                 </div>
             </div>
             <div class="sidebar" >
-                <a href="#">
+                <a href="dashboard.html">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="./place_an_order.html" >
+                <a href="./place_an_order.php" >
                     <span class="material-icons-sharp">person_outline </span>
                     <h3>Place Order</h3>
                 </a>
-                <a href="./update_details.html">
+                <a href="./update_details.php">
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Update Details</h3>
                 </a>
@@ -75,7 +83,27 @@
                     <div class="middle">
                         <div class="left">
                             <h2>No Of Orders</h2>
-                            <h1>$25,024</h1>
+                            <h1>
+
+                            //php code to get the number of orders
+                            <?php
+                            $sql = "SELECT * FROM order_tbl where User_Id = $_session[User_Id]";
+
+                            $result = mysqli_query($conn, $sql);
+
+                            //get the count of results
+                            $resultCheck = mysqli_num_rows($result);
+
+                            //display the count
+                            echo $resultCheck;
+                            
+
+
+                            ?>
+
+
+
+                            </h1>
                         </div>
 
                         <!-- !progress bar removed -->
@@ -179,7 +207,11 @@
                 </div>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
+                        <p>Hey, <b>                    
+                        <?php
+                        echo $_SESSION['username'];
+                        ?>
+                        </b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">

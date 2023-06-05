@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,15 +113,15 @@
                 </div>
             </div>
             <div class="sidebar" >
-              <a href="#">
+            <a href="dashboard.php">
                   <span class="material-icons-sharp">grid_view</span>
                   <h3>Dashboard</h3>
               </a>
-              <a href="./place_an_order.html" >
+              <a href="./place_an_order.php" >
                   <span class="material-icons-sharp">person_outline </span>
                   <h3>Place Order</h3>
               </a>
-              <a href="./update_details.html">
+              <a href="./update_details.php">
                   <span class="material-icons-sharp">receipt_long</span>
                   <h3>Update Details</h3>
               </a>
@@ -143,8 +148,12 @@
                     <span class="material-icons-sharp">dark_mode</span>
                 </div>
                 <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
+                <div class="info">
+                        <p>Hey, <b>                    
+                        <?php
+                        echo $_SESSION['username'];
+                        ?>
+                        </b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">

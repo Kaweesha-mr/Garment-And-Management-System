@@ -27,11 +27,36 @@ session_start();
     if($result->num_rows > 0){
         //create a js alert to say successfully registered
         echo '<script>alert("Successfully Logged In")</script>';
+
+        //session to login user
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+
+        //get user id from user id
+        $sql = "SELECT User_id FROM `register_user` WHERE `username` = ' $username'";;
+
+        //run the query and print output using script
+        $result = mysqli_query($conn, $sql);
+
+        //get the value os result array and store it in a variable
+        $result = mysqli_fetch_array($result);
+
+        //store the resluts in session names userid
+        $_SESSION['userid'] = $result[0];
+
+        //redirect to dashboard
+        header("location: emp-dashbord/dashboard.php");
+
+
+
     }
     else{
         //create a js alert to say error
         echo '<script>alert("Invalid Username or Password")</script>';
-    }
+    }   
+
+
+    
 
  }
 ?>
@@ -40,6 +65,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
