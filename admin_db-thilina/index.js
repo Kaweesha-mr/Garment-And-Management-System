@@ -23,7 +23,7 @@ function greeting(){
         massages = "Good afternoon";
     }
     else if (time < 24){
-        massages = "Good evenning";
+        massages = "Good evenning ";
     }
     else{
         massages = "It's time to sleep!!!";
