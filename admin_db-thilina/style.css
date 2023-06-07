@@ -463,7 +463,8 @@ body{
     width: 60%;
     display: none;
 
-    background-color: aliceblue;
+    background-color: rgb(203, 217, 232);
+    border: 1px solid;
     border-radius: 10px;
     padding: 5px 15px;
     margin: 20px;
@@ -474,6 +475,11 @@ body{
 
 .form-first.active{
     display: block;
+}
+
+h2{
+    text-align: center;
+    text-decoration: underline;
 }
 
 .title{
@@ -504,7 +510,7 @@ body{
     margin-top: 5px;
     border: 1px solid rgb(117, 119, 125);
     border-radius: 5px;
-    color: darkgrey;
+    color: rgb(0, 0, 0);
     padding: 0 2px;
 
 }

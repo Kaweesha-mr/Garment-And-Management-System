@@ -11,8 +11,10 @@ btn.onclick = function (){
 
 function greeting(){
 
-    var time = new Date().getHours;
+    var settime = new Date();
+    time = settime.getHours();
     let massages;
+
 
     if (time < 12){
         massages = "Good Mornning";
