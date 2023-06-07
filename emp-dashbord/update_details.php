@@ -6,7 +6,39 @@
   
   require "../Landing/db_connect.php";
 
-  
+
+  //check if user is logged in
+  if(!isset($_SESSION['userid'])){
+    header("Location: ../Landing/login.php");
+    exit();
+  }
+
+  //update values of database when button is clicked
+
+  if(isset($_POST['submit'])){
+
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $DOB = $_POST['DOB'];
+    $phone = $_POST['phone'];
+    //home address
+    $Haddress = $_POST['home-address'];
+    $Daddress = $_POST['delivary-address'];
+
+
+    //sql query to update values 
+    $sql = "UPDATE register_user SET username = '$username', email = '$email', DOB = '$DOB', Phone = '$phone', HAddress_lane = '$Haddress', D_address_lane = '$Daddress' WHERE User_id = '$_SESSION[userid]'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if($result){
+      echo "<script>alert('Details Updated Successfully')</script>";
+    }
+    else{
+      echo "<script>alert('Details Not Updated')</script>";
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -219,9 +251,9 @@
                     echo $row['HAddress_lane'];
                   ?>"></input>
                   
-                  <label for="Home Address" >Delivery Address</label>
+                  <label for="delivary Address" >Delivery Address</label>
                   <!-- for home address -->
-                  <input type="text" name="home-address" id="Delivery Address" cols="30" rows="5" value=
+                  <input type="text" name="delivary-address" id="Delivery Address" cols="30" rows="5" value=
                   <?php
                     echo $row['D_address_lane'];
                   ?>
