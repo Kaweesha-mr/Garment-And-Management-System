@@ -96,16 +96,6 @@ session_start();
 
                             ?>
                         </div>
-
-                        <!-- !progress bar removed -->
-                        <!-- <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <!---------------------- END OF SALES---------------->
@@ -124,7 +114,20 @@ session_start();
                     <div class="middle">
                         <div class="left">
                             <h2>To be paid</h2>
-                            <h1>$20,024</h1>
+                            
+                            <?php
+                                // //get sum of total value from order_tbl in database for session[userid]
+                                $sqll = "SELECT SUM(Total) AS value_sum FROM order_tbl where User_Id = $_SESSION[userid];";
+
+                                $resultt = mysqli_query($conn, $sqll);
+
+                                $roww = mysqli_fetch_assoc($resultt);
+
+                                $summ = $roww['value_sum'];
+
+                                echo "<h1>RS.$summ</h1>";
+                            ?>
+                            
                         </div>
                     </div>
                     <small class="text-muted">Last 24 Hours</small>
@@ -151,7 +154,8 @@ session_start();
                     //get data from database to table using fetch assoc
                       while($row = mysqli_fetch_assoc($result)){
                   ?>
-                    <td><?php echo $row['Order_Id']; ?></td>
+                
+                      <td><?php echo $row['Order_Id']; ?></td>
                       <td><?php echo $row['Emp_Id']; ?></td>
                       <td><?php echo $row['Quantity']; ?></td>
                       <td><?php echo $row['Delivery_date']; ?></td>
@@ -163,7 +167,7 @@ session_start();
                   ?>
                     </tbody>
                 </table>
-                <a href="#">Show All</a>
+                <a href="./display_order.php">Show All</a>
             </div>
         </main>
         <!-------------------------------------- END OF MAIN---------------------------------------->

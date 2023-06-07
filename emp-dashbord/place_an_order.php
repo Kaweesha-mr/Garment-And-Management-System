@@ -16,10 +16,151 @@
     $color_code_1 = $_POST['color-code-1'];
     $color_code_2 = $_POST['color-code-2'];
     $color_code_3 = $_POST['color-code-3'];
+    $embroid = $_POST['embroidered'];
     $collar = $_POST['collar'];
     $quantity = $_POST['quantity'];
     $order_deadline = $_POST['order-deadline'];
     $description = $_POST['description'];
+
+    //condition to check order type standard or express
+    if($order_type == "standard"){
+
+      $order_deadline = date('Y-m-d', strtotime($order_deadline. ' + 7 days'));
+
+      $total = 10000;
+
+      //add price for material type 1 cotton,silk,polyster,wool
+
+      if($material_type_1 == "cotton"){
+
+        $total = $total + 1000;
+      }
+      elseif($material_type_1 == "silk"){
+
+        $total = $total + 2000;
+      }
+      elseif($material_type_1 == "polyster"){
+
+        $total = $total + 1500;
+      }
+      elseif($material_type_1 == "wool"){
+
+        $total = $total + 3000;
+      }
+
+      //add price for material type 2 cotton,silk,polyster,wool
+      
+      if($material_type_2 == "cotton"){
+
+        $total = $total + 1000;
+      }
+      elseif($material_type_2 == "silk"){
+
+        $total = $total + 2000;
+      }
+      elseif($material_type_2 == "polyster"){
+
+        $total = $total + 1500;
+      }
+      elseif($material_type_2 == "wool"){
+
+        $total = $total + 3000;
+      }
+
+      //add price for material type 3 cotton,silk,polyster,wool
+
+      if($material_type_3 == "cotton"){
+
+        $total = $total + 1000;
+      }
+      elseif($material_type_3 == "silk"){
+
+        $total = $total + 2000;
+      }
+      elseif($material_type_3 == "polyster"){
+
+        $total = $total + 1500;
+      }
+      elseif($material_type_3 == "wool"){
+
+        $total = $total + 3000;
+      }
+
+
+    }
+    elseif($order_type == "express"){
+
+      $order_deadline = date('Y-m-d', strtotime($order_deadline. ' + 3 days'));
+      $total = 20000;
+
+      //add price for material type 1 cotton,silk,polyster,wool
+
+      if($material_type_1 == "cotton"){
+
+        $total = $total + 1000;
+      }
+      elseif($material_type_1 == "silk"){
+
+        $total = $total + 2000;
+      }
+      elseif($material_type_1 == "polyster"){
+
+        $total = $total + 1500;
+      }
+      elseif($material_type_1 == "wool"){
+
+        $total = $total + 3000;
+      }
+
+      //add price for material type 2 cotton,silk,polyster,wool
+      
+      if($material_type_2 == "cotton"){
+
+        $total = $total + 1000;
+      }
+      elseif($material_type_2 == "silk"){
+
+        $total = $total + 2000;
+      }
+      elseif($material_type_2 == "polyster"){
+
+        $total = $total + 1500;
+      }
+      elseif($material_type_2 == "wool"){
+
+        $total = $total + 3000;
+      }
+
+      //add price for material type 3 cotton,silk,polyster,wool
+
+      if($material_type_3 == "cotton"){
+
+        $total = $total + 1000;
+      }
+      elseif($material_type_3 == "silk"){
+
+        $total = $total + 2000;
+      }
+      elseif($material_type_3 == "polyster"){
+
+        $total = $total + 1500;
+      }
+      elseif($material_type_3 == "wool"){
+
+        $total = $total + 3000;
+      }
+    }
+
+    //add amount for emobroid
+    if($embroid == "yes"){
+
+      $total = $total + 5000;
+    }
+
+
+
+
+
 
     //condition if order deadline is empty
     if(empty($order_deadline)){
@@ -29,25 +170,27 @@
     }
     else{
 
-      $sql = "INSERT INTO order_tbl (User_Id,Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, collar, Quantity, Delivery_date, Description ) VALUES ('$_SESSION[userid]','$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3', '$collar', '$quantity', '$order_deadline', '$description')";
+      //sql query to insert data into order table
+      $sql = "INSERT INTO order_tbl (User_Id,Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, Embroided, collar, Quantity, Delivery_date, Description, Total) VALUES ('$_SESSION[userid]','$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3',' $embroid', '$collar', '$quantity', '$order_deadline', '$description','$total')";
 
+      //run sql query and script alert after successful insert
+      if(mysqli_query($conn,$sql)){
 
-      if($conn->query($sql)) {
-  
-        echo "<script>alert('Order Placed Successfully!')</script>";
+        echo "<script>alert('Order Placed Successfully')</script>";
+
+        //redirect to display_order.php
+        echo "<script>window.location.href='./display_order.php';</script>";
+
       }
       else{
-        //create a js alert to say error
-        echo '<script>alert("Error")</script>';
-      }
 
-      header("Location: place_an_order.php");
-  
-      $conn->close();
+        echo "<script>alert('Order Placed Failed')</script>";
 
     }
 
   }
+
+}
 
 ?>
 
@@ -84,7 +227,7 @@
               padding: 20px;
               border-radius: 50px;
               margin: 0 auto;
-              width: 65rem;
+              width: fit-content;
               display: flex;
               flex-wrap: wrap;
               justify-content: flex-start;
@@ -268,12 +411,12 @@
           
                   <br><br>
 
-                  <label for="color-code">Color Code:</label>
+                  <label for="color-code">Color Code 2:</label>
                   <input type="color" id="color-code" name="color-code-2">
           
                   <br><br>
 
-                  <label for="color-code">Color Code:</label>
+                  <label for="color-code">Color Code 3:</label>
                   <input type="color" id="color-code" name="color-code-3">
           
                   <br><br>

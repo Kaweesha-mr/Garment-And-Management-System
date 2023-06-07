@@ -365,6 +365,7 @@ main .insight .sales{
     display: flex;
     justify-content: end;
     gap: 2rem;
+    width: 100%;
 }
 
 .right .top button{
