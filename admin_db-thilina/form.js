@@ -7,7 +7,7 @@ btn1.onclick = function (){
     popups.classList.toggle('active');
 };
 
-//form close button
+//form close button begin
 
 let btn2 = document.querySelector('.cancel')
 let close = document.querySelector('.form-first')
