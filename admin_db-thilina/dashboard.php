@@ -1,3 +1,4 @@
+<!---------------------------------------- SIDEBAR BEGINING ------------------------------------------>
 <?php include('include/sidebar.php')?>
 
     <!--------------------------- main contian beginning ------------------------->
@@ -100,7 +101,7 @@
     </div>
     
     <!---------------------- insert Javscript here ----------------------->
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 </html>

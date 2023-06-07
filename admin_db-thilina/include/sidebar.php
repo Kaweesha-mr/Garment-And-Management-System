@@ -9,7 +9,7 @@
     <!-- insert g-icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- insert css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -34,21 +34,21 @@
         </div>
         <ul>
             <li>
-                <a href="../dashboard.php">
+                <a href="dashboard.php">
                     <span class="material-symbols-rounded">grid_view</span>
                     <span class="nav_item">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="employeeAdmin.html">
+                <a href="employeeAdmin.php">
                     <span class="material-symbols-rounded">badge</span>
                     <span class="nav_item">Employeee</span>
                 </a>
                 <span class="tooltip">Employeee</span>
             </li>
             <li>
-                <a href="orderpanal.html">
+                <a href="orderpanal.php">
                     <span class="material-symbols-rounded">order_approve</span>
                     <span class="nav_item">Orders</span>
                 </a>
