@@ -1,5 +1,36 @@
 <?php require_once('include/connection.php')?>
 
+<?php
+
+    $user_list = '';
+
+    //getting the lists of uses
+    $query = "SELECT * FROM employee WHERE is_deleted = 0 ORDER BY emp_id";
+    $users = mysqli_query($connection, $query);
+
+    //if query successful
+    if($users){
+        while($user = mysqli_fetch_assoc($users))
+        {
+            $user_list .= "<tr>";
+            $user_list .= "<td>{$user['emp_id']}</td>";
+            $user_list .= "<td>{$user['first_name']}</td>";        
+            $user_list .= "<td>{$user['job_title']}</td>";
+            $user_list .= "<td>{$user['zone']}</td>";
+            $user_list .= "<td>{$user['join_date']}</td>";
+            $user_list .= "<td>{$user['mobile_no']}</td>";
+            $user_list .= "<td><a href=\"modify-user.php?user_id={$user['emp_id']}\"></a></td>";
+            $user_list .= "<td><a href=\"delete-user.php?user_id={$user['emp_id']}\"></a></td>";
+            $user_list .= "</tr>";
+        }
+    }
+    else
+    {
+        echo "Database query failed.";
+    }
+
+?>
+
 
 <!---------------------------------------- SIDEBAR BEGINING ------------------------------------------>
 <?php include('include/sidebar.php')?>
@@ -17,7 +48,7 @@
             <div class="tablewrap-employee">
             <table class="emp">
                         
-                                <thead>
+                            <thead>
                                 <tr>
                                     <th>Employee Id</th>
                                     <th>Employee Name</th>
@@ -31,294 +62,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>   
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td><a href=""><span class="material-symbols-rounded" id="delete">delete</span></a> 
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td><a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td><a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td><a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td><a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>USR4324</td>
-                                    <td>Noman</td>
-                                    <td>co-worker</td>
-                                    <td>Quantity sector</td>
-                                    <td>2001-04-23</td>
-                                    <td>0773214589</td>
-                                    <td><a href=""><span class="material-symbols-rounded" id="delete">delete</span></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><span class="material-symbols-rounded" id="update">update</span></a> 
-                                    </td>
-                                </tr>
+                                
+                                <?php echo $user_list; ?>
                                 
                             </tbody>
                         </table>
