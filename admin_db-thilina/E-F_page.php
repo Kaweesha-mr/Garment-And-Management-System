@@ -1,5 +1,8 @@
 <?php require_once('include/connection.php')?>
 
+<?php include('include/sidebar.php')?>
+
+<div class="main-content-employee">
 
 <?php 
 
@@ -148,4 +151,10 @@
 
         </div>  <!--inside form field class closing tag-->
 			
-</div>	<!--popup closing tag-->	
+</div>	<!--popup closing tag-->		
+                       
+
+
+    
+</body>
+</html>

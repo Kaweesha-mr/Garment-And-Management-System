@@ -41,7 +41,7 @@
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="employeeAdmin.php">
+                <a href="Empdashboard.php">
                     <span class="material-symbols-rounded">badge</span>
                     <span class="nav_item">Employeee</span>
                 </a>

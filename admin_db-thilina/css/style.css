@@ -457,20 +457,20 @@ body{
 /*=======================Add a new EMPLOYEE ======================= */
 
 .form-first{
-    position: absolute;
+    /* position: absolute;
     top: 0%;
     left: 18%;
-    width: 60%;
+    width: 60%; */
     display: none;
 
-    background-color: rgb(203, 217, 232);
+    /* background-color: rgb(203, 217, 232);
     border: 1px solid;
     border-radius: 10px;
     padding: 5px 15px;
     margin: 20px;
     
     box-shadow: 5px 5px 10px rgb(172, 174, 180);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease; */
 }
 
 .form-first.active{
@@ -486,6 +486,7 @@ h2{
     margin-top: 25px;
     font-size: 1.2rem;
     font-weight: 600;
+    width: 100%;
 }
 
 .field{
@@ -544,10 +545,10 @@ button{
 
 .buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.submit{
+.submitbtn{
     color:  rgb(90, 95, 114);
     border: 2px solid  rgb(90, 95, 114);
     font-size: 1rem;
@@ -576,4 +577,21 @@ button:hover{
 
 #addEmp span{
     margin-right: 5px;
+}
+
+.popup{
+
+    position: absolute;
+    top: 0%;
+    left: 18%;
+    width: 60%;
+
+    background-color: rgb(203, 217, 232);
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin: 20px;
+    
+    box-shadow: 5px 5px 10px rgb(172, 174, 180);
+    transition: all 0.5s ease;
 }
