@@ -20,7 +20,7 @@
     $username = $_POST['username'];
     $email = $_POST['email'];
     $DOB = $_POST['DOB'];
-    $phone = $_POST['phone'];
+    $phone = $_POST['Phone'];
     //home address
     $Haddress = $_POST['home-address'];
     $Daddress = $_POST['delivary-address'];
@@ -221,25 +221,25 @@
                   ?>
 
                   <label for="Username">Username</label>
-                  <input type="text" value= <?php 
+                  <input type="text" name="username" value= <?php 
                     echo $row['username'];
                   ?>
           
                   <br><br>
           
                   <label for="Email" required>Email</label>
-                  <input type="text" value= <?php
+                  <input type="text" name="email" value= <?php
                     echo $row['email'];
                   
                   ?>
                 
                   <label for="DOB">Date of Birth</label>
-                  <input type="date" value= <?php 
+                  <input type="date" name="DOB" value= <?php 
                     echo $row['DOB'];
                   ?>
 
                   <label for="Phone Number">Phone Number</label>
-                  <input type="text" value= <?php 
+                  <input type="text" name="Phone"value= <?php 
                     echo $row['Phone'];
                   ?>
 
@@ -260,7 +260,7 @@
                   >
                 </input>
                 <br><br>
-              <input type="submit" value="Updaet Details" class="btn-submit">
+                <input type="submit" name="submit" value="Update" class="btn-submit">
             </form>
           </div>
           </div>
