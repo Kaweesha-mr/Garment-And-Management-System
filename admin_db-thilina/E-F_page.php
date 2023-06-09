@@ -41,7 +41,7 @@
 
             if ($result) {
 				// query successful... redirecting to users page
-				header('Location: E-F_page.php?user_added=true');
+				header('Location: Empdashboard.php?user_added=true');
 			} else {
 				$errors[] = 'Failed to add the new record.';
 			}

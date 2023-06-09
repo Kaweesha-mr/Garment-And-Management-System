@@ -74,30 +74,33 @@
 
         <!--table end-->
 
+        <!------------ Add a ne eployee button --------------->
+
         <div class="add-emp">
 
-            <button id="addEmp">
+            <a href="E-F_page.php" id="addEmp">
                 <span class="btn-text">Add a new employee</span>
                 <span class="material-symbols-rounded">person_add</span>
-            </button>
+            </a>
 
-            <div class="popup1">
+            <!-- <button id="addEmp">
+                <span class="btn-text">Add a new employee</span>
+                <span class="material-symbols-rounded">person_add</span>
+            </button> -->
+
+            <!-- <div class="popup1">
                 <div class="form-first">
                     <div class="form-personal">
                         <h2>Add a new employee</h2>
                         
-                        <?php require ('include/Emp_form.php')?>
+                        here was the include for from. taken photo at 8:10am
                         
 
                     </div>
-                </div>
+                </div>    
+            </div> -->
 
-                
-                    
-                        
-                    
-                
-            </div>
+
 
         </div>
 

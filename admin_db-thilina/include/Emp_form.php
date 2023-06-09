@@ -30,15 +30,18 @@
             $insure = mysqli_real_escape_string($connection, $_POST['insure']);
 
 		
-		
+            //insert details to table
             $query = "INSERT INTO employee ( first_name, last_name, DOB, mobile_no, gender, email, password, address, job_title, join_date, zone, insure ) VALUES ( '{$first_name}', '{$last_name}', '{$DOB}', '{$mobile_no}', '{$gender}', '{$email}', '{$hashed_password}', '{$address}', '{$title}', '{$join_date}', '{$zone}', '{$insure}')";
 			
 
 			$result = mysqli_query($connection, $query);
 
+            
+            //check query successful
             if ($result) {
 				// query successful... redirecting to users page
 				header('Location: ./Empdashboard.php');
+                exit();
 			} else {
 				$errors[] = 'Failed to add the new record.';
 			}

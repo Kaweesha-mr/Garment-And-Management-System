@@ -568,11 +568,21 @@ button:hover{
 }
 
 #addEmp{
-    margin-top: 30px;
+    margin: 20px;
     color:  rgb(90, 95, 114);
+    background-color: aliceblue;
     border: 2px solid  rgb(90, 95, 114);
+    border-radius: 5px;
     font-size: 1rem;
     text-align: center;
+    padding: 10px;
+
+    box-shadow: 5px 5px 5px rgb(172, 174, 180);
+}
+
+a:hover{
+    color: brown;
+    background-color: turquoise;
 }
 
 #addEmp span{
