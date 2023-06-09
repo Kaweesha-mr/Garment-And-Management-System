@@ -18,7 +18,7 @@
             $ord_list .= "<td>{$user['ord_typ']}</td>";
             $ord_list .= "<td>{$user['Qnt']}</td>";
             $ord_list .= "<td>{$user['delv_date']}</td>";
-            $ord_list .= "<td><a href=\"delete-emp.php?em_id={$user['ord_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">edit_attributes</span></a></td>";
+            $ord_list .= "<td><a href=\"approve-order.php?or_id={$user['ord_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">edit_attributes</span></a></td>";
             $ord_list .= "</tr>";
         }
     }

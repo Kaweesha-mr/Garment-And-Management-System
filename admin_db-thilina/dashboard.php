@@ -13,8 +13,34 @@
     $row = mysqli_fetch_assoc($result);
     $totalRowsEmp = $row['total_rows_emp'];
 
-      
+    $query = "SELECT COUNT(*) AS total_rows_app_ord FROM order_table WHERE is_approved =  1";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_assoc($result);
+    $totalRowsAppOrd = $row['total_rows_app_ord'];
+  
 
+?>
+
+<?php
+
+
+    $test = array();
+
+    $count = 0;
+
+    $query = "SELECT * FROM order_table";
+    $res = mysqli_query($connection, $query);
+
+    while($row = mysqli_fetch_array($res))
+    {
+        $test[$count] ["label"] = $row['ord_typ'];
+        $test[$count] ["y"] = $row["Qnt"];
+
+        $count =$count +1;
+    }
+
+
+ 
 ?>
 
 <!---------------------------------------- SIDEBAR BEGINING ------------------------------------------>
@@ -43,9 +69,8 @@
                         <span class="material-symbols-rounded">insights</span>
                     </div>
                         <div class="card-inner">
-                            <p class="card-top">Orders</p>
-                            <p class="card-Qnt"><?php echo $totalRows ; ?> New Orders</p> <!--How many Sales-->
-                            <p class="card-time">Last 2hrs</p> <!--last time system has updated-->
+                            <p class="card-top">Lifetime Orders</p>
+                            <p class="card-Qnt"><?php echo $totalRows ; ?> Orders</p> <!--How many Sales-->
                         </div>
                         <!-- <div class="progress">
                             <p class="card-Qnt">figur</p> 
@@ -59,7 +84,6 @@
                         <div class="card-inner">
                             <p class="card-top">Employees</p>
                             <p class="card-Qnt"><?php echo $totalRowsEmp ; ?> Employees</p> <!--How many Sales-->
-                            <p class="card-time">Last 2hrs</p> <!--last time system has updated-->
                         </div>
                         <!-- <div class="progress">
                             <p class="card-Qnt">figur</p> 
@@ -72,8 +96,7 @@
                     </div>
                         <div class="card-inner">
                             <p class="card-top">Insights</p>
-                            <p class="card-Qnt">354 Sales</p> <!--How many Sales-->
-                            <p class="card-time">Last 2hrs</p> <!--last time system has updated-->
+                            <p class="card-Qnt"><?php echo $totalRowsAppOrd ; ?> Sales Completed</p> <!--How many Sales-->
                         </div>
                         <!-- <div class="progress">
                             <p class="card-Qnt">figur</p> 
@@ -84,55 +107,42 @@
             </div>
 
             <div class="charts">
+
+                <div class="chart-card"></div>
+
                 <div class="chart-card">
-                    <p>sadf</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>column</th>
-                                <th>column</th>
-                                <th>column</th>
-                                <th>column</th>
-                            </tr>
-                            
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>name</td>
-                                <td>miss</td>
-                                <td>call</td>
-                                <td>function</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>miss</td>
-                                <td>call</td>
-                                <td>function</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>miss</td>
-                                <td>call</td>
-                                <td>function</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>miss</td>
-                                <td>call</td>
-                                <td>function</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>miss</td>
-                                <td>call</td>
-                                <td>function</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
+                    <script>
+                        window.onload = function() {
+                        
+                        var chart = new CanvasJS.Chart("chartContainer", {
+                            animationEnabled: true,
+                            theme: "light2",
+                            title:{
+                                text: "Sells for types"
+                            },
+                            axisY: {
+                                title: "Quantity"
+                            },
+                            data: [{
+                                type: "column",
+                                yValueFormatString: "#,##0.## pices",
+                                dataPoints: <?php echo json_encode($test, JSON_NUMERIC_CHECK); ?>
+                            }]
+                        });
+                        chart.render();
+                        
+                        }
+                    </script>
+
+
+
+                    <div id="chartContainer"></div>
+                    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                    
                 </div>
-                <div class="chart-card">
-                    <p>ads</p>
-                </div>
+
+                
 
             </div>
 
@@ -154,7 +164,7 @@
                             <div class="card-inner">
                                 <p id="day"></p>
                                 <p class="card-Qnt" id="insertdate"></p> 
-                                <p class="card-time">Last 2hrs</p> <!--last time system has updated-->
+
                             </div>
                             <!-- <div class="progress">
                                 <p class="card-Qnt">figur</p> 
@@ -166,7 +176,8 @@
                                 <span class="material-symbols-rounded">mail</span>
                             </div>
                             <div class="card-inner">
-                            <p class="card-Qnt">Messages</p>
+                                <p class="card-Qnt">Messages</p>
+                                <br>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repudiandae dolores officia earum doloribus nobis sint quas distinctio veniam rem cumque, iste placeat architecto doloremque quae, quis eaque. Perspiciatis, corrupti!</p>
                             </div>
                             
