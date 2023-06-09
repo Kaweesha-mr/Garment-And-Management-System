@@ -538,7 +538,7 @@ button{
     display: flex;
     align-items: center;
     padding: 8px;
-    margin: 0px 15px 20px 20px;
+    margin: 0px 15px 0px 0px;
     border-radius: 10px;
     box-shadow: 3px 3px 8px rgb(172, 174, 180);
 }
@@ -556,37 +556,61 @@ button{
 }
 
 .cancel{
+    margin: 0px 20px;
+    padding: 8px;
     border: 2px solid red;
+    border-radius: 10px;
     color: red;
+    background-color: aliceblue;
     font-size: 1rem;
     text-align: center;
+    text-decoration: none;
+    box-shadow: 3px 3px 8px rgb(141, 142, 147);
 }
 
-button:hover{
-    box-shadow: 5px 5px 5px rgb(172, 174, 180);
+.cancel:hover{
+    font-size: larger;
+    border: 2px solid rgb(206, 7, 7);
+    color: aliceblue;
+    background-color: red;
     transition: all 0.5s ease;
 }
 
-#addEmp{
+button:hover{
+    font-size: large;
+    border: 2px solid rgb(90, 95, 114);
+    color: aliceblue;
+    background-color: rgb(90, 95, 114);;
+    transition: all 0.5s ease;
+}
+
+.addEmp{
+    display: flex;
+    width: 18%;
     margin: 20px;
     color:  rgb(90, 95, 114);
     background-color: aliceblue;
-    border: 2px solid  rgb(90, 95, 114);
+    border: 1px solid  rgb(90, 95, 114);
     border-radius: 5px;
     font-size: 1rem;
     text-align: center;
-    padding: 10px;
+    text-decoration: none;
+    padding: 5px;
 
     box-shadow: 5px 5px 5px rgb(172, 174, 180);
 }
 
-a:hover{
-    color: brown;
-    background-color: turquoise;
+
+.addEmp span{
+    margin: 5px 10px;
 }
 
-#addEmp span{
-    margin-right: 5px;
+.addEmp:hover{
+    font-size:large;
+    border: 2px solid rgb(90, 95, 114);
+    color: aliceblue;
+    background-color: rgb(90, 95, 114);;
+    transition: all 0.5s ease;
 }
 
 .popup{
@@ -604,4 +628,8 @@ a:hover{
     
     box-shadow: 5px 5px 10px rgb(172, 174, 180);
     transition: all 0.5s ease;
+}
+
+.errmsg {
+	margin: 20px 0;
 }

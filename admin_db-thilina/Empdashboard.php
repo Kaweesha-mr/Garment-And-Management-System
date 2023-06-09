@@ -19,8 +19,8 @@
             $user_list .= "<td>{$user['zone']}</td>";
             $user_list .= "<td>{$user['join_date']}</td>";
             $user_list .= "<td>{$user['mobile_no']}</td>";
-            $user_list .= "<td><a href=\"modify-user.php?user_id={$user['emp_id']}\"></a></td>";
-            $user_list .= "<td><a href=\"delete-user.php?user_id={$user['emp_id']}\"></a></td>";
+            $user_list .= "<td><a href=\"delete-emp.php?em_id={$user['emp_id']}\"><span class=\"material-symbols-rounded\" id=\"delete\">delete</span></a></td>";
+            $user_list .= "<td><a href=\"modify-emp.php?em_id={$user['emp_id']}\"><span class=\"material-symbols-rounded\" id=\"update\">update</span></a></td>";
             $user_list .= "</tr>";
         }
     }
@@ -78,7 +78,7 @@
 
         <div class="add-emp">
 
-            <a href="E-F_page.php" id="addEmp">
+            <a href="E-F_page.php" class="addEmp">
                 <span class="btn-text">Add a new employee</span>
                 <span class="material-symbols-rounded">person_add</span>
             </a>
