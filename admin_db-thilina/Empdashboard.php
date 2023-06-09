@@ -2,7 +2,7 @@
 
 <?php
 
-    $user_list = '';
+    $emp_list = '';
 
     //getting the lists of uses
     $query = "SELECT * FROM employee WHERE is_deleted = 0 ORDER BY emp_id";
@@ -12,16 +12,16 @@
     if($users){
         while($user = mysqli_fetch_assoc($users))
         {
-            $user_list .= "<tr>";
-            $user_list .= "<td>{$user['emp_id']}</td>";
-            $user_list .= "<td>{$user['first_name']}</td>";        
-            $user_list .= "<td>{$user['job_title']}</td>";
-            $user_list .= "<td>{$user['zone']}</td>";
-            $user_list .= "<td>{$user['join_date']}</td>";
-            $user_list .= "<td>{$user['mobile_no']}</td>";
-            $user_list .= "<td><a href=\"delete-emp.php?em_id={$user['emp_id']}\"><span class=\"material-symbols-rounded\" id=\"delete\">delete</span></a></td>";
-            $user_list .= "<td><a href=\"modify-emp.php?em_id={$user['emp_id']}\"><span class=\"material-symbols-rounded\" id=\"update\">update</span></a></td>";
-            $user_list .= "</tr>";
+            $emp_list .= "<tr>";
+            $emp_list .= "<td>{$user['emp_id']}</td>";
+            $emp_list .= "<td>{$user['first_name']}</td>";        
+            $emp_list .= "<td>{$user['job_title']}</td>";
+            $emp_list .= "<td>{$user['zone']}</td>";
+            $emp_list .= "<td>{$user['join_date']}</td>";
+            $emp_list .= "<td>{$user['mobile_no']}</td>";
+            $emp_list .= "<td><a href=\"delete-emp.php?em_id={$user['emp_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">delete</span></a></td>";
+            $emp_list .= "<td><a href=\"modify-emp.php?em_id={$user['emp_id']}\"><span class=\"material-symbols-rounded\" id=\"update\">update</span></a></td>";
+            $emp_list .= "</tr>";
         }
     }
     else
@@ -63,7 +63,7 @@
                             </thead>
                             <tbody>
                                 
-                                <?php echo $user_list; ?>
+                                <?php echo $emp_list; ?>
                                 
                             </tbody>
                         </table>
@@ -74,7 +74,7 @@
 
         <!--table end-->
 
-        <!------------ Add a ne eployee button --------------->
+        <!------------ Add a new eployee button --------------->
 
         <div class="add-emp">
 

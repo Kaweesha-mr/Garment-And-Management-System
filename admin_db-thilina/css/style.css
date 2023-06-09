@@ -335,16 +335,42 @@ body{
 
 .chart-card{
     background-color: antiquewhite;
+    
 }
 
 /*-------------- MAIN CONTENT RIGHT-------------- */
 
-.main-content .container-right .card{
+.main-content .container-right .card-r-u{
     margin-top: 110px;
+    padding: 15px 15px 0 ;
+    border-radius: 10px;
+    background-color: aliceblue;
+    box-shadow: 5px 5px 10px rgb(172, 174, 180);
+    transition: all 0.3s ease;
 }
 
-.main-content .container-right .card #day{
+.main-content .container-right .card-r #day{
     font-size: 1.5rem;
+}
+
+.main-card-r{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-r{
+    margin-top: 20px;
+    height: 350px;
+    padding: 15px 15px 0 ;
+    border-radius: 10px;
+    background-color: aliceblue;
+    box-shadow: 5px 5px 10px rgb(172, 174, 180);
+    transition: all 0.3s ease;
+}
+
+.card-r:hover{
+    box-shadow: 15px 15px 14px rgb(172, 174, 180);
 }
 
 /*========================================= ORDER PANEL============================== */

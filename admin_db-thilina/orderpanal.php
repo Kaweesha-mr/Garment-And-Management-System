@@ -1,3 +1,34 @@
+<?php require_once('include/connection.php')?>
+
+<?php
+
+    $ord_list = '';
+
+    //getting the lists of uses
+    $query = "SELECT * FROM order_table WHERE is_approved = 0 ORDER BY ord_id";
+    $users = mysqli_query($connection, $query);
+
+    //if query successful
+    if($users){
+        while($user = mysqli_fetch_assoc($users))
+        {
+            $ord_list .= "<tr>";
+            $ord_list .= "<td>{$user['ord_id']}</td>";
+            $ord_list .= "<td>{$user['usrid']}</td>";        
+            $ord_list .= "<td>{$user['ord_typ']}</td>";
+            $ord_list .= "<td>{$user['Qnt']}</td>";
+            $ord_list .= "<td>{$user['delv_date']}</td>";
+            $ord_list .= "<td><a href=\"delete-emp.php?em_id={$user['ord_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">edit_attributes</span></a></td>";
+            $ord_list .= "</tr>";
+        }
+    }
+    else
+    {
+        echo "Database query failed.";
+    }
+
+?>
+
 <!---------------------------------------- SIDEBAR BEGINING ------------------------------------------>
 <?php include('include/sidebar.php')?>
 
@@ -17,139 +48,19 @@
                     
                             <thead>
                             <tr>
-                                <th>order id</th>
-                                <th>customer name</th>
-                                <th>order type</th>
-                                <th>payment</th>
-                                <th>status</th>
-                                <th>Delivered</th>
+                                <th>Order Id</th>
+                                <th>Customer Id</th>
+                                <th>Order Type</th>
+                                <th>Quantity</th>
+                                <th>Delivery Date</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td>usr2134</td>
-                                <td>jame Zoro</td>
-                                <td>teeshirt</td>
-                                <td>successfull</td>
-                                <td>pending</td>
-                                <td>yes</td>
-                                <td><a href="">
-        
-                                </a></td>
-                            </tr>
-                            
+
+                        <?php echo $ord_list; ?>
+
                         </tbody>
                     </table>
 
@@ -160,41 +71,7 @@
     <!--table end-->
 
 
-</div>    <!-- <div class="main-content">
-
-        <div class="order-panel">
-            
-            
-            <div class="greetings">
-                <h1>Order Panel</h1>
-            </div>
-            
-
-            <table class="order">
-                <thead>
-                    <tr>
-                        <th>order id</th>
-                        <th>customer name</th>
-                        <th>order type</th>
-                        <th>payment</th>
-                        <th>status</th>
-                        <th>Delivered</th>
-                        <th>action</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-
-                </tbody>
-            </table>
-
-
-
-        </div>
-
-
-    </div> -->
+</div>    
 
 
     <!---------------------- insert Javscript here ----------------------->
