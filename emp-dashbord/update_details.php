@@ -274,8 +274,8 @@
                     <span class="material-icons-sharp">menu</span>
                 </button>
                 <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
+                    <span class="material-icons-sharp light active" onclick="lightmode()">light_mode</span>
+                    <span class="material-icons-sharp dark" onclick="darkmode()" >dark_mode</span>
                 </div>
                 <div class="profile">
                 <div class="info">
@@ -302,6 +302,20 @@
     </div>
 
 <script src="script.js"></script>
+
+<script>
+//create function name dark
+function lightmode(){
+  //remove class active
+  document.querySelector('.light').classList.add('active');
+  document.querySelector('.dark').classList.remove('active');
+}
+function darkmode(){
+  //remove class active
+  document.querySelector('.dark').classList.add('active');
+  document.querySelector('.light').classList.remove('active');
+}
+</script>
 </body>
 
 </html>

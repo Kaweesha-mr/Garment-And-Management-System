@@ -205,6 +205,19 @@ session_start();
 <script src="script.js"></script>
 
 <script>
+
+    //create function name dark
+function lightmode(){
+  //remove class active
+  document.querySelector('.light').classList.add('active');
+  document.querySelector('.dark').classList.remove('active');
+}
+function darkmode(){
+  //remove class active
+  document.querySelector('.dark').classList.add('active');
+  document.querySelector('.light').classList.remove('active');
+}
+
 window.addEventListener("load", () => {
   clock();
   function clock() {
@@ -263,6 +276,7 @@ window.addEventListener("load", () => {
   }
 });
 </script>
+
 </body>
 
 </html>

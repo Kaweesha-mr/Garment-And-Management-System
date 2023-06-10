@@ -33,6 +33,7 @@
 }
 /*----------------------- DARK THEME VARIABLES -------------------------------*/
 
+
 .dark-theme-variables{
     --color-background: #181a1e;
     --color-white: #202528;
@@ -43,6 +44,7 @@
     --form-background: #202528;
     --form-textarea-background: #ffffff;
 }
+
 
 * {
     margin: 0;
@@ -391,12 +393,14 @@ main .insight .sales{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 300ms ease;
 }
 
 .right .theme-toggler span.active{
     background: var(--color-primary);
     color: white;
     border-radius: var(--border-radius-1);
+    transition: all 300ms ease;
 }
 
 .right .top .profile{

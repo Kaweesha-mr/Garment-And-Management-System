@@ -294,6 +294,19 @@ $result = mysqli_query($conn, $sql);
     </div>
 
 <script src="script.js"></script>
+<script>
+//create function name dark
+function lightmode(){
+  //remove class active
+  document.querySelector('.light').classList.add('active');
+  document.querySelector('.dark').classList.remove('active');
+}
+function darkmode(){
+  //remove class active
+  document.querySelector('.dark').classList.add('active');
+  document.querySelector('.light').classList.remove('active');
+}
+</script>
 </body>
 
 </html>XX

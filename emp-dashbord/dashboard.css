@@ -34,6 +34,7 @@
 /*----------------------- DARK THEME VARIABLES -------------------------------*/
 
 .dark-theme-variables{
+
     --color-background: #181a1e;
     --color-white: #202528;
     --color-dark: #edeffd;
@@ -42,6 +43,7 @@
     --box-shadow:0 2rem 3rem var(--color-light);
     --form-background: #202528;
     --form-textarea-background: #ffffff;
+
 }
 
 * {
