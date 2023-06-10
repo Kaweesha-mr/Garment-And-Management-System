@@ -6,13 +6,13 @@
   
   require "../Landing/db_connect.php";
   //auto logout when user is inactive
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
-  // last request was more than 30 minutes ago
-  session_unset();     // unset $_SESSION variable for the run-time 
-  session_destroy();   // destroy session data in storage
-  header("location: ../Landing/login.php");
-}
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+// if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+//   // last request was more than 30 minutes ago
+//   session_unset();     // unset $_SESSION variable for the run-time 
+//   session_destroy();   // destroy session data in storage
+//   header("location: ../Landing/login.php");
+// }
+// $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
   //check if user is logged in
@@ -64,6 +64,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
     <!---------CSS ----------->
     <link rel="stylesheet" href="place_order.css">
+
+    <!-- import poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
 
     <style>
@@ -171,6 +174,57 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
               font-weight: bold;
               color: #333;
             }
+            main > .hide-resetpassword> form {
+
+            width: 25rem;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* !Glass effect is added here */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            }
+            main > .hide-resetpassword > form > label{
+              font-size: 1.2rem;
+              font-weight: 500;
+              color: #333;
+              margin: 10px;
+            }
+            main > .hide-resetpassword > form > input{
+              height: 2rem;
+              border-radius: 10px;
+              margin: 10px;
+              width: 20rem;
+              background-color:rgba(1, 1, 1, 0.14);
+              border: 1px solid black;
+
+            }
+
+            main > .hide-resetpassword > form > button {
+              
+              font-family: 'Poppins', sans-serif;
+              font-size: 1.2rem;
+              height: 4rem;
+              border-radius: 30px;
+              margin: 10px;
+              width: 20rem;
+              background-color:black;
+              border: 1px solid black;
+              color: white;
+            }
+            main > .hide-resetpassword > form > button:hover {
+              background-color: #333;
+              border: 1px solid #333;
+              color: white;
+            }
+
+
 
     </style>
 
@@ -275,6 +329,23 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
           </div>
           </div>
 
+
+          <div class="hide-resetpassword">
+
+                <form action="" method="post">
+                <label for="Current-Password">Current Password</label>
+                <input type="password" name="password" value="">
+                <br><br>
+                <label for="New-Password">New Password</label>
+                <input type="password" name="new-password" value="" >
+                  <br><br>
+                <label for="Confirm-Password">Confirm Password</label>
+                <input type="password" name="confirm-password" value="">
+                  <br><br>  
+                <button type="submit" value="Update password">Update Password</button>
+                </form>
+
+              </div>
         </main>
         <!-------------------------------------- END OF MAIN---------------------------------------->
 
