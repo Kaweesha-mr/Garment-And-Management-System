@@ -5,9 +5,9 @@ session_start();
 //include db_connect.php file for database connection
  require 'db_connect.php';
 
-
+ 
  //!function to removesql injection with stripcslashes and mysqli_real_escape_string
-  function remove_sql_injection($value){
+  function remove_sql_injection($value,$conn){
     $value = stripcslashes($value);
     $value = mysqli_real_escape_string($conn, $value);
     return $value;
@@ -18,16 +18,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
   //get values from form
-  $fullName = remove_sql_injection($_POST['fullName']);
-  $email = remove_sql_injection($_POST['email']);
-  $phone = remove_sql_injection($_POST['phone']);
+  $fullName = remove_sql_injection($_POST['fullName'],$conn);
+  $email = remove_sql_injection($_POST['email'],$conn);
+  $phone = remove_sql_injection($_POST['phone'],$conn);
   $dob = $_POST['dob'];
-  $Haddress = remove_sql_injection($_POST['Haddress']);
-  $Daddress = remove_sql_injection($_POST['Daddress']);
-  $password = $_POST['password'];
-  $rePassword = $_POST['rePassword'];
+  $Haddress = remove_sql_injection($_POST['Haddress'],$conn);
+  $Daddress = remove_sql_injection($_POST['Daddress'],$conn);
 
+  //passwords are passed into php variables including md5 hashing
+  $password =  $_POST['password'];
+  $rePassword =$_POST['rePassword']; 
 
+  
     //hash password with password hash
     $Hashedpassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -37,16 +39,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     //print script error if password and rePassword are not same
     if($verify == 1){
-     
-      echo '<script>alert("Password and Re-Password are sameeee")</script>';
-
-    //send query if email,fullname,password,repassword are not empty
-    $sql = "INSERT INTO `register_user` (`username`, `email`, `Passwords`, `DOB`, `HAddress_lane`, `D_address_lane`) VALUES (' $fullName', '$email', '$$Hashedpassword', '$dob','$Haddress', '$Daddress')";
+    
+      //send query if email,fullname,password,repassword are not empty
+    $sql = "INSERT INTO `register_user` (`username`, `email`, `Passwords`, `DOB`, `HAddress_lane`, `D_address_lane`) VALUES ('$fullName', '$email', '$Hashedpassword', '$dob','$Haddress', '$Daddress')";
 
     if($conn->query($sql)) {
 
       //create a js alert to say successfully registered
       echo '<script>alert("Successfully Registered")</script>';
+      
+      //redirect to login page
+      header("location: login.php");
     }
 
     else{
@@ -55,16 +58,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
   }
     else{
-
       echo '<script>alert("Password and Re-Password are not sameeee")</script>';
-
     }
-
 }
- 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -84,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <header>FasionTreak Garments <h2>Join with us</h2> </header>
       <form action="" class="Register-form" method=POST>
         <div class="input-box">
-          <label>Full Name</label>
+          <label>Username</label>
           <input type="text" placeholder="Enter full name" name="fullName"  />
         </div>
 

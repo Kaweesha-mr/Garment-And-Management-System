@@ -1,33 +1,37 @@
 <?php
+//include db_connect.php file for database connection
+require 'db_connect.php';
+
 //destroy previous session
 unset($_SESSION['username']);
 unset($_SESSION['userid']);
 $_SESSION['loggedin'] = false;
+
 session_start();
-//include db_connect.php file for database connection
- require 'db_connect.php';
+
 
  if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //get the password in the database
+    $sql = "SELECT `Passwords` FROM `register_user` WHERE `username` = '$username'";
+    $result = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_array($result);
+    
 
-    //!check hashed password inside the database is same with the password user entered
-    $password = md5($password);
+    //store result in a variable
+    $result = $result[0];
 
+    //verify the password
+    $verify = password_verify($password,$result);
 
+    //script to print veriify
+    echo '<script>alert("'.$verify.'")</script>';
 
-    //send query if to validate username and password
-
-    $sql = "SELECT * FROM `register_user` WHERE `username` = ' $username' and `Passwords` = '$password' ";
-
-
-    $result = $conn->query($sql);
-
-    //output a query result
-
-    if($result->num_rows > 0){
+    //if password is verifyied then login
+    if($verify == 1){
         //create a js alert to say successfully registered
         echo '<script>alert("Successfully Logged In")</script>';
 
@@ -36,7 +40,7 @@ session_start();
         $_SESSION['username'] = $username;
 
         //get user id from user id
-        $sql = "SELECT User_id FROM `register_user` WHERE `username` = ' $username'";;
+        $sql = "SELECT User_id FROM `register_user` WHERE `username` = '$username'";
 
         //run the query and print output using script
         $result = mysqli_query($conn, $sql);
@@ -47,20 +51,16 @@ session_start();
         //store the resluts in session names userid
         $_SESSION['userid'] = $result[0];
 
+        //print the userid using script
+        echo '<script>alert("'.$_SESSION['userid'].'")</script>';
+
         //redirect to dashboard in emp-dashbord file
         header("location: ../emp-dashbord/dashboard.php");
-
-
-
     }
     else{
         //create a js alert to say error
         echo '<script>alert("Invalid Username or Password")</script>';
-    }   
-
-
-    
-
+    }
  }
 ?>
 
