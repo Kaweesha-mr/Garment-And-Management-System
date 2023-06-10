@@ -2,6 +2,7 @@
 //destroy previous session
 unset($_SESSION['username']);
 unset($_SESSION['userid']);
+$_SESSION['loggedin'] = false;
 session_start();
 //include db_connect.php file for database connection
  require 'db_connect.php';
@@ -15,11 +16,11 @@ session_start();
     //!check hashed password inside the database is same with the password user entered
     $password = md5($password);
 
+
+
     //send query if to validate username and password
 
     $sql = "SELECT * FROM `register_user` WHERE `username` = ' $username' and `Passwords` = '$password' ";
-
-
 
 
     $result = $conn->query($sql);
