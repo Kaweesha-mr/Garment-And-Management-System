@@ -324,7 +324,11 @@
                   >
                 </input>
                 <br><br>
+                <span style="display:flex;">
                 <input type="submit" name="submit" value="Update" class="btn-submit">
+                <input type="submit" name="submit" value="Update Password" class="btn-submit">
+                </span>
+                
             </form>
           </div>
           </div>
