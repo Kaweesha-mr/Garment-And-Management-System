@@ -5,6 +5,14 @@
   session_start();
   
   require "../Landing/db_connect.php";
+  //auto logout when user is inactive
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+  // last request was more than 30 minutes ago
+  session_unset();     // unset $_SESSION variable for the run-time 
+  session_destroy();   // destroy session data in storage
+  header("location: ../Landing/login.php");
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
   //check if user is logged in
@@ -24,6 +32,8 @@
     //home address
     $Haddress = $_POST['home-address'];
     $Daddress = $_POST['delivary-address'];
+
+    $_SESSION['username'] = $username;
 
 
     //sql query to update values 
@@ -302,20 +312,18 @@
     </div>
 
 <script src="script.js"></script>
-
-<script>
-//create function name dark
-function lightmode(){
-  //remove class active
-  document.querySelector('.light').classList.add('active');
-  document.querySelector('.dark').classList.remove('active');
+<SCript>
+  function lightmode(){
+    //remove class active
+    document.querySelector('.light').classList.add('active');
+    document.querySelector('.dark').classList.remove('active');
 }
 function darkmode(){
-  //remove class active
-  document.querySelector('.dark').classList.add('active');
-  document.querySelector('.light').classList.remove('active');
-}
-</script>
+    //remove class active
+    document.querySelector('.dark').classList.add('active');
+    document.querySelector('.light').classList.remove('active');
+  }
+</SCript>
 </body>
 
 </html>

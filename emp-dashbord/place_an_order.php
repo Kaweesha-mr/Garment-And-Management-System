@@ -6,6 +6,15 @@
   
   require "../Landing/db_connect.php";
 
+  //auto logout when user is inactive
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+  // last request was more than 30 minutes ago
+  session_unset();     // unset $_SESSION variable for the run-time 
+  session_destroy();   // destroy session data in storage
+  header("location: ../Landing/login.php");
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
   //get values from form
   if($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -475,8 +484,8 @@
                     <span class="material-icons-sharp">menu</span>
                 </button>
                 <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
+                <span class="material-icons-sharp light active" onclick="lightmode()">light_mode</span>
+                    <span class="material-icons-sharp dark" onclick="darkmode()" >dark_mode</span>
                 </div>
                 <div class="profile">
                 <div class="info">

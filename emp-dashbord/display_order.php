@@ -4,10 +4,47 @@
 session_start();
 require "../Landing/db_connect.php";
 
+//auto logout when user is inactive
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+  // last request was more than 5min minutes ago
+  session_unset();     // unset $_SESSION variable for the run-time 
+  session_destroy();   // destroy session data in storage
+  header("location: ../Landing/login.php");
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+
+
 $sql = "SELECT Order_Id,Emp_Id,Type1,Type2,Type3,Color_1,Color_2,Color_3,Quantity,Delivery_date,Total FROM `order_tbl`;";
 
 //run sql query and store in result variable
 $result = mysqli_query($conn, $sql);
+
+
+//catch the value in get method
+if (isset($_GET['Order_Id'])) {
+
+    $id = $_GET['Order_Id'];
+
+    $sql = "DELETE FROM `order_tbl` WHERE `order_tbl`.`Order_Id` = $id";
+
+    //prompt for confirmation in script
+    echo "<script>
+    var confirm = confirm(\"Are you sure you want to delete this order?\");
+    
+    if(!confirm){
+        window.location.href = 'display_order.php';
+    }
+    </script>";
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        header("Location: display_order.php");
+    } else {
+        echo "Deletion Failed";
+    }
+}
 
 
 ?>
@@ -205,8 +242,8 @@ $result = mysqli_query($conn, $sql);
                     <span class="material-icons-sharp">menu</span>
                 </button>
                 <div class="theme-toggler">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
+                <span class="material-icons-sharp light active" onclick="lightmode()">light_mode</span>
+                    <span class="material-icons-sharp dark" onclick="darkmode()" >dark_mode</span>
                 </div>
                 <div class="profile">
                 <div class="info">
@@ -270,7 +307,7 @@ $result = mysqli_query($conn, $sql);
                       <td><?php echo $row['Quantity']; ?></td>
                       <td><?php echo $row['Delivery_date']; ?></td>
                       <td><?php echo $row['Total']; ?></td>
-                      <td><a href="#"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
+                      <td><a href="display_order.php?Order_Id=<?php echo $row['Order_Id'] ?>"> <span style="color: red;" class="material-icons-sharp">delete</span> </a> <a href="#"> <span style="color: #2a972e;" class="material-icons-sharp">update</span> </a> </td> 
                     </Tr>
                   <?php
                     }
@@ -294,19 +331,18 @@ $result = mysqli_query($conn, $sql);
     </div>
 
 <script src="script.js"></script>
-<script>
-//create function name dark
-function lightmode(){
-  //remove class active
-  document.querySelector('.light').classList.add('active');
-  document.querySelector('.dark').classList.remove('active');
+<SCript>
+  function lightmode(){
+    //remove class active
+    document.querySelector('.light').classList.add('active');
+    document.querySelector('.dark').classList.remove('active');
 }
 function darkmode(){
-  //remove class active
-  document.querySelector('.dark').classList.add('active');
-  document.querySelector('.light').classList.remove('active');
-}
-</script>
+    //remove class active
+    document.querySelector('.dark').classList.add('active');
+    document.querySelector('.light').classList.remove('active');
+  }
+</SCript>
 </body>
 
 </html>XX
