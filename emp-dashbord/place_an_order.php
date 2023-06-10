@@ -6,14 +6,14 @@
   
   require "../Landing/db_connect.php";
 
-  //auto logout when user is inactive
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
-  // last request was more than 30 minutes ago
-  session_unset();     // unset $_SESSION variable for the run-time 
-  session_destroy();   // destroy session data in storage
-  header("location: ../Landing/login.php");
-}
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+     //auto logout when user is inactive
+   if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+   // last request was more than 30 minutes ago
+     session_unset();     // unset $_SESSION variable for the run-time 
+     session_destroy();   // destroy session data in storage
+     header("location: ../Landing/login.php");
+   }
+  $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
   //get values from form
   if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -284,6 +284,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
           
             input[type="radio"] {
               margin-right: 5px;
+              /* make radio button large */
+              transform: scale(1.5);
             }
           
             input[type="submit"] {
@@ -312,7 +314,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
             .btn-submit{
 
               /* get this button to center inside form tag */
-              margin-left: 30rem;
+              margin-left: 25rem;
 
             }
             h2 {
@@ -322,6 +324,12 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
               font-size: 1.4rem;
               font-weight: bold;
               color: #333;
+            }
+            form > .color-code{
+              display: flex;
+              justify-content:space-evenly;
+              align-items: center;
+              font-weight: bold;
             }
 
     </style>
@@ -413,8 +421,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                   <option value="wool">Wool</option>
                   </select>
           
-                  <br><br>
-          
+                    <br><br>
+                    
+                  <span class="color-code">
                   <label for="color-code" required>Color Code 1:</label>
                   <input type="color" id="color-code-1" name="color-code-1">
           
@@ -427,17 +436,20 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
                   <label for="color-code">Color Code 3:</label>
                   <input type="color" id="color-code" name="color-code-3">
-          
+                  </span>
                   <br><br>
 
           
                   <br><br>
                      
                   <label for="embroidered">Embroidered:</label>
-                  <input type="radio" id="embroidered-yes" name="embroidered" value="yes">
+                  <input style="margin:10px" type="radio" id="embroidered-yes" name="embroidered" value="yes">
                   <label for="embroidered-yes">Yes</label>
-                  <input type="radio" id="embroidered-no" name="embroidered" value="no">
-                  <label for="embroidered-no">No</label>
+                  <input style="margin:10px" type="radio" id="embroidered-no" name="embroidered" value="no">
+                  <label for="embroidered-no">No</label> 
+
+                  <br>
+                  <br>
 
                   <label for="collar">Collar:</label>
                   <select id="collar" name="collar">
