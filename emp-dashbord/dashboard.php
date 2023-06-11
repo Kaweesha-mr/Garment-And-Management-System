@@ -4,7 +4,7 @@ session_start();
 
 
 //auto logout when user is inactive
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
     // last request was more than 30 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
     session_destroy();   // destroy session data in storage
@@ -43,7 +43,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
   display: flex;
   justify-content:center;
   align-items:start;
-  background-color: #ffffff;
+  background-color: transparent;
   height: 2vh;;
 }
     </style>
@@ -99,7 +99,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             
                             <?php
                             
-                            $sql = "SELECT * FROM order_tbl where User_Id = '$_SESSION[userid];'";
+                            $sql = "SELECT * FROM order_tbl where User_Id = '$_SESSION[userid]';";
 
                             $result = mysqli_query($conn, $sql);
 

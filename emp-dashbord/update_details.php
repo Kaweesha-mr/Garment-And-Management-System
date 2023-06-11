@@ -5,14 +5,15 @@
   session_start();
   
   require "../Landing/db_connect.php";
-//   //auto logout when user is inactive
-//    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
-//    // last request was more than 30 minutes ago
-//    session_unset();     // unset $_SESSION variable for the run-time 
-//    session_destroy();   // destroy session data in storage
-//    header("location: ../Landing/login.php");
-//  }
-//  $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+   //auto logout when user is inactive
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+    // last request was more than 30 minutes ago
+    session_unset();     // unset $_SESSION variable for the run-time 
+    session_destroy();   // destroy session data in storage
+    header("location: ../Landing/login.php");
+ }
+  $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
   //check if user is logged in
@@ -48,6 +49,47 @@
       echo "<script>alert('Details Not Updated')</script>";
     }
   }
+
+
+
+
+  if(isset($_POST['update-pw'])){
+    $oldpassword = $_POST['oldpassword'];
+    //get password from database
+    $sql = "SELECT * FROM register_user WHERE User_id = '$_SESSION[userid]'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $password = $row['Passwords'];
+
+    //check oldpassword and password is same
+    if(password_verify($oldpassword, $password)){
+
+        $newpassword = $_POST['new-password'];
+        $confirmpassword = $_POST['confirm-password'];
+
+        //check new password and confirm password is same
+        if($newpassword == $confirmpassword){
+            //hash new password using password hash
+            $newpassword = password_hash($newpassword, PASSWORD_DEFAULT);
+            $sql = "UPDATE register_user SET Passwords = '$newpassword' WHERE User_id = '$_SESSION[userid]'";
+            $result = mysqli_query($conn, $sql);
+            if($result){
+                echo "<script>alert('Password Updated Successfully')</script>";
+            }else{
+                echo "<script>alert('Password Update Failed')</script>";
+            }
+        }else{
+            echo "<script>alert('New Password and Confirm Password is not same')</script>";
+        }
+
+    }else{
+        echo "<script>alert('Old Password is Wrong')</script>";
+    }
+
+}
+
+
+  
 
 ?>
 
@@ -93,7 +135,7 @@
               justify-content: flex-start;
               box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
               margin-top: 2rem;
-              height: 35rem;
+              height: 38rem;
             }
           
             .form-container > div {
@@ -231,6 +273,7 @@
             /* add class blur */
             .blur{
               filter: blur(5px);
+              transition: all 0.5s ease-in-out;
             }
 
             main > .popup {
@@ -241,7 +284,7 @@
                     left: 40rem;
                     margin-left: 120px;
                     opacity: 0.9;
-                    transition: all 0.5s ease-in-out;
+                    transition: all 1s ease-in-out;
                   }
 
              main >.blur {
@@ -268,17 +311,22 @@
 
                 margin-left: 20rem;
                 cursor: pointer;
-              }
-
-              main >.popup> .hide-resetpassword > form >.btn-update{
-                  
-                  margin-left: 20rem;
-                  cursor: pointer;
-
+                transition: all 1s ease-in-out;
               }
               main >.form-container > form >.buttons{
                 display: flex;
               }
+
+              .btn-update{
+                border: 1px solid transparent;
+                border-radius: 10px;
+                padding: 10px;
+                background-color: forestgreen;
+                color: white;
+                font: 1rem 'Poppins', sans-serif;
+                cursor: pointer;              
+              }
+
 
 
 
@@ -380,35 +428,38 @@
                   >
                 </input>
                 <br><br>
-                <span class="buttons" style="display:flex;justify-content: space-around;">
-                <input type="submit" name="submit" value="Update" class="btn-submit">
+                <span class="buttons" style="display:flex; justify-content:space-evenly;">
+
+                <input type="submit" name="submit" value="Update" class="btn-submit"></input>
+
+                <input  type="button" class="btn-update" onclick="pop_up()" value="Update_Password"></input>
                 
                 </span>
                 
             </form>
-            <input type="submit" name="Update" value="Update Password" class="btn-update" onclick="pop_up()">
           </div>
           </div>
 
           
           <div id="popup" class="popup">
           <div class="hide-resetpassword">
-                <form action="" method="post">
+                <form method="post">
 
                 <span class="material-icons-sharp close" onclick="close_UP()">close</span>
                 <h2>Update Password</h2> 
                 <!-- icon to close -->
 
                 <label for="Current-Password">Current Password</label>
-                <input type="password" name="password" value="">
+                <input type="password" name="oldpassword" value="">
                 <br><br>
                 <label for="New-Password">New Password</label>
                 <input type="password" name="new-password" value="" >
                   <br><br>
                 <label for="Confirm-Password">Confirm Password</label>
                 <input type="password" name="confirm-password" value="">
-                  <br><br>  
-                <button type="submit" value="Update password" onclick="pop_up()">Update Password</button>
+                  <br><br>
+
+                <button type="submit" name="update-pw" value="update-pw">Update Password</button>
                 </form>
 
               </div>
