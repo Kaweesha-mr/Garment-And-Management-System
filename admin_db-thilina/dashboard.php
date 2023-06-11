@@ -33,8 +33,8 @@
 
     while($row = mysqli_fetch_array($res))
     {
-        $test[$count] ["label"] = $row['ord_typ'];
-        $test[$count] ["y"] = $row["Qnt"];
+        $test[$count] ["label"] = $row['Order_Type'];
+        $test[$count] ["y"] = $row["Quantity"];
 
         $count =$count +1;
     }

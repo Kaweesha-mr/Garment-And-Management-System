@@ -78,7 +78,7 @@
 
         <div class="add-emp">
 
-            <a href="E-F_page.php" class="addEmp">
+            <a href="./E-F_page.php" class="addEmp">
                 <span class="btn-text">Add a new employee</span>
                 <span class="material-symbols-rounded">person_add</span>
             </a>
