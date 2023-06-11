@@ -5,12 +5,16 @@ btn.onclick = function (){
     sidebar.classList.toggle('active');
 };
 
+
+
 // show greetings functions
 
 function greeting(){
 
-    var time = new Date().getHours;
+    var settime = new Date();
+    time = settime.getHours();
     let massages;
+
 
     if (time < 12){
         massages = "Good Mornning";
@@ -18,8 +22,11 @@ function greeting(){
     else if (time < 18){
         massages = "Good afternoon";
     }
+    else if (time < 24){
+        massages = "Good evenning ";
+    }
     else{
-        massages = "Good evenning";
+        massages = "It's time to sleep!!!";
     }
     document.getElementById("massage").innerHTML = "Hi! " + massages;
 
