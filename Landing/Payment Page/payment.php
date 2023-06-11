@@ -27,7 +27,7 @@
 				<input type="text" name="State" placeholder="State" required>
 	
 				Zip code
-				<input type="text" name="ZipCode" placeholder="Zip code" pattern = "[0-9]{20}" required>
+				<input type="text" name="ZipCode" placeholder="Zip code" pattern = "[0-9]{5}" required>
 			</div>
 	
 			<div class="right">
@@ -156,7 +156,7 @@ if (isset($_POST['submitpayment'])) {
     
     
 
-    $sql = "INSERT INTO cart (FirstName, LastName, Address, City, State, ZipCode, CRD, EXmonth, EXyear, CVV)
+    $sql = "INSERT INTO payment (FirstName, LastName, Address, City, State, ZipCode, CRD, EXmonth, EXyear, CVV)
 	 VALUES ('$fname', '$lname', '$address','$city', '$state', '$code', '$crd', '$ex', '$exy', '$cvv' )";
 
     if ($conn->query($sql)) {
