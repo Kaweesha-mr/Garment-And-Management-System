@@ -5,7 +5,7 @@
     $ord_list = '';
 
     //getting the lists of uses
-    $query = "SELECT * FROM order_table WHERE is_approved = 0 ORDER BY ord_id";
+    $query = "SELECT * FROM order_tbl WHERE is_approved = 0 ORDER BY Order_Id";
     $users = mysqli_query($conn, $query);
 
     //if query successful
@@ -13,12 +13,12 @@
         while($user = mysqli_fetch_assoc($users))
         {
             $ord_list .= "<tr>";
-            $ord_list .= "<td>{$user['ord_id']}</td>";
-            $ord_list .= "<td>{$user['usrid']}</td>";        
-            $ord_list .= "<td>{$user['ord_typ']}</td>";
-            $ord_list .= "<td>{$user['Qnt']}</td>";
-            $ord_list .= "<td>{$user['delv_date']}</td>";
-            $ord_list .= "<td><a href=\"approve-order.php?or_id={$user['ord_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">edit_attributes</span></a></td>";
+            $ord_list .= "<td>{$user['Order_Id']}</td>";
+            $ord_list .= "<td>{$user['User_Id']}</td>";        
+            $ord_list .= "<td>{$user['Order_Type']}</td>";
+            $ord_list .= "<td>{$user['Quantity']}</td>";
+            $ord_list .= "<td>{$user['Delivery_date']}</td>";
+            $ord_list .= "<td><a href=\"approve-order.php?or_id={$user['Order_Id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">edit_attributes</span></a></td>";
             $ord_list .= "</tr>";
         }
     }
