@@ -13,7 +13,7 @@
 			header('Location: orderpanal.php?err=cannot_delete_current_user');
 		} else {
 			// deleting the user
-			$query = "UPDATE order_table SET is_approved = 1 WHERE ord_id = {$emp} LIMIT 1";
+			$query = "UPDATE order_tbl SET is_approved = 1 WHERE Order_Id = {$emp} LIMIT 1";
 
 			$result = mysqli_query($conn, $query);
 

@@ -5,7 +5,7 @@
     $emp_list = '';
 
     //getting the lists of uses
-    $query = "SELECT * FROM employee WHERE is_deleted = 0 ORDER BY emp_id";
+    $query = "SELECT * FROM employee WHERE is_deleted = 0 ORDER BY Emp_id";
     $users = mysqli_query($conn, $query);
 
     //if query successful
@@ -13,14 +13,14 @@
         while($user = mysqli_fetch_assoc($users))
         {
             $emp_list .= "<tr>";
-            $emp_list .= "<td>{$user['emp_id']}</td>";
+            $emp_list .= "<td>{$user['Emp_id']}</td>";
             $emp_list .= "<td>{$user['first_name']}</td>";        
             $emp_list .= "<td>{$user['job_title']}</td>";
             $emp_list .= "<td>{$user['zone']}</td>";
             $emp_list .= "<td>{$user['join_date']}</td>";
             $emp_list .= "<td>{$user['mobile_no']}</td>";
-            $emp_list .= "<td><a href=\"delete-emp.php?em_id={$user['emp_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">delete</span></a></td>";
-            $emp_list .= "<td><a href=\"modify-emp.php?em_id={$user['emp_id']}\"><span class=\"material-symbols-rounded\" id=\"update\">update</span></a></td>";
+            $emp_list .= "<td><a href=\"delete-emp.php?em_id={$user['Emp_id']}\"onclick=\"return confirm('Are you sure?');\"><span class=\"material-symbols-rounded\" id=\"delete\">delete</span></a></td>";
+            $emp_list .= "<td><a href=\"modify-emp.php?em_id={$user['Emp_id']}\"><span class=\"material-symbols-rounded\" id=\"update\">update</span></a></td>";
             $emp_list .= "</tr>";
         }
     }

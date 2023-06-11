@@ -27,7 +27,7 @@
         
         //getting infomation from employee table
         $emp = mysqli_real_escape_string($conn, $_GET['em_id']);
-        $query = "SELECT * FROM employee WHERE emp_id = {$emp} LIMIT 1";
+        $query = "SELECT * FROM employee WHERE Emp_id = {$emp} LIMIT 1";
 
         //excute query
         $result_set = mysqli_query($conn, $query);
