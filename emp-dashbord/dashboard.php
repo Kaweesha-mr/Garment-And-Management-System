@@ -164,6 +164,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     <tr>
                   
                   <?php
+                    
                     //get data from database to table using fetch assoc
                       while($row = mysqli_fetch_assoc($result)){
                   ?>
@@ -174,6 +175,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                       <td><?php echo $row['Delivery_date']; ?></td>
                       <td><?php echo $row['Total']; ?></td>
                     </Tr>
+                    
                   <?php
                     }
                   

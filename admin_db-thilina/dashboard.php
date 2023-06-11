@@ -3,18 +3,18 @@
 <?php
 
     // Perform the database query
-    $query = "SELECT COUNT(*) AS total_rows FROM order_table";
-    $result = mysqli_query($connection, $query);
+    $query = "SELECT COUNT(*) AS total_rows FROM order_tbl";
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $totalRows = $row['total_rows'];
 
     $query = "SELECT COUNT(*) AS total_rows_emp FROM employee";
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $totalRowsEmp = $row['total_rows_emp'];
 
-    $query = "SELECT COUNT(*) AS total_rows_app_ord FROM order_table WHERE is_approved =  1";
-    $result = mysqli_query($connection, $query);
+    $query = "SELECT COUNT(*) AS total_rows_app_ord FROM order_tbl WHERE is_approved =  1";
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $totalRowsAppOrd = $row['total_rows_app_ord'];
   
@@ -28,8 +28,8 @@
 
     $count = 0;
 
-    $query = "SELECT * FROM order_table";
-    $res = mysqli_query($connection, $query);
+    $query = "SELECT * FROM order_tbl";
+    $res = mysqli_query($conn, $query);
 
     while($row = mysqli_fetch_array($res))
     {

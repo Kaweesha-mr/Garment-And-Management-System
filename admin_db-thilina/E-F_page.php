@@ -20,10 +20,10 @@
             // $DOB = $_POST['DOB'];
         
             //check email address exist
-            $email = mysqli_real_escape_string($connection, $_POST['email']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
             $query = "SELECT * FROM employee WHERE email = '{$email}' LIMIT 1";
 
-            $result_set = mysqli_query($connection, $query);
+            $result_set = mysqli_query($conn, $query);
 
             if ($result_set) 
             {
@@ -37,27 +37,27 @@
             {
 
                 // no errors found... adding new record
-                $first_name = mysqli_real_escape_string($connection, $_POST['first_name']);
-                $last_name = mysqli_real_escape_string($connection, $_POST['last_name']);
-                $DOB = mysqli_real_escape_string($connection, $_POST['DOB']);
-                $mobile_no = mysqli_real_escape_string($connection, $_POST['mobile_no']);
-                $gender = mysqli_real_escape_string($connection, $_POST['gender']);
-                $email = mysqli_real_escape_string($connection, $_POST['email']);
-                $password = mysqli_real_escape_string($connection, $_POST['password']);
+                $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+                $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+                $DOB = mysqli_real_escape_string($conn, $_POST['DOB']);
+                $mobile_no = mysqli_real_escape_string($conn, $_POST['mobile_no']);
+                $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);
+                $password = mysqli_real_escape_string($conn, $_POST['password']);
                 $hashed_password = sha1($password);
 
-                $address = mysqli_real_escape_string($connection, $_POST['address']);
-                $title = mysqli_real_escape_string($connection, $_POST['title']);
-                $join_date = mysqli_real_escape_string($connection, $_POST['join_date']);
-                $zone = mysqli_real_escape_string($connection, $_POST['zone']);
-                $insure = mysqli_real_escape_string($connection, $_POST['insure']);
+                $address = mysqli_real_escape_string($conn, $_POST['address']);
+                $title = mysqli_real_escape_string($conn, $_POST['title']);
+                $join_date = mysqli_real_escape_string($conn, $_POST['join_date']);
+                $zone = mysqli_real_escape_string($conn, $_POST['zone']);
+                $insure = mysqli_real_escape_string($conn, $_POST['insure']);
 
             
             
                 $query = "INSERT INTO employee ( first_name, last_name, DOB, mobile_no, gender, email, password, address, job_title, join_date, zone, insure ) VALUES ( '{$first_name}', '{$last_name}', '{$DOB}', '{$mobile_no}', '{$gender}', '{$email}', '{$hashed_password}', '{$address}', '{$title}', '{$join_date}', '{$zone}', '{$insure}')";
                 
 
-                $result = mysqli_query($connection, $query);
+                $result = mysqli_query($conn, $query);
 
                 if ($result) {
                     // query successful... redirecting to users page

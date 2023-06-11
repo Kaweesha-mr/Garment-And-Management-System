@@ -6,7 +6,7 @@
 
 	if (isset($_GET['em_id'])) {
 		// getting the user information
-		$emp = mysqli_real_escape_string($connection, $_GET['em_id']);
+		$emp = mysqli_real_escape_string($conn, $_GET['em_id']);
 
 		if ( $emp == $_SESSION['em_id'] ) {
 			// should not delete current user
@@ -15,7 +15,7 @@
 			// deleting the user
 			$query = "DELETE FROM employee WHERE emp_id = {$emp} LIMIT 1";
 
-			$result = mysqli_query($connection, $query);
+			$result = mysqli_query($conn, $query);
 
 			if ($result) {
 				// user deleted

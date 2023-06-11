@@ -26,11 +26,11 @@
     if(isset($_GET['em_id'])){
         
         //getting infomation from employee table
-        $emp = mysqli_real_escape_string($connection, $_GET['em_id']);
+        $emp = mysqli_real_escape_string($conn, $_GET['em_id']);
         $query = "SELECT * FROM employee WHERE emp_id = {$emp} LIMIT 1";
 
         //excute query
-        $result_set = mysqli_query($connection, $query);
+        $result_set = mysqli_query($conn, $query);
 
         //check query successful
         if($result_set)
@@ -76,10 +76,10 @@
 		
         
             //check email address exist
-            $email = mysqli_real_escape_string($connection, $_POST['email']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
             $query = "SELECT * FROM employee WHERE email = '{$email}' AND emp_id != {$emp} LIMIT 1";
 
-            $result_set = mysqli_query($connection, $query);
+            $result_set = mysqli_query($conn, $query);
 
             if ($result_set) 
             {
@@ -93,18 +93,18 @@
             {
 
                 // no errors found... adding new record
-                $first_name = mysqli_real_escape_string($connection, $_POST['first_name']);   //after post -> names of inpput field in form
-                $last_name = mysqli_real_escape_string($connection, $_POST['last_name']);
-                $DOB = mysqli_real_escape_string($connection, $_POST['DOB']);
-                $mobile_no = mysqli_real_escape_string($connection, $_POST['mobile_no']);
-                $gender = mysqli_real_escape_string($connection, $_POST['gender']);
+                $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);   //after post -> names of inpput field in form
+                $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+                $DOB = mysqli_real_escape_string($conn, $_POST['DOB']);
+                $mobile_no = mysqli_real_escape_string($conn, $_POST['mobile_no']);
+                $gender = mysqli_real_escape_string($conn, $_POST['gender']);
                 
 
-                $address = mysqli_real_escape_string($connection, $_POST['address']);
-                $title = mysqli_real_escape_string($connection, $_POST['title']);
-                $join_date = mysqli_real_escape_string($connection, $_POST['join_date']);
-                $zone = mysqli_real_escape_string($connection, $_POST['zone']);
-                $insure = mysqli_real_escape_string($connection, $_POST['insure']);
+                $address = mysqli_real_escape_string($conn, $_POST['address']);
+                $title = mysqli_real_escape_string($conn, $_POST['title']);
+                $join_date = mysqli_real_escape_string($conn, $_POST['join_date']);
+                $zone = mysqli_real_escape_string($conn, $_POST['zone']);
+                $insure = mysqli_real_escape_string($conn, $_POST['insure']);
 
             
             
@@ -112,7 +112,7 @@
 
                 
 
-                $result = mysqli_query($connection, $query);
+                $result = mysqli_query($conn, $query);
 
                 if ($result) {
                     // query successful... redirecting to users page

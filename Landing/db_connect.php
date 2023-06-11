@@ -1,7 +1,7 @@
 <?php
 
     //create connection object
-    $conn = new mysqli("localhost", "root", "", "garmnet_management_system");
+    $conn = new mysqli("localhost", "root","", "garmnet_management_system");
 
     //check connection
     if($conn->connect_error){

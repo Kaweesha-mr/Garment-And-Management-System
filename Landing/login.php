@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $sql = "SELECT `User_id` FROM `register_user` WHERE `username` = '$username'";
     $result = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($result);
-    
     if ($result[0] == null) {
         //get user id for username from database
         $sql = "SELECT `AdminId` FROM `admin` WHERE `username_ADN` = '$username'";
@@ -126,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
         //redirect to dashboard in emp-dashbord file
-        header("location: ../admin_db_thilina/dashboard.html");
+        header("location: ../admin_db-thilina/dashboard.php");
     }
     else {
         //create a js alert to say error
@@ -165,8 +164,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
-
-
     <div class="container">
         <header>Login<h2>Login to explore more</h2>
         </header>

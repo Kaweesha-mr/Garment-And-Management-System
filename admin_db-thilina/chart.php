@@ -18,7 +18,7 @@ $test = array();
 $count = 0;
 
 $query = "SELECT * FROM order_table";
-$res = mysqli_query($connection, $query);
+$res = mysqli_query($conn, $query);
 
 while($row = mysqli_fetch_array($res))
 {

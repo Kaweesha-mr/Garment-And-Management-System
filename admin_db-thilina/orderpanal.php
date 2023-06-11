@@ -6,7 +6,7 @@
 
     //getting the lists of uses
     $query = "SELECT * FROM order_table WHERE is_approved = 0 ORDER BY ord_id";
-    $users = mysqli_query($connection, $query);
+    $users = mysqli_query($conn, $query);
 
     //if query successful
     if($users){

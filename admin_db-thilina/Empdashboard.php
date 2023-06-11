@@ -6,7 +6,7 @@
 
     //getting the lists of uses
     $query = "SELECT * FROM employee WHERE is_deleted = 0 ORDER BY emp_id";
-    $users = mysqli_query($connection, $query);
+    $users = mysqli_query($conn, $query);
 
     //if query successful
     if($users){

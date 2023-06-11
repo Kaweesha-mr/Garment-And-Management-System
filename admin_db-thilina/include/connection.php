@@ -1,16 +1,18 @@
 <?php
 
-    //connect to data base   garment_management_system
+    //create connection object
+    $conn = new mysqli("localhost", "root", "", "garmnet_management_system");
 
-    $connection = mysqli_connect('localhost', 'root', '', 'garment_management_system');
+    //check connection
+    if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error);
+        
 
-    if(mysqli_connect_errno()){
-        die('database connetion fail' . mysqli_connect_error());
-     }
-     else{
+    }
+    else{
 
-        //echo "<script> alert('connected')</script>";
-     }
-
-
+        //create a script alert success
+        echo "<script>console.log('Connection Successful');</script>";
+    }
+    
 ?>

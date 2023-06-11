@@ -8,33 +8,33 @@
 
     if(isset($_POST['submit']))
     {
-        $first_name = mysqli_real_escape_string($connection, $_POST['FirstName']);
-        $last_name = mysqli_real_escape_string($connection, $_POST['LastName']);
-        $DOB = mysqli_real_escape_string($connection, $_POST['DOB']);
-        // $NIC = mysqli_real_escape_string($connection, $_POST['NIC']);
-        $mobile_no = mysqli_real_escape_string($connection, $_POST['mobile_no']);
-        $gender = mysqli_real_escape_string($connection, $_POST['gender']);
-        // $age = mysqli_real_escape_string($connection, $_POST['age']);
-        $email = mysqli_real_escape_string($connection, $_POST['email']);
+        $first_name = mysqli_real_escape_string($conn, $_POST['FirstName']);
+        $last_name = mysqli_real_escape_string($conn, $_POST['LastName']);
+        $DOB = mysqli_real_escape_string($conn, $_POST['DOB']);
+        // $NIC = mysqli_real_escape_string($conn, $_POST['NIC']);
+        $mobile_no = mysqli_real_escape_string($conn, $_POST['mobile_no']);
+        $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+        // $age = mysqli_real_escape_string($conn, $_POST['age']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
 
-        $password = mysqli_real_escape_string($connection, $_POST['password']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
         $hashed_pasword = sha1($password);
 
-        $street_add = mysqli_real_escape_string($connection, $_POST['street_add']);
-        // $district = mysqli_real_escape_string($connection, $_POST['district']);
-        // $province = mysqli_real_escape_string($connection, $_POST['province']);
-        // $postal_code = mysqli_real_escape_string($connection, $_POST['postal_code']);
-        $job_title = mysqli_real_escape_string($connection, $_POST['job_title']);
-        // $zone = mysqli_real_escape_string($connection, $_POST['zone']);
-        $join_date = mysqli_real_escape_string($connection, $_POST['join_date']);
-        $insure = mysqli_real_escape_string($connection, $_POST['insure']);
+        $street_add = mysqli_real_escape_string($conn, $_POST['street_add']);
+        // $district = mysqli_real_escape_string($conn, $_POST['district']);
+        // $province = mysqli_real_escape_string($conn, $_POST['province']);
+        // $postal_code = mysqli_real_escape_string($conn, $_POST['postal_code']);
+        $job_title = mysqli_real_escape_string($conn, $_POST['job_title']);
+        // $zone = mysqli_real_escape_string($conn, $_POST['zone']);
+        $join_date = mysqli_real_escape_string($conn, $_POST['join_date']);
+        $insure = mysqli_real_escape_string($conn, $_POST['insure']);
 
 
 
         $query = "INSERT INTO employee (first_name, last_name, DOB, mobile_no, gender, email, password, street_add, job_title, join_date, insure)";
         $query .= " VALUES ('{$first_name}', '{$last_name}', '{$DOB}', '{$mobile_no}', '{$gender}', '{$email}', '{$hashed_password}', '{street_add}', '{$job_title}', '{$join_date}', '{$insure}')";
 
-        $result = mysqli_query($connection, $query);
+        $result = mysqli_query($conn, $query);
 
         if ($result) {
             // query successful... redirecting to users page

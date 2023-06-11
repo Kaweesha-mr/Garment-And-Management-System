@@ -6,7 +6,7 @@
 
 	if (isset($_GET['or_id'])) {
 		// getting the user information
-		$emp = mysqli_real_escape_string($connection, $_GET['or_id']);
+		$emp = mysqli_real_escape_string($conn, $_GET['or_id']);
 
 		if ( $emp == $_SESSION['or_id'] ) {
 			// should not delete current user
@@ -15,7 +15,7 @@
 			// deleting the user
 			$query = "UPDATE order_table SET is_approved = 1 WHERE ord_id = {$emp} LIMIT 1";
 
-			$result = mysqli_query($connection, $query);
+			$result = mysqli_query($conn, $query);
 
 			if ($result) {
 				// user deleted
