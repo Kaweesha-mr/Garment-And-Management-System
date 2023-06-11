@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $result = mysqli_fetch_array($result);
 
         //store the resluts in session names userid
-        $_SESSION['userid'] = $result[0];
+        $_SESSION['ADNuserid'] = $result[0];
 
 
         //redirect to dashboard in emp-dashbord file
