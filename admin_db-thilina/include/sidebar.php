@@ -2,6 +2,13 @@
     session_start();
 ?>
 
+<?php 
+
+    if(!isset($_SESSION['ADNuserid'])){
+        header('Location: ../Landing/login.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +30,7 @@
         <div class="top">
             <div class="logo">
                 <!-- logo -->
-                <img src="images/logo.jpeg" alt="company_logo" class="logoimg">
+                <img src="images/logo1.png" alt="company_logo" class="logoimg">
                 <span>ABC Clothings</span>
             </div>
             <!-- menu btn -->
