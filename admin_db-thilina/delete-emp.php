@@ -13,7 +13,7 @@
 			header('Location: Empdashboard.php?err=cannot_delete_current_user');
 		} else {
 			// deleting the user
-			$query = "UPDATE employee SET is_deleted = 1 WHERE emp_id = {$emp} LIMIT 1";
+			$query = "DELETE FROM employee WHERE emp_id = {$emp} LIMIT 1";
 
 			$result = mysqli_query($connection, $query);
 
