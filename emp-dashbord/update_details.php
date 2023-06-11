@@ -228,6 +228,11 @@
               color: white;
             }
 
+            /* add class blur */
+            .blur{
+              filter: blur(5px);
+            }
+
             main > .popup {
 
                     z-index: 20;
@@ -255,6 +260,10 @@
                 font-weight: bolder;
               }
               
+              main >.popup{
+
+                display: none;
+              }
               main >.popup> .hide-resetpassword > form > .close{
 
                 margin-left: 20rem;
@@ -457,11 +466,15 @@ function darkmode(){
 
 function close_UP(){
   document.getElementById("popup").style.display = "none";
+  document.querySelector('.form-container').classList.remove('blur');
 }
 
 function pop_up(){
     //add hide class
     document.getElementById("popup").style.display = "block";
+    //add class to body execpt popup
+    document.querySelector('.form-container').classList.add('blur');
+    //remove blur from popup
 }
 
 </SCript>
