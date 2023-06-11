@@ -34,7 +34,7 @@
             <div>
                 <p class="bold">
                 <?php
-                echo $_SESSION['ADNuserid']
+                echo $_SESSION['ADNname']
                 
                 ?>
                 </p>
