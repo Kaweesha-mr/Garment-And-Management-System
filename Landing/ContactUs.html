@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./ContactUs_style.css" />
+    <style>
+      /* =======Header========= */
+header {
+
+z-index: 999;
+position: fixed;
+width: 100%;
+height: calc(5rem + 1rem);
+top: 0;
+left: 0;
+display: flex;
+justify-content: center;
+transition: 0.5s ease;
+transition-property: height,background;
+}
+
+header .wrapper{
+
+margin-top: 200px;
+}
+
+
+header.sticky{
+height: calc(2.5rem + 1rem);
+background:rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border-bottom: 1ps solid rgba(255, 255, 255, 0.1);
+}
+header .nav-bar {
+
+position: sticky;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 200px;
+transition: 0.3s ease;
+background-color: #ffffff49;
+backdrop-filter: blur(20px);
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+}
+
+.nav-bar .logo {
+
+color: var(--dark-color);
+font-size: 1.8rem;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+text-decoration: none;
+text-shadow: var(--text-shadow);
+}
+
+.navigation .nav-items a {
+
+color: var(--dark-color);
+font-size: 1rem;
+text-decoration: none;
+text-shadow: var(--text-shadow);
+
+}
+.navigation .nav-items a:not(:last-child) {
+margin-right: 45px;
+}
+
+.footer-container{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  height: auto;
+  width: 1;
+  font-family: "Open Sans";
+  padding-top:20px ;
+  color: #fff;
+}
+
+footer>.footer-content{
+
+display: flex;
+
+align-items: center;
+
+flex-direction: column;
+
+text-align: center;
+}
+
+footer>.footer-content h3 {
+
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+
+footer >.footer-content p{
+
+max-width: 500px;
+
+margin: 10px auto;
+}
+
+footer > .socials{
+
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 1rem 0;
+}
+
+footer >.socials li{
+  margin: 0 10px;
+}
+
+footer > .socials a {
+  text-align: none;
+  color: #fff;
+}
+
+footer > .socials a i {
+
+  font-size: 1.1rem;
+  transition: color .4s ease;
+}
+
+footer >.socials a:hover i{
+
+  color: aqua;
+}
+
+footer>.footer-bottem{
+
+  background:#000 ;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer>.footer-bottem p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+footer>.footer-bottem span{
+
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 200;
+}
+
+    </style>
+  </head>
+  <body>
+      <!-- !navigation Bar -->
+  <header>
+    <div class="nav-bar">
+      <a href="" class="logo"> ABC Garments</a>
+      <div class="navigation">
+        <div class="nav-items">
+          <a href="#"> <i class="uil uil-home"></i>Home</a>
+          <a href="#"> <i class="uil uil-compass"></i>Blog</a>
+          <a href="./ContactUs.html"> <i class="uil uil-info-circle"></i>Contact Us</a>
+          <a href="./about us/aboutUs.html"> <i class="uil uil-document-layout-left"></i>About Us</a>
+          <!-- make this button blue ane make it red when hover -->
+          <a href="login.php"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+          
+        </div>
+      </div>
+      <i class="uil uil-apps nav-menu-btn"></i>
+    </div>      
+  </header>
+
+
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Address</div>
+            <div class="text-one">No 34/56</div>
+            <div class="text-two"> Janapriya Mawatha , Colombo</div>
+          </div>
+          <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Phone</div>
+            <div class="text-one">+9477347822</div>
+            <div class="text-two">+9470445777</div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">codinglab@gmail.com</div>
+            <div class="text-two">info.codinglab@gmail.com</div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="topic-text">CONTACT US</div>
+          <p> Send a your massage </p>
+          <form action="#">
+            <div class="input-box">
+              <input type="text" placeholder="Enter your ID" />
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Enter your email" />
+            </div>
+            <div class="input-box message-box">
+              <textarea placeholder="Enter your message"></textarea>
+            </div>
+            <div class="button">
+              <input type="button" value="Send Now" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+  
+</html>

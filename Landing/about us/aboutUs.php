@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+   <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+
+    
+   !external resouces that are got to style the landing page and login,register popup -->
+<!--  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="./nav.css">
+  <link rel="stylesheet" type="text/css" href="aboutUs.css"> -->
+
+
+         
+    </head>
+
+    <body>
+
+    <header>
+    <div class="nav-bar">
+      <a href="" class="logo"> ABC Garments</a>
+      <div class="navigation">
+        <div class="nav-items">
+          <a href="#"> <i class="uil uil-home"></i>Home</a>
+          <a href="#"> <i class="uil uil-compass"></i>Blog</a>
+          <a href="./ContactUs.html"> <i class="uil uil-info-circle"></i>Contact Us</a>
+          <a href="#"> <i class="uil uil-document-layout-left"></i>About Us</a>
+          <!-- make this button blue ane make it red when hover -->
+          <a href="login.php"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
+          
+        </div>
+      </div>
+      <i class="uil uil-apps nav-menu-btn"></i>
+    </div>      
+  </header>
+
+
+
+        <div class="back-about" >
+            <h1 class="about-section1">About Us Page</h1> <br><br>
+            <p class="about-section2">We specialize in providing a comprehensive Garment
+                 Management System that optimizes production, inventory, and sales processes
+                 for garment businesses. Our solution streamlines operations and maximizes 
+                 efficiency, helping you stay ahead in the dynamic fashion industry.</p>
+          </div>
+
+          
+        <div class="back-aboutt">
+                   
+        <div class="about">
+            
+
+            <div class="inner-section">
+                <h1 class="texth">Our Mission</h1>
+                <p class="text">
+                    Our mission is to streamline garment management processes for businesses, 
+                    ensuring smooth operations and increased productivity. We aim to offer 
+                    comprehensive features and a user-friendly interface to meet the unique 
+                    needs of garment manufacturers, distributors, and retailers.
+                </p>
+            </div>
+
+            <div class="inner-left">
+                <h1 class="texth">Our Vission</h1>
+                <p class="text">
+                    We strive to be a global leader in fashion-knit and fashion outerwear by
+                    empowering innovation and design to provide total customer satisfaction.
+                    We strive to be a caring and well-managed organization for our business 
+                    partners ,customers and employees, and a responsible corporate citizen to our society.
+                </p>
+            </div>
+
+
+        </div>
+       </div>
+        
+
+
+          <hr>
+
+          <div class="about-us-informations">
+            <div class="contact-details">
+                <div class="head-q"> <br><br><br>
+                    <h1>Headquarters.</h1>
+                </div>
+                <div class="about-address">
+                    <p> <i class="fa fa-home">&nbsp; &nbsp;Colombo | Sri - Lanka 117,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Gall Road, Colombo </i></p>
+                </div>
+                <div class="about-phone">
+                    <p> <i class="fa fa-phone">&nbsp; &nbsp;011 - 2 222 222</i></p>
+                </div>
+                <div class="about-gmail">
+                    <p><i class="fa fa-envelope">&nbsp; &nbsp;contact.info@gmail.com</i></p>
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.992153799242!2d79.85762960154983!3d6.891540963084806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bdc5d527d75%3A0x60d7c8e804c7e977!2s117%20Galle%20Rd%2C%20Colombo%2000400!5e0!3m2!1sen!2slk!4v1666528593982!5m2!1sen!2slk" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+
+   <section class="footer-container">
+
+    <footer>
+      <div class="footer-content">
+        <h3>Sri Lanka Institute of Information Technology</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatum, necessitatibus eveniet
+          provident ducimus dignissimos veniam nisi consequatur dolore eligendi reiciendis tempora quod aspernatur
+          explicabo iste quae impedit, officia sit.</p>
+        <ul class="socials">
+          <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+          <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottem">
+        <p>copyright &copy;2020 Kaweesha Marasinghe. Designed by MLB_14.02_02</p>
+      </div>
+
+    </footer>
+
+
+  </section>
+
+
+    </body>
+    
+</html>
+
+
+  
