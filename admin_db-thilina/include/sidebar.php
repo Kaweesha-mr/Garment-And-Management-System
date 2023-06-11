@@ -66,7 +66,7 @@
             </li>
         </ul>
         <div class="logout">
-            <a href="#">
+            <a href="logout.php">
                 <span class="material-symbols-rounded">logout</span>
                 <span class="nav_item">Logout Now</span>
             </a>
