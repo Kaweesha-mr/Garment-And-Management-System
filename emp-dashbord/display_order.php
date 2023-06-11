@@ -4,6 +4,10 @@
 session_start();
 require "../Landing/db_connect.php";
 
+if (!isset($_SESSION['userid']) && !isset($_SESSION['username'])) {
+  header("location: ../Landing/login.php");
+}
+
 //auto logout when user is inactive
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
   // last request was more than 5min minutes ago

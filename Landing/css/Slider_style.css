@@ -198,7 +198,7 @@ header .nav-bar {
 
 }
 
-.swiper-slide .text-content .read-btn {
+.swiper-slide .text-content .r-btn {
 
   border: none;
   outline: none;
@@ -215,7 +215,7 @@ header .nav-bar {
   opacity: 0;
 }
 
-.swiper-slide-active .text-content .read-btn {
+.swiper-slide-active .text-content .r-btn {
 
   transform: translateY(0);
   opacity: 1;
@@ -226,12 +226,12 @@ header .nav-bar {
 
 }
 
-.swiper-slide .text-content .read-btn i {
+.swiper-slide .text-content .r-btn i {
   font-size: 1.6rem;
   transition: 0.3s ease;
 }
 
-.swiper-slide .text-content .read-btn:hover i {
+.swiper-slide .text-content .r-btn:hover i {
 
   transform: translateX(5px);
 
