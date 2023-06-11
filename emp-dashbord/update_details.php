@@ -228,6 +228,11 @@
               color: white;
             }
 
+            /* add class blur */
+            .blur{
+              filter: blur(5px);
+            }
+
             main > .popup {
 
                     z-index: 20;
@@ -245,12 +250,20 @@
 
               main > .hide {
                   display: none;
-                  }
+              }
+
+              .show{
+                display: block;
+              }
 
               .material-icons-sharp{
                 font-weight: bolder;
               }
+              
+              main >.popup{
 
+                display: none;
+              }
               main >.popup> .hide-resetpassword > form > .close{
 
                 margin-left: 20rem;
@@ -266,6 +279,8 @@
               main >.form-container > form >.buttons{
                 display: flex;
               }
+
+
 
     </style>
 
@@ -336,17 +351,17 @@
                   <input type="text" name="email" value= <?php
                     echo $row['email'];
                   
-                  ?>
+                  ?>>
                 
                   <label for="DOB">Date of Birth</label>
                   <input type="date" name="DOB" value= <?php 
                     echo $row['DOB'];
-                  ?>
+                  ?>>
 
                   <label for="Phone Number">Phone Number</label>
                   <input type="text" name="Phone"value= <?php 
                     echo $row['Phone'];
-                  ?>
+                  ?>>
 
                   <br><br>
           
@@ -365,12 +380,13 @@
                   >
                 </input>
                 <br><br>
-                <span class="buttons" style="display:flex; justify-content=space-around">
+                <span class="buttons" style="display:flex;justify-content: space-around;">
                 <input type="submit" name="submit" value="Update" class="btn-submit">
-                <input type="submit" name="Update" value="Update Password" class="btn-update">
+                
                 </span>
                 
             </form>
+            <input type="submit" name="Update" value="Update Password" class="btn-update" onclick="pop_up()">
           </div>
           </div>
 
@@ -392,7 +408,7 @@
                 <label for="Confirm-Password">Confirm Password</label>
                 <input type="password" name="confirm-password" value="">
                   <br><br>  
-                <button type="submit" value="Update password">Update Password</button>
+                <button type="submit" value="Update password" onclick="pop_up()">Update Password</button>
                 </form>
 
               </div>
@@ -450,6 +466,15 @@ function darkmode(){
 
 function close_UP(){
   document.getElementById("popup").style.display = "none";
+  document.querySelector('.form-container').classList.remove('blur');
+}
+
+function pop_up(){
+    //add hide class
+    document.getElementById("popup").style.display = "block";
+    //add class to body execpt popup
+    document.querySelector('.form-container').classList.add('blur');
+    //remove blur from popup
 }
 
 </SCript>

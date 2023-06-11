@@ -164,9 +164,14 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     <tr>
                   
                   <?php
-                    
-                    //get data from database to table using fetch assoc
-                      while($row = mysqli_fetch_assoc($result)){
+
+                    //get orderid,empid,quantity,dilivary_date,total from order_tbl in database for session[userid]
+                    $sql = "SELECT * FROM order_tbl where User_Id = '$_SESSION[userid]';";
+                    $result = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($result);
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        
                   ?>
                 
                       <td><?php echo $row['Order_Id']; ?></td>
