@@ -22,6 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $sql = "SELECT `User_id` FROM `register_user` WHERE `username` = '$username'";
     $result = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($result);
+    
+    if ($result[0] == null) {
+        //get user id for username from database
+        $sql = "SELECT `AdminId` FROM `admin` WHERE `username_ADN` = '$username'";
+        $result = mysqli_query($conn, $sql);
+        $result = mysqli_fetch_array($result);
+    }
 
     //check if username 1st 3 letters contain prefix USR
     $prefix = substr($result[0], 0, 3);
@@ -82,6 +89,52 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     else if ($prefix == "ADN") {
 
         // !thilin's login system
+
+        //get the password in the database
+    $sql = "SELECT `Password` FROM `admin` WHERE `username_ADN` = '$username'";
+    $result = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_array($result);
+
+
+    //store result in a variable
+    $result = $result[0];
+
+    //verify the password
+    $verify = password_verify($password, $result);
+
+    //if password is verifyied then login
+    if ($verify == 1) {
+
+        //create a js alert to say successfully registered
+        echo '<script>alert("Successfully Logged In")</script>';
+
+        //session to login user
+        $_SESSION['ADNloggedin'] = true;
+        $_SESSION['ADNusername'] = $username;
+
+        //get user id from user id
+        $sql = "SELECT AdminId FROM `admin` WHERE `username_ADN` = '$username'";
+
+        //run the query and print output using script
+        $result = mysqli_query($conn, $sql);
+
+        //get the value os result array and store it in a variable
+        $result = mysqli_fetch_array($result);
+
+        //store the resluts in session names userid
+        $_SESSION['userid'] = $result[0];
+
+
+        //redirect to dashboard in emp-dashbord file
+        header("location: ../admin_db_thilina/dashboard.html");
+    }
+    else {
+        //create a js alert to say error
+        echo '<script>alert("Invalid Username or Password")</script>';
+    }
+
+
+        //!thilin's login system ended
     }
     else {
         //create a js alert to say error

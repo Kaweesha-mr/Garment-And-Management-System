@@ -5,14 +5,14 @@
   session_start();
   
   require "../Landing/db_connect.php";
-  //auto logout when user is inactive
-   if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
-   // last request was more than 30 minutes ago
-   session_unset();     // unset $_SESSION variable for the run-time 
-   session_destroy();   // destroy session data in storage
-   header("location: ../Landing/login.php");
- }
- $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+//   //auto logout when user is inactive
+//    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+//    // last request was more than 30 minutes ago
+//    session_unset();     // unset $_SESSION variable for the run-time 
+//    session_destroy();   // destroy session data in storage
+//    header("location: ../Landing/login.php");
+//  }
+//  $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
   //check if user is logged in
@@ -138,6 +138,7 @@
             }
           
             input[type="submit"] {
+              font-family: "Poppins", sans-serif;
               background-color: #2a972e;
               color: #fff;
               padding: 10px 20px;
@@ -148,7 +149,7 @@
             }
           
             input[type="submit"]:hover {
-              background-color: #2a972e;
+              background-color: purple;
             }
 
             .view-order-details{
@@ -161,9 +162,8 @@
             }
 
             .btn-submit{
-
               /* get this button to center inside form tag */
-              margin-left: 26rem;
+              margin-left:3rem;
 
             }
             h2 {
@@ -257,8 +257,15 @@
                 cursor: pointer;
               }
 
+              main >.popup> .hide-resetpassword > form >.btn-update{
+                  
+                  margin-left: 20rem;
+                  cursor: pointer;
 
-
+              }
+              main >.form-container > form >.buttons{
+                display: flex;
+              }
 
     </style>
 
@@ -358,9 +365,9 @@
                   >
                 </input>
                 <br><br>
-                <span style="display:flex;">
+                <span class="buttons" style="display:flex; justify-content=space-around">
                 <input type="submit" name="submit" value="Update" class="btn-submit">
-                <input type="submit" name="submit" value="Update Password" class="btn-submit">
+                <input type="submit" name="Update" value="Update Password" class="btn-update">
                 </span>
                 
             </form>
@@ -372,7 +379,7 @@
           <div class="hide-resetpassword">
                 <form action="" method="post">
 
-                <span class="material-icons-sharp close">close</span>
+                <span class="material-icons-sharp close" onclick="close_UP()">close</span>
                 <h2>Update Password</h2> 
                 <!-- icon to close -->
 
@@ -440,6 +447,11 @@ function darkmode(){
     document.querySelector('.dark').classList.add('active');
     document.querySelector('.light').classList.remove('active');
   }
+
+function close_UP(){
+  document.getElementById("popup").style.display = "none";
+}
+
 </SCript>
 </body>
 

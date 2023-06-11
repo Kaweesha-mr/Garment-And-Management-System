@@ -211,7 +211,7 @@ if (isset($_GET['Order_Id'])) {
                 </div>
             </div>
             <div class="sidebar" >
-            <a href="dashboard.html">
+            <a href="dashboard.php">
                   <span class="material-icons-sharp">grid_view</span>
                   <h3>Dashboard</h3>
               </a>
@@ -291,7 +291,7 @@ if (isset($_GET['Order_Id'])) {
                   <tr>
                   
                   <?php
-                    $sql = "SELECT Order_Id,Emp_Id,Type1,Type2,Type3,Color_1,Color_2,Color_3,Quantity,Delivery_date,Total FROM `order_tbl` where User_Id = $_SESSION[userid];;";
+                    $sql = "SELECT Order_Id,Emp_Id,Type1,Type2,Type3,Color_1,Color_2,Color_3,Quantity,Delivery_date,Total FROM `order_tbl` where User_Id = '$_SESSION[userid]';";
 
                   //run sql query and store in result variable
                     $result = mysqli_query($conn, $sql);
