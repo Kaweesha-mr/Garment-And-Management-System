@@ -6,13 +6,13 @@
   
   require "../Landing/db_connect.php";
   //auto logout when user is inactive
-// if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
-//   // last request was more than 30 minutes ago
-//   session_unset();     // unset $_SESSION variable for the run-time 
-//   session_destroy();   // destroy session data in storage
-//   header("location: ../Landing/login.php");
-// }
-// $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+   if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 30)) {
+   // last request was more than 30 minutes ago
+   session_unset();     // unset $_SESSION variable for the run-time 
+   session_destroy();   // destroy session data in storage
+   header("location: ../Landing/login.php");
+ }
+ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 
   //check if user is logged in
@@ -167,14 +167,15 @@
 
             }
             h2 {
+
               text-align: center;
               margin-top: 0;
-              font-family: Georgia, Arial, Helvetica;
+              font-family: 'Poppins', sans-serif;
               font-size: 1.4rem;
               font-weight: bold;
               color: #333;
             }
-            main > .hide-resetpassword> form {
+            main > .popup >.hide-resetpassword> form {
 
             width: 25rem;
             border-radius: 20px;
@@ -190,39 +191,72 @@
             border:1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             }
-            main > .hide-resetpassword > form > label{
+
+            main >.popup > .hide-resetpassword > form > label{
               font-size: 1.2rem;
               font-weight: 500;
               color: #333;
-              margin: 10px;
+              margin: 2px;
             }
-            main > .hide-resetpassword > form > input{
+
+            main >.popup >.hide-resetpassword > form > input{
               height: 2rem;
               border-radius: 10px;
-              margin: 10px;
+              margin: 1px;
               width: 20rem;
               background-color:rgba(1, 1, 1, 0.14);
               border: 1px solid black;
+              font-size: 20px;
 
             }
 
-            main > .hide-resetpassword > form > button {
+            main >.popup> .hide-resetpassword > form > button {
               
               font-family: 'Poppins', sans-serif;
               font-size: 1.2rem;
               height: 4rem;
               border-radius: 30px;
-              margin: 10px;
+              margin: 7px;
               width: 20rem;
               background-color:black;
               border: 1px solid black;
               color: white;
             }
-            main > .hide-resetpassword > form > button:hover {
+            main >.popup> .hide-resetpassword > form > button:hover {
               background-color: #333;
               border: 1px solid #333;
               color: white;
             }
+
+            main > .popup {
+
+                    z-index: 20;
+                    position: absolute;
+                    top: 10rem;
+                    left: 40rem;
+                    margin-left: 120px;
+                    opacity: 0.9;
+                    transition: all 0.5s ease-in-out;
+                  }
+
+             main >.blur {
+                  filter: blur(5px);
+                  }
+
+              main > .hide {
+                  display: none;
+                  }
+
+              .material-icons-sharp{
+                font-weight: bolder;
+              }
+
+              main >.popup> .hide-resetpassword > form > .close{
+
+                margin-left: 20rem;
+                cursor: pointer;
+              }
+
 
 
 
@@ -287,7 +321,7 @@
                   <label for="Username">Username</label>
                   <input type="text" name="username" value= <?php 
                     echo $row['username'];
-                  ?>
+                  ?>>
           
                   <br><br>
           
@@ -333,10 +367,15 @@
           </div>
           </div>
 
-
+          
+          <div id="popup" class="popup">
           <div class="hide-resetpassword">
-
                 <form action="" method="post">
+
+                <span class="material-icons-sharp close">close</span>
+                <h2>Update Password</h2> 
+                <!-- icon to close -->
+
                 <label for="Current-Password">Current Password</label>
                 <input type="password" name="password" value="">
                 <br><br>
@@ -350,6 +389,7 @@
                 </form>
 
               </div>
+          </div>
         </main>
         <!-------------------------------------- END OF MAIN---------------------------------------->
 
@@ -369,7 +409,9 @@
                         echo $_SESSION['username'];
                         ?>
                         </b></p>
-                        <small class="text-muted">Admin</small>
+                        <small class="text-muted"><?php
+                        echo $_SESSION['userid'];
+                        ?></small>
                     </div>
                     <div class="profile-photo">
                         <img src="./images/profile-1.jpg">

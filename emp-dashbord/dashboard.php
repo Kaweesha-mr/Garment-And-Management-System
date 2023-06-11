@@ -99,7 +99,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             
                             <?php
                             
-                            $sql = "SELECT * FROM order_tbl where User_Id = $_SESSION[userid];";
+                            $sql = "SELECT * FROM order_tbl where User_Id = '$_SESSION[userid];'";
 
                             $result = mysqli_query($conn, $sql);
 
@@ -130,7 +130,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             
                             <?php
                                 // //get sum of total value from order_tbl in database for session[userid]
-                                $sqll = "SELECT SUM(Total) AS value_sum FROM order_tbl where User_Id = $_SESSION[userid];";
+                                $sqll = "SELECT SUM(Total) AS value_sum FROM order_tbl where User_Id = '$_SESSION[userid]';";
 
                                 $resultt = mysqli_query($conn, $sqll);
 
@@ -201,7 +201,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                         echo $_SESSION['username'];
                         ?>
                         </b></p>
-                        <small class="text-muted">Admin</small>
+                        <small class="text-muted">                        <?php
+                        echo $_SESSION['userid'];
+                        ?></small>
                     </div>
                     <div class="profile-photo">
                         <img src="./images/profile-1.jpg">

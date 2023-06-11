@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
   //get values from form
-  $fullName = remove_sql_injection($_POST['fullName'],$conn);
+  $username = remove_sql_injection($_POST['fullName'],$conn);
   $email = remove_sql_injection($_POST['email'],$conn);
   $phone = remove_sql_injection($_POST['phone'],$conn);
   $dob = $_POST['dob'];
@@ -41,13 +41,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($verify == 1){
     
       //send query if email,fullname,password,repassword are not empty
-    $sql = "INSERT INTO `register_user` (`username`, `email`, `Passwords`, `DOB`, `HAddress_lane`, `D_address_lane`) VALUES ('$fullName', '$email', '$Hashedpassword', '$dob','$Haddress', '$Daddress')";
+    $sql = "INSERT INTO `register_user` (`username`, `email`, `Passwords`, `DOB`, `HAddress_lane`, `D_address_lane`) VALUES ('$username', '$email', '$Hashedpassword', '$dob','$Haddress', '$Daddress')";
 
     if($conn->query($sql)) {
 
       //create a js alert to say successfully registered
       echo '<script>alert("Successfully Registered")</script>';
       
+      //genarating a random user id between 1000 and 9999 with USR prefix
+      $user_id = "USR".rand(1000,9999);
+
+      //update user_id in database
+      $sql = "UPDATE `register_user` SET `User_id` = '$user_id' WHERE `register_user`.`username` = '$username'";
+      $conn->query($sql);
+
       //redirect to login page
       header("location: login.php");
     }

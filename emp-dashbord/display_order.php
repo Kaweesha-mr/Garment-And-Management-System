@@ -252,7 +252,9 @@ if (isset($_GET['Order_Id'])) {
                         echo $_SESSION['username'];
                         ?>
                         </b></p>
-                        <small class="text-muted">Admin</small>
+                        <small class="text-muted">                        <?php
+                        echo $_SESSION['userid'];
+                        ?></small>
                     </div>
                     <div class="profile-photo">
                         <img src="./images/profile-1.jpg">
