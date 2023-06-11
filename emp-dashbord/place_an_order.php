@@ -350,7 +350,7 @@
         <aside>
         <div class="top">
                 <div class="logo">
-                    <img src="./images/logo.png">
+                <img src="./images/Logo.png">
                     <h2>Fashion<span class="danger"></span>Treak</h2>
                 </div>
             </div>
