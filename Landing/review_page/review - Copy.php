@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="review.css">
+  <script src="review.js"></script>
+  <?php require_once('connect.php'); ?>
+  <title>Customer Review Inserting Page</title>
+</head>
+<body>
+  <div class="rBack">
+    <h1>Review Our Service</h1>
+    <br><br>
+    <?php
+      $sql = "SELECT `order_id`, `user_id`, `order_name`, `price`, `order_date`, `deliver_date`, `user_name` FROM `order` WHERE user_id = 1";
+      if ($result = $conn->query($sql)) {
+        $reviewIds = array(); // Initialize as an array
+        while ($results_ = mysqli_fetch_assoc($result)) {
+          $reviewIds[] = "<option value=\"{$results_['order_id']}\">{$results_['order_id']}</option>";
+        }
+      } else {
+        echo "Please select Order ID";
+      }
+    ?>
+    <div class="container">
+      <label class="label" for="order">Select Order:</label>
+      <select class="dropbtn" name="order" id="order" onchange="review_number(this.value)">
+        <option value="alphabetical" selected>Choose</option>
+        <?php foreach ($reviewIds as $reviewId) { echo $reviewId; } ?>
+      </select>
+    </div>
+    <p><input type="text" id="total" style="display: none;"></p>
+    <script>
+      function review_number(val) {
+        var t = val;
+        document.getElementById("total").value = t;
+        window.location.href = "review - Copy.php?t=" + t;
+        document.getElementById("total").style.display = "block";
+      }
+    </script>
+    <?php
+      if (isset($_GET['t'])) {
+        $t = $_GET['t'];
+      }
+    ?>
+    <?php
+      $sql2 = "SELECT `order_id`, `user_id`, `order_name`, `price`, `order_date`, `deliver_date` FROM `order` WHERE order_id = $t";
+      $result = $conn->query($sql2);
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          $order_id = $row["order_id"];
+          $user_id = $row["user_id"];
+          $order_name = $row["order_name"];
+          $price = $row["price"];
+          $order_date = $row["order_date"];
+          $deliver_date = $row["deliver_date"];
+        }
+      } else {
+        echo "No results found.";
+      }
+    ?>
+    <br><br>
+    <form action="#" method="POST" autocomplete="off">
+      <label for="author"> Order Name:</label>
+      <div class="inbox">
+        <input type="text" id="orderName" name="orderName" required value="<?php echo $order_name; ?>">
+      </div>
+      <label for="date"> Ordered Date:</label>
+      <div class="inbox">
+        <input type="text" id="oDate" name="oDate" required value="<?php echo $order_date; ?>">
+      </div>
+      <label for="date"> Delivered Date:</label>
+      <div class="inbox">
+        <input type="text" id="dDate" name="dDate" required value="<?php echo $deliver_date; ?>">
+      </div>
+
+      <fieldset class="rating">
+        <legend>Rating:</legend>
+        <input type="radio" id="star5" name="rating" value="5" required>
+        <label for="star5">&#9733;</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4">&#9733;</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3">&#9733;</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2">&#9733;</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1">&#9733;</label>
+      </fieldset>
+
+      <br><label for="review">Review:</label>
+      <textarea id="review" name="review" rows="4" required></textarea>
+
+      <input type="submit" value="Submit Review" class="submit-btn">
+    </form>
+    <?php
+      // Retrieve user-entered values from the form
+      $product_name = isset($_POST['orderName']) ? $_POST['orderName'] : '';
+      $review = isset($_POST['review']) ? $_POST['review'] : '';
+      $rating = isset($_POST['rating']) ? $_POST['rating'] : '';
+      $user_id = 1; // Assuming user_id is hardcoded for this example
+
+      // Perform input validation and sanitization as needed
+
+      // Check if all required fields are filled
+      if (!empty($product_name) && !empty($review) && !empty($rating)) {
+        // Insert the values into the review table
+        $sql = "INSERT INTO review (product_name, review_date, review, rating, user_id) 
+                VALUES ('$product_name', CURDATE(), '$review', '$rating', '$user_id')";
+
+        // Execute the query
+        if ($conn->query($sql) === TRUE) {
+          echo "Review inserted successfully";
+        } else {
+          echo "Error inserting review: " . $conn->error;
+        }
+      }
+    ?>
+    <br><br><br><br>
+  </div>
+  <div class="customer-r">
+    <br>
+    <h3>Customer Reviews</h3>
+    <br><br>
+    <form action="#" method="POST" autocomplete="off" class="form1">
+      <?php
+        $sql = "SELECT review_id, product_name, review_date, review, rating FROM review WHERE user_id = 1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $review_id = $row['review_id'];
+            $product_name = $row['product_name'];
+            $review_text = $row['review'];
+            $rating = $row['rating'];
+            echo "<div class='review'>";
+            echo "<input type='hidden' name='review_id[]' value='$review_id'>"; // Use [] to make it an array
+            echo "<label for='review_name'>Review Name:</label>";
+            echo "<input type='text' name='product_name[]' value='$product_name'>"; // Use [] to make it an array
+            echo "<label for='review_text'>Review:</label>";
+            echo "<textarea name='review_text[]'>$review_text</textarea>";
+            echo "<fieldset class='rating'>";
+            echo "<legend>Rating:</legend>";
+            for ($i = 5; $i >= 1; $i--) {
+              $checked = ($i == $rating) ? 'checked' : '';
+              echo "<input type='radio' id='star$i' name='rating[$review_id]' value='$i' $checked>";
+              echo "<label for='star$i'>&#9733;</label>";
+            }
+            echo "</fieldset>";
+            echo "<button type='submit' name='update_review'>Update</button>";
+            echo "<button type='submit' name='delete_review[$review_id]'>Delete</button>";
+
+            echo "</div>";
+          }
+        } else {
+          echo "No reviews found.";
+        }
+      ?>
+    </form>
+    <?php
+      if (isset($_POST['update_review'])) {
+        // Get the review_id, product_name, and review_text arrays from the form
+        $review_ids = $_POST['review_id'];
+        $product_names = $_POST['product_name'];
+        $review_texts = $_POST['review_text'];
+        $ratings = $_POST['rating'];
+
+        // Loop through the arrays and update the corresponding rows in the database
+        for ($i = 0; $i < count($review_ids); $i++) {
+          $review_id = $review_ids[$i];
+          $product_name = $product_names[$i];
+          $review_text = $review_texts[$i];
+          $rating = $ratings[$review_id]; // Use review_id as the key for ratings array
+
+          $sql = "UPDATE review SET product_name = '$product_name', review = '$review_text', rating = '$rating' WHERE review_id = '$review_id'";
+          if ($conn->query($sql) === TRUE) {
+            echo "Review updated successfully";
+          } else {
+            echo "Error updating review: " . $conn->error;
+          }
+        }
+      }
+      if (isset($_POST['delete_review'])) {
+        foreach ($_POST['delete_review'] as $review_id => $value) {
+          // Delete the review with the corresponding review_id
+          $sql = "DELETE FROM review WHERE review_id = '$review_id'";
+          if ($conn->query($sql) === TRUE) {
+            echo "Review deleted successfully";
+          } else {
+            echo "Error deleting review: " . $conn->error;
+          }
+        }
+      }
+      
+    ?>
+  </div>
+</body>
+</html>

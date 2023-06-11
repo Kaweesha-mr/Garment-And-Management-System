@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +32,15 @@
         <div class="user">
             <img src="images/userIMG.jpg" alt="user_pic" class="userimg">
             <div>
-                <p class="bold">Admin Name</p>
-                <p>admin email </p>
+                <p class="bold">
+                <?php
+                echo $_SESSION['ADNuserid']
+                
+                ?>
+                </p>
+                <p><?php
+                    echo $_SESSION['ADNEmail'];
+                ?></p>
             </div>
         </div>
         <ul>

@@ -1,0 +1,158 @@
+ /* CSS styling for the customer review inserting page */
+ body {
+    font-family: Arial, sans-serif;
+    
+  }
+  .rBack {
+    background-image: url("img1.jpg");
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  textarea {
+    
+    
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .rating input[type="radio"] {
+    display: none;
+  }
+
+  .rating label {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+  }
+
+  .rating label:hover,
+  .rating label:hover ~ label,
+  .rating input[type="radio"]:checked ~ label {
+    color: #ffbf00;
+  }
+
+  .submit-btn {
+    background-color: #349d38;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .label {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+
+  h3 {
+    text-align: center;
+    font-family:initial;
+    font-size: 20px;
+    color: #120e76;
+  }
+
+  .customer-r {
+    background-color: #e7e5e5;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  .btn1 {
+    margin-right: 5px;
+    background-color: #566ce9;
+  }
+
+  .btn2 {
+    margin-right: 5px;
+    background-color: #f65454;
+  }
+
+  .dropbtn {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+
+  
+

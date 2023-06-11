@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['ADNusername'] = $username;
 
         //get user id from user id
-        $sql = "SELECT AdminId FROM `admin` WHERE `username_ADN` = '$username'";
+        $sql = "SELECT AdminId,Email FROM `admin` WHERE `username_ADN` = '$username'";
 
         //run the query and print output using script
         $result = mysqli_query($conn, $sql);
@@ -122,8 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         //store the resluts in session names userid
         $_SESSION['ADNuserid'] = $result[0];
-
-
+        $_SESSION['ADNEmail'] = $result[1];
         //redirect to dashboard in emp-dashbord file
         header("location: ../admin_db-thilina/dashboard.php");
     }
