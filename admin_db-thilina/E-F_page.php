@@ -185,16 +185,9 @@
                         <span class="btn-text">Cancel</span>
                         <span class="material-symbols-rounded">close</span>
                     </a>
-
-                    <!-- <button >
-                        
-                    </button> -->
                 </div>
 
-                
-
-
-
+            
             </form>
 
         </div>  <!--inside form field class closing tag-->

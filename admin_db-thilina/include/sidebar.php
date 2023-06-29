@@ -36,19 +36,24 @@
             <!-- menu btn -->
             <span class="material-symbols-rounded" id="btn">menu</span>
         </div>
+
         <div class="user">
+            
             <img src="images/userIMG.jpg" alt="user_pic" class="userimg">
+            
             <div>
                 <p class="bold">
                 <?php
-                echo $_SESSION['ADNname']
-                
+                    echo $_SESSION['ADNname']
                 ?>
                 </p>
                 <p><?php
                     echo $_SESSION['ADNEmail'];
-                ?></p>
+                ?>
+                </p>
             </div>
+
+
         </div>
         <ul>
             <li>
@@ -72,14 +77,14 @@
                 </a>
                 <span class="tooltip">Orders</span>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#">
                     <span class="material-symbols-rounded">local_shipping</span>
                     <span class="nav_item">Transport</span>
                 </a>
                 <span class="tooltip">Transport</span>
             </li>
-            <li>
+            <li> -->
                 
             </li>
         </ul>

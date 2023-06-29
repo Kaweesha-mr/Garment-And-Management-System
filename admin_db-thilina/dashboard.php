@@ -4,7 +4,7 @@
 
     // Perform the database query
     $query = "SELECT COUNT(*) AS total_rows FROM order_tbl";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);  //execute the query
     $row = mysqli_fetch_assoc($result);
     $totalRows = $row['total_rows'];
 
