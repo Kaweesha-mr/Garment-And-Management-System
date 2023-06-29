@@ -5,7 +5,10 @@
     $emp_list = '';
 
     //getting the lists of uses
-    $query = "SELECT * FROM employee WHERE is_deleted = 0 ORDER BY Emp_id";
+    $query = "  SELECT *
+                FROM employee
+                WHERE is_deleted = 0 
+                ORDER BY Emp_id";
     $users = mysqli_query($conn, $query);
 
     //if query successful

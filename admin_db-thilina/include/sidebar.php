@@ -77,17 +77,9 @@
                 </a>
                 <span class="tooltip">Orders</span>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <span class="material-symbols-rounded">local_shipping</span>
-                    <span class="nav_item">Transport</span>
-                </a>
-                <span class="tooltip">Transport</span>
-            </li>
-            <li> -->
-                
-            </li>
+            
         </ul>
+
         <div class="logout">
             <a href="logout.php">
                 <span class="material-symbols-rounded">logout</span>
@@ -95,6 +87,7 @@
             </a>
             <span class="tooltip">Logout</span>
         </div>
+        
     </div>
 <!------------------------------------------- SIDEBAR END ------------------------------------------>
 
