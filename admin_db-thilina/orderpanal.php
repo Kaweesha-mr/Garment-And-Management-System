@@ -5,7 +5,10 @@
     $ord_list = '';
 
     //getting the lists of uses
-    $query = "SELECT * FROM order_tbl WHERE is_approved = 0 ORDER BY Order_Id";
+    $query = "  SELECT *
+                FROM order_tbl
+                WHERE is_approved = 0
+                ORDER BY Order_Id";
     $users = mysqli_query($conn, $query);
 
     //if query successful

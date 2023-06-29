@@ -28,13 +28,16 @@
 
     $count = 0;
 
-    $query = "SELECT * FROM order_tbl";
+    $query = "  SELECT Order_Type, SUM(Quantity) AS 'totle of orders'
+                FROM order_tbl
+                GROUP BY Order_Type";
+
     $res = mysqli_query($conn, $query);
 
     while($row = mysqli_fetch_array($res))
     {
         $test[$count] ["label"] = $row['Order_Type'];
-        $test[$count] ["y"] = $row["Quantity"];
+        $test[$count] ["y"] = $row["totle of orders"];
 
         $count =$count +1;
     }
@@ -119,7 +122,7 @@
                             animationEnabled: true,
                             theme: "light2",
                             title:{
-                                text: "Sells for types"
+                                text: "Sells of types"
                             },
                             axisY: {
                                 title: "Quantity"
@@ -138,7 +141,7 @@
 
 
                     <div id="chartContainer"></div>
-                    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                    <script src="canvasjs/canvasjs-chart-3.7.10/canvasjs.min.js"></script>
                     
                 </div>
 
