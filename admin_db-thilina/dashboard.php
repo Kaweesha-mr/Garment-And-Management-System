@@ -198,10 +198,15 @@
                             <div class="card-inner">
                                 <p class="card-Qnt">Messages</p>
                                 <br>
-                                <p class="msg-n"><?php echo $userid[0]; ?></p>
-                                <p class="msg"><?php echo $desc[0]; ?></p>
-                                <p class="msg-n"><?php echo $userid[1]; ?></p>
-                                <p class="msg"><?php echo $desc[1]; ?></p>
+                                <div class="msgbox">
+                                    <p class="msg-n"><?php echo $userid[0]; ?></p>
+                                    <p class="msg"><?php echo $desc[0]; ?></p>
+                                </div>
+                                <div class="msgbox">
+                                    <p class="msg-n"><?php echo $userid[1]; ?></p>
+                                    <p class="msg"><?php echo $desc[1]; ?></p>
+                                </div>
+                                
                                 
                             </div>
                             
