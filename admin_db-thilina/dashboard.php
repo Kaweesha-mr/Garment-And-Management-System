@@ -196,9 +196,8 @@
                                 <span class="material-symbols-rounded">mail</span>
                             </div>
                                 <p class="card-Qnt">Messages</p>
-                                <br>
 
-                            <div class="card-inner-r">
+                            <div class="card-inner">
                                 
                                 <div class="msgbox">
                                     <p class="msg-n"><?php echo $userid[0]; ?></p>
