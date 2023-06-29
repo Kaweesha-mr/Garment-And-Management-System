@@ -227,7 +227,7 @@ if (isset($_GET['Order_Id'])) {
                   <span class="material-icons-sharp">receipt_long</span>
                   <h3>Update Details</h3>
               </a>
-              <a href="#">
+              <a href="./review_page/review.html">
                   <span class="material-icons-sharp">insights</span>
                   <h3>Review Us</h3>
               </a>

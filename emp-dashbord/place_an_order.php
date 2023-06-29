@@ -408,7 +408,7 @@
                   </select>
                 
                   <label for="material-type">Select Material Type:</label>
-                  <select id="material-type" name="material-type-2">
+                  <select id="material-type" name="material-type-2" required>
                   <option value=""></option>
                   <option value="cotton">Cotton</option>
                   <option value="silk">Silk</option>
@@ -456,7 +456,7 @@
                   <br>
 
                   <label for="collar">Collar:</label>
-                  <select id="collar" name="collar">
+                  <select id="collar" name="collar" required>
                   <option value=""></option>
                   <option value="round">Round</option>
                   <option value="v-neck">V-neck</option>

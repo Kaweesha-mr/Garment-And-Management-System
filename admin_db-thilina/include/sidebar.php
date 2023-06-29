@@ -2,12 +2,12 @@
     session_start();
 ?>
 
-<?php 
+ <?php 
 
-    if(!isset($_SESSION['ADNuserid'])){
-        header('Location: ../Landing/login.php');
-    }
-?>
+    // if(!isset($_SESSION['ADNuserid'])){
+    //     header('Location: ../Landing/login.php');
+    // }
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
