@@ -41,7 +41,6 @@
 </head>
 
 <body>
-
   <!-- !navigation Bar -->
   <header>
     <div class="nav-bar">
@@ -211,8 +210,13 @@
       </div>
   </section>
   <!-- !Cards deisgn ends here -->
+    <!-- add t shirt icon from font awesome -->
+    
 
   <!-- !counting cards starts here -->
+
+
+
 
   <section id="section_counter">
     <div class="container-counting">
@@ -221,15 +225,18 @@
     <div class="container-counting">
       <div class="counter-grid">
         <div class="counter-item">
-          <img src="images/web-design.png" alt="Image" class="counter-img" />
+          <i class="fas fa-tshirt"></i>
           <h1 class="counter" data-target="200">0</h1>
         </div>
         <div class="counter-item">
-          <img src="images/web-development.png" alt="Image" class="counter-img" />
+
+          <!-- add transport icon -->
+          <i class="fas fa-truck"></i>
           <h1 class="counter" data-target="300">0</h1>
         </div>
         <div class="counter-item">
-          <img src="images/ux-design.png" alt="Image" class="counter-img" />
+          <!-- add swing machine icon -->
+          <i class="fas fa-people-carry"></i>
           <h1 class="counter" data-target="250">0</h1>
         </div>
       </div>
@@ -376,6 +383,7 @@
   <script>
 
     // !swiper js starts here
+
     var swiper = new Swiper(".bg-slider-thumbs", {
       loop: true,
       spaceBetween: 0,
@@ -388,6 +396,11 @@
         swiper: swiper,
       },
     });
+
+    //make slider auto slide within 3s
+    swiper2.autoplay.start();
+
+
     // !swiper js ends here
   </script>
 

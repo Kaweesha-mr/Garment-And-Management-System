@@ -143,8 +143,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <input type="password" name="rePassword" placeholder="Re-Enter Password" required>
         </div>
         
-        <button>Register</button>
-      
+        <button>Register</button>      
       </form>
     </section>
   </body>
