@@ -195,9 +195,11 @@
                             <div class="calendar_month">
                                 <span class="material-symbols-rounded">mail</span>
                             </div>
-                            <div class="card-inner">
                                 <p class="card-Qnt">Messages</p>
                                 <br>
+
+                            <div class="card-inner-r">
+                                
                                 <div class="msgbox">
                                     <p class="msg-n"><?php echo $userid[0]; ?></p>
                                     <p class="msg"><?php echo $desc[0]; ?></p>
@@ -206,8 +208,7 @@
                                     <p class="msg-n"><?php echo $userid[1]; ?></p>
                                     <p class="msg"><?php echo $desc[1]; ?></p>
                                 </div>
-                                
-                                
+                                   
                             </div>
                             
                     </div>
