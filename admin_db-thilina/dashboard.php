@@ -17,6 +17,23 @@
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $totalRowsAppOrd = $row['total_rows_app_ord'];
+
+    $userid = array();
+    $query = "SELECT User_Id FROM order_tbl";
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_assoc($result)){
+        $userid[] = $row['User_Id'];
+    }
+
+    $desc = array();
+    $query = "SELECT Description FROM order_tbl ORDER BY Order_Id DESC";
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_assoc($result)){
+        $desc[] = $row['Description'];
+    }
+    
   
 
 ?>
@@ -181,7 +198,11 @@
                             <div class="card-inner">
                                 <p class="card-Qnt">Messages</p>
                                 <br>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repudiandae dolores officia earum doloribus nobis sint quas distinctio veniam rem cumque, iste placeat architecto doloremque quae, quis eaque. Perspiciatis, corrupti!</p>
+                                <p class="msg-n"><?php echo $userid[0]; ?></p>
+                                <p class="msg"><?php echo $desc[0]; ?></p>
+                                <p class="msg-n"><?php echo $userid[1]; ?></p>
+                                <p class="msg"><?php echo $desc[1]; ?></p>
+                                
                             </div>
                             
                     </div>
