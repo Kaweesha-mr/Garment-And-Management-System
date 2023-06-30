@@ -534,6 +534,10 @@ if (isset($_POST['update-pw'])) {
       document.querySelector('.light').classList.remove('active');
     }
 
+
+
+
+    //! used for update password popup option
     function close_UP() {
       document.getElementById("popup").style.display = "none";
       document.querySelector('.form-container').classList.remove('blur');

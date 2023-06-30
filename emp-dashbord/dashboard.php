@@ -101,8 +101,9 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
                         <div class="left">
-                            <h2>No Of Orders</h2>
 
+                            <h2>No Of Orders</h2>
+                          
                             <?php
 
                             $sql = "SELECT * FROM order_tbl where User_Id = '$_SESSION[userid]';";
@@ -135,7 +136,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             <h2>To be paid</h2>
 
                             <?php
-                            // //get sum of total value from order_tbl in database for session[userid]
+                            //get sum of total value from order_tbl 
                             $sqll = "SELECT SUM(Total) AS value_sum FROM order_tbl where User_Id = '$_SESSION[userid]';";
 
                             $resultt = mysqli_query($conn, $sqll);
@@ -160,7 +161,6 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     <thead>
                         <tr>
                             <th>Order_Id</th>
-                            <th>Employee_Id</th>
                             <th>Quantity</th>
                             <th>Delivary date</th>
                             <th>Order Total</th>
@@ -168,23 +168,22 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     </thead>
                     <tbody>
                         <tr>
+                            
 
+                            <!-- recent order table -->
                             <?php
 
-                            //get orderid,empid,quantity,dilivary_date,total from order_tbl in database for session[userid]
+                            //get orderid,empid,quantity,dilivary_date,total from order_tbl 
                             $sql = "SELECT * FROM order_tbl where User_Id = '$_SESSION[userid]';";
                             $result = mysqli_query($conn, $sql);
                             $resultCheck = mysqli_num_rows($result);
 
                             while ($row = mysqli_fetch_assoc($result)) {
 
-                                ?>
+                            ?>
 
                             <td>
                                 <?php echo $row['Order_Id']; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['Emp_Id']; ?>
                             </td>
                             <td>
                                 <?php echo $row['Quantity']; ?>
@@ -221,6 +220,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                     <div class="info">
                         <p>Hey, <b>
                                 <?php
+
                                 echo $_SESSION['username'];
                                 ?>
                             </b></p>
@@ -231,7 +231,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                         </small>
                     </div>
                     <div class="profile-photo">
-
+                            
+                            <!-- dynamic profile photo for male and female users -->
                         <?php
 
                         //this is used to add a user male user photo for gender male users and female photo for gender female users
