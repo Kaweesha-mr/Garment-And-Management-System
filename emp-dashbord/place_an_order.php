@@ -1,203 +1,181 @@
-
 <?php
 
-  //start session
-  session_start();
-  
-  require "../Landing/db_connect.php";
+//start session
+session_start();
 
-  if (!isset($_SESSION['userid']) && !isset($_SESSION['username'])) {
-    header("location: ../Landing/login.php");
+require "../Landing/db_connect.php";
+
+if (!isset($_SESSION['userid']) && !isset($_SESSION['username'])) {
+  header("location: ../Landing/login.php");
 }
 
-     //auto logout when user is inactive
-   if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
-   // last request was more than 30 minutes ago
-     session_unset();     // unset $_SESSION variable for the run-time 
-     session_destroy();   // destroy session data in storage
-     header("location: ../Landing/login.php");
-   }
-  $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+//auto logout when user is inactive
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+  // last request was more than 30 minutes ago
+  session_unset(); // unset $_SESSION variable for the run-time 
+  session_destroy(); // destroy session data in storage
+  header("location: ../Landing/login.php");
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
-  //get values from form
-  if($_SERVER['REQUEST_METHOD'] == "POST"){
+//get values from form
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $order_type = $_POST['order-type'];
-    $material_type_1 = $_POST['material-type-1'];
-    $material_type_2 = $_POST['material-type-2'];
-    $material_type_3 = $_POST['material-type-3'];
-    $color_code_1 = $_POST['color-code-1'];
-    $color_code_2 = $_POST['color-code-2'];
-    $color_code_3 = $_POST['color-code-3'];
-    $embroid = $_POST['embroidered'];
-    $collar = $_POST['collar'];
-    $quantity = $_POST['quantity'];
-    $order_deadline = $_POST['order-deadline'];
-    $description = $_POST['description'];
+  $order_type = $_POST['order-type'];
+  $material_type_1 = $_POST['material-type-1'];
+  $material_type_2 = $_POST['material-type-2'];
+  $material_type_3 = $_POST['material-type-3'];
+  $color_code_1 = $_POST['color-code-1'];
+  $color_code_2 = $_POST['color-code-2'];
+  $color_code_3 = $_POST['color-code-3'];
+  $embroid = $_POST['embroidered'];
+  $collar = $_POST['collar'];
+  $quantity = $_POST['quantity'];
+  $order_deadline = $_POST['order-deadline'];
+  $description = $_POST['description'];
 
-    //condition to check order type standard or express
-    if($order_type == "standard"){
+  //condition to check order type standard or express
+  if ($order_type == "standard") {
 
-      $order_deadline = date('Y-m-d', strtotime($order_deadline. ' + 7 days'));
+    $order_deadline = date('Y-m-d', strtotime($order_deadline . ' + 7 days'));
 
-      $total = 10000;
+    $total = 10000;
 
-      //add price for material type 1 cotton,silk,polyster,wool
+    //add price for material type 1 cotton,silk,polyster,wool
 
-      if($material_type_1 == "cotton"){
+    if ($material_type_1 == "cotton") {
 
-        $total = $total + 1000;
-      }
-      elseif($material_type_1 == "silk"){
+      $total = $total + 1000;
+    } elseif ($material_type_1 == "silk") {
 
-        $total = $total + 2000;
-      }
-      elseif($material_type_1 == "polyster"){
+      $total = $total + 2000;
+    } elseif ($material_type_1 == "polyster") {
 
-        $total = $total + 1500;
-      }
-      elseif($material_type_1 == "wool"){
+      $total = $total + 1500;
+    } elseif ($material_type_1 == "wool") {
 
-        $total = $total + 3000;
-      }
-
-      //add price for material type 2 cotton,silk,polyster,wool
-      
-      if($material_type_2 == "cotton"){
-
-        $total = $total + 1000;
-      }
-      elseif($material_type_2 == "silk"){
-
-        $total = $total + 2000;
-      }
-      elseif($material_type_2 == "polyster"){
-
-        $total = $total + 1500;
-      }
-      elseif($material_type_2 == "wool"){
-
-        $total = $total + 3000;
-      }
-
-      //add price for material type 3 cotton,silk,polyster,wool
-
-      if($material_type_3 == "cotton"){
-
-        $total = $total + 1000;
-      }
-      elseif($material_type_3 == "silk"){
-
-        $total = $total + 2000;
-      }
-      elseif($material_type_3 == "polyster"){
-
-        $total = $total + 1500;
-      }
-      elseif($material_type_3 == "wool"){
-
-        $total = $total + 3000;
-      }
-
-
-    }
-    elseif($order_type == "express"){
-
-      $order_deadline = date('Y-m-d', strtotime($order_deadline. ' + 3 days'));
-      $total = 20000;
-
-      //add price for material type 1 cotton,silk,polyster,wool
-
-      if($material_type_1 == "cotton"){
-
-        $total = $total + 1000;
-      }
-      elseif($material_type_1 == "silk"){
-
-        $total = $total + 2000;
-      }
-      elseif($material_type_1 == "polyster"){
-
-        $total = $total + 1500;
-      }
-      elseif($material_type_1 == "wool"){
-
-        $total = $total + 3000;
-      }
-
-      //add price for material type 2 cotton,silk,polyster,wool
-      
-      if($material_type_2 == "cotton"){
-
-        $total = $total + 1000;
-      }
-      elseif($material_type_2 == "silk"){
-
-        $total = $total + 2000;
-      }
-      elseif($material_type_2 == "polyster"){
-
-        $total = $total + 1500;
-      }
-      elseif($material_type_2 == "wool"){
-
-        $total = $total + 3000;
-      }
-
-      //add price for material type 3 cotton,silk,polyster,wool
-
-      if($material_type_3 == "cotton"){
-
-        $total = $total + 1000;
-      }
-      elseif($material_type_3 == "silk"){
-
-        $total = $total + 2000;
-      }
-      elseif($material_type_3 == "polyster"){
-
-        $total = $total + 1500;
-      }
-      elseif($material_type_3 == "wool"){
-
-        $total = $total + 3000;
-      }
+      $total = $total + 3000;
     }
 
-    //add amount for emobroid
-    if($embroid == "yes"){
+    //add price for material type 2 cotton,silk,polyster,wool
 
-      $total = $total + 5000;
+    if ($material_type_2 == "cotton") {
+
+      $total = $total + 1000;
+    } elseif ($material_type_2 == "silk") {
+
+      $total = $total + 2000;
+    } elseif ($material_type_2 == "polyster") {
+
+      $total = $total + 1500;
+    } elseif ($material_type_2 == "wool") {
+
+      $total = $total + 3000;
+    }
+
+    //add price for material type 3 cotton,silk,polyster,wool
+
+    if ($material_type_3 == "cotton") {
+
+      $total = $total + 1000;
+    } elseif ($material_type_3 == "silk") {
+
+      $total = $total + 2000;
+    } elseif ($material_type_3 == "polyster") {
+
+      $total = $total + 1500;
+    } elseif ($material_type_3 == "wool") {
+
+      $total = $total + 3000;
     }
 
 
+  } elseif ($order_type == "express") {
 
+    $order_deadline = date('Y-m-d', strtotime($order_deadline . ' + 3 days'));
+    $total = 20000;
 
+    //add price for material type 1 cotton,silk,polyster,wool
 
+    if ($material_type_1 == "cotton") {
 
-    //condition if order deadline is empty
-    if(empty($order_deadline)){
+      $total = $total + 1000;
+    } elseif ($material_type_1 == "silk") {
 
-      //die conenction
-      die();
+      $total = $total + 2000;
+    } elseif ($material_type_1 == "polyster") {
+
+      $total = $total + 1500;
+    } elseif ($material_type_1 == "wool") {
+
+      $total = $total + 3000;
     }
-    else{
 
-      //sql query to insert data into order table
-      $sql = "INSERT INTO order_tbl (User_Id,Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, Embroided, collar, Quantity, Delivery_date, Description, Total) VALUES ('$_SESSION[userid]','$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3',' $embroid', '$collar', '$quantity', '$order_deadline', '$description','$total')";
+    //add price for material type 2 cotton,silk,polyster,wool
 
-      //run sql query and script alert after successful insert
-      if(mysqli_query($conn,$sql)){
+    if ($material_type_2 == "cotton") {
 
-        echo "<script>alert('Order Placed Successfully')</script>";
+      $total = $total + 1000;
+    } elseif ($material_type_2 == "silk") {
 
-        //redirect to display_order.php
-        echo "<script>window.location.href='./display_order.php';</script>";
+      $total = $total + 2000;
+    } elseif ($material_type_2 == "polyster") {
 
-      }
-      else{
+      $total = $total + 1500;
+    } elseif ($material_type_2 == "wool") {
 
-        echo "<script>alert('Order Placed Failed')</script>";
+      $total = $total + 3000;
+    }
+
+    //add price for material type 3 cotton,silk,polyster,wool
+
+    if ($material_type_3 == "cotton") {
+
+      $total = $total + 1000;
+    } elseif ($material_type_3 == "silk") {
+
+      $total = $total + 2000;
+    } elseif ($material_type_3 == "polyster") {
+
+      $total = $total + 1500;
+    } elseif ($material_type_3 == "wool") {
+
+      $total = $total + 3000;
+    }
+  }
+
+  //add amount for emobroid
+  if ($embroid == "yes") {
+
+    $total = $total + 5000;
+  }
+
+
+
+
+
+
+  //condition if order deadline is empty
+  if (empty($order_deadline)) {
+
+    //die conenction
+    die();
+  } else {
+
+    //sql query to insert data into order table
+    $sql = "INSERT INTO order_tbl (User_Id,Order_Type, Type1, Type3, Type2, Color_1, Color_2, Color_3, Embroided, collar, Quantity, Delivery_date, Description, Total) VALUES ('$_SESSION[userid]','$order_type', '$material_type_1', '$material_type_2', '$material_type_3', '$color_code_1', '$color_code_2', '$color_code_3',' $embroid', '$collar', '$quantity', '$order_deadline', '$description','$total')";
+
+    //run sql query and script alert after successful insert
+    if (mysqli_query($conn, $sql)) {
+
+      echo "<script>alert('Order Placed Successfully')</script>";
+
+      //redirect to display_order.php
+      echo "<script>window.location.href='./display_order.php';</script>";
+
+    } else {
+
+      echo "<script>alert('Order Placed Failed')</script>";
 
     }
 
@@ -211,132 +189,132 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Order</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order</title>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
-    <!---------CSS ----------->
-    <link rel="stylesheet" href="place_order.css">
+  <!---------CSS ----------->
+  <link rel="stylesheet" href="place_order.css">
 
 
-    <style>
-        #clock {
-  text-align: center;
-  font-family: "Oswald", sans-serif;
-  font-weight: 300;
-  font-size: 1.5rem;
-  padding-top: 5vh;
-  display: flex;
-  justify-content:flex-start;
-  align-items:start;
-  background-color: #ffffff;
-  height: 2vh;;
-}
+  <style>
+    #clock {
+      text-align: center;
+      font-family: "Oswald", sans-serif;
+      font-weight: 300;
+      font-size: 1.5rem;
+      padding-top: 5vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: start;
+      background-color: #ffffff;
+      height: 2vh;
+      ;
+    }
 
-.form-container {
-              padding: 20px;
-              border-radius: 50px;
-              margin: 0 auto;
-              width: fit-content;
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: flex-start;
-              box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
-              margin-top: 2rem;
-              height: 65rem;
-            }
-          
-            .form-container > div {
-              width: calc(50% - 10px);
-            }
+    .form-container {
+      padding: 20px;
+      border-radius: 50px;
+      margin: 0 auto;
+      width: fit-content;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+      margin-top: 2rem;
+      height: 65rem;
+    }
 
-            .form-container > form{
-              
-            }
-          
-            .left-align {
-              text-align: left;
-            }
-          
-            .right-align {
-              text-align: right;
-            }
-          
+    .form-container>div {
+      width: calc(50% - 10px);
+    }
 
-            
-            form{
+    .form-container>form {}
 
-              width: 60rem;
-              padding-left: 0;
-            }
-          
-            select,
-            input[type="text"],
-            input[type="date"],
-            textarea {
-              width: 100%;
-              padding: 8px;
-              border: 1px solid #ccc;
-              border-radius: 13px;
-              box-sizing: border-box;
-              font-size: 14px;
-              margin-bottom: 10px;
-            }
-          
-            input[type="radio"] {
-              margin-right: 5px;
-              /* make radio button large */
-              transform: scale(1.5);
-            }
-          
-            input[type="submit"] {
-              background-color: #2a972e;
-              color: #fff;
-              padding: 10px 20px;
-              border: none;
-              border-radius: 10px;
-              cursor: pointer;
-              font-size: 14px;
-            }
-          
-            input[type="submit"]:hover {
-              background-color: #2a972e;
-            }
+    .left-align {
+      text-align: left;
+    }
 
-            .view-order-details{
+    .right-align {
+      text-align: right;
+    }
 
-              padding: 20px;
-            }
 
-            .view-order-details h3{
-              padding: 20px;
-            }
 
-            .btn-submit{
+    form {
 
-              /* get this button to center inside form tag */
-              margin-left: 25rem;
+      width: 60rem;
+      padding-left: 0;
+    }
 
-            }
-            h2 {
-              text-align: center;
-              margin-top: 0;
-              font-family: Georgia, Arial, Helvetica;
-              font-size: 1.4rem;
-              font-weight: bold;
-              color: #333;
-            }
-            form > .color-code{
-              display: flex;
-              justify-content:space-evenly;
-              align-items: center;
-              font-weight: bold;
-            }
+    select,
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 13px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
 
-    </style>
+    input[type="radio"] {
+      margin-right: 5px;
+      /* make radio button large */
+      transform: scale(1.5);
+    }
+
+    input[type="submit"] {
+      background-color: #2a972e;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #2a972e;
+    }
+
+    .view-order-details {
+
+      padding: 20px;
+    }
+
+    .view-order-details h3 {
+      padding: 20px;
+    }
+
+    .btn-submit {
+
+      /* get this button to center inside form tag */
+      margin-left: 25rem;
+
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      font-family: Georgia, Arial, Helvetica;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    form>.color-code {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-weight: bold;
+    }
+  </style>
 
 
 </head>
@@ -345,222 +323,224 @@
 
 
 
-    <div class="container">
+  <div class="container">
 
-        <aside>
-        <div class="top">
-                <div class="logo">
-                <img src="./images/Logo.png">
-                    <h2>Fashion<span class="danger"></span>Treak</h2>
-                </div>
-            </div>
-            <div class="sidebar" >
-              <a href="dashboard.php">
-                  <span class="material-icons-sharp">grid_view</span>
-                  <h3>Dashboard</h3>
-              </a>
-              <a href="./place_an_order.php" >
-                  <span class="material-icons-sharp">person_outline </span>
-                  <h3>Place Order</h3>
-              </a>
-              <a href="./update_details.php">
-                  <span class="material-icons-sharp">receipt_long</span>
-                  <h3>Update Details</h3>
-              </a>
-              <a href="#">
-                  <span class="material-icons-sharp">insights</span>
-                  <h3>Review Us</h3>
-              </a>
-              <a href="../Landing/login.php">
-                  <span class="material-icons-sharp">logout </span>
-                  <h3>logout</h3>
-              </a>
-
-          </div>
-        </aside>
-        <!---------------- END OF ASIDE---------------->
-        <main>
-            
-          <h2 class="form-heading" >Place your order here</h2>
-          
-          <div class="form-container">
-            <div class="left-align">
-              <form method="POST">
-                
-                
-                  <label for="order-type">Select Order Type:</label>
-                  <select id="order-type" name="order-type" required>
-                  <option value=""></option>
-                  <option value="standard">Standard</option>
-                  <option value="express">Express</option>
-                  <option value="custom">Custom</option>
-                  </select>
-          
-                  <br><br>
-          
-                  <label for="material-type" required>Select Material Type:</label>
-                  <select id="material-type" name="material-type-1">
-                  <option value=""></option>
-                  <option value="cotton">Cotton</option>
-                  <option value="silk">Silk</option>
-                  <option value="polyester">Polyester</option>
-                  <option value="wool">Wool</option>
-                  </select>
-                
-                  <label for="material-type">Select Material Type:</label>
-                  <select id="material-type" name="material-type-2" required>
-                  <option value=""></option>
-                  <option value="cotton">Cotton</option>
-                  <option value="silk">Silk</option>
-                  <option value="polyester">Polyester</option>
-                  <option value="wool">Wool</option>
-                  </select>
-
-                  <label for="material-type">Select Material Type:</label>
-                  <select id="material-type" name="material-type-3">
-                  <option value=""></option>
-                  <option value="cotton">Cotton</option>
-                  <option value="silk">Silk</option>
-                  <option value="polyester">Polyester</option>
-                  <option value="wool">Wool</option>
-                  </select>
-          
-                    <br><br>
-                    
-                  <span class="color-code">
-                  <label for="color-code" required>Color Code 1:</label>
-                  <input type="color" id="color-code-1" name="color-code-1">
-          
-                  <br><br>
-
-                  <label for="color-code">Color Code 2:</label>
-                  <input type="color" id="color-code" name="color-code-2">
-          
-                  <br><br>
-
-                  <label for="color-code">Color Code 3:</label>
-                  <input type="color" id="color-code" name="color-code-3">
-                  </span>
-                  <br><br>
-
-          
-                  <br><br>
-                     
-                  <label for="embroidered">Embroidered:</label>
-                  <input style="margin:10px" type="radio" id="embroidered-yes" name="embroidered" value="yes">
-                  <label for="embroidered-yes">Yes</label>
-                  <input style="margin:10px" type="radio" id="embroidered-no" name="embroidered" value="no">
-                  <label for="embroidered-no">No</label> 
-
-                  <br>
-                  <br>
-
-                  <label for="collar">Collar:</label>
-                  <select id="collar" name="collar" required>
-                  <option value=""></option>
-                  <option value="round">Round</option>
-                  <option value="v-neck">V-neck</option>
-                  <option value="polo">Polo</option>
-                  <option value="button-down">Button-down</option>
-                  </select>
-
-                  <label for="qty"  >Quantity</label>
-                  <input type="text" name = "quantity" required>
-                
-                  <label for="order-deadline">Order Deadline:</label>
-                  <input type="date" id="order-deadline" name="order-deadline" required>
-          
-                  <br><br>
-          
-                  <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4" cols="50"></textarea>
-                <br><br>
-              <input type="submit" value="Place Order" class="btn-submit">
-            </form>
-          </div>
-          </div>
-
-            
-          
-
-
-
-          <div class="view-order-details">
-
-            <h3> <a href="./display_order.php"> <span class="material-icons-sharp">arrow_back</span>View Previous orders</a></h3>
-
-          </div>
-            
-        </main>
-        <!-------------------------------------- END OF MAIN---------------------------------------->
-
-        <div class="right">
-            <div class="top">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">menu</span>
-                </button>
-                <div class="theme-toggler">
-                <span class="material-icons-sharp light active" onclick="lightmode()">light_mode</span>
-                    <span class="material-icons-sharp dark" onclick="darkmode()" >dark_mode</span>
-                </div>
-                <div class="profile">
-                <div class="info">
-                        <p>Hey, <b>                    
-                        <?php
-                        echo $_SESSION['username'];
-                        ?>
-                        </b></p>
-                        <small class="text-muted">                        <?php
-                        echo $_SESSION['userid'];
-                        ?></small>
-                    </div>
-                    <div class="profile-photo">
-
-                        <?php
-
-                        //this is used to add a user male user photo for gender male users and female photo for gender female users
-                        $sql = "SELECT * FROM register_user where User_id = '$_SESSION[userid]';";
-                        $result = mysqli_query($conn, $sql);
-                        $resultCheck = mysqli_num_rows($result);
-
-                        while($row = mysqli_fetch_assoc($result)){
-
-                            if($row['Gender'] == 'male'){
-                                echo "<img src='./images/male.png'>";
-                            }
-                            else{
-                                echo "<img src='./images/female.png'>";
-                            }
-                        }
-
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <!---------END OF RIGHT TOP---------->
-
-            <!-- !if somthing needed for right side add here -->
+    <aside>
+      <div class="top">
+        <div class="logo">
+          <img src="./images/Logo.png">
+          <h2>Fashion<span class="danger"></span>Treak</h2>
         </div>
+      </div>
+      <div class="sidebar">
+        <a href="dashboard.php">
+          <span class="material-icons-sharp">grid_view</span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="./place_an_order.php">
+          <span class="material-icons-sharp">person_outline </span>
+          <h3>Place Order</h3>
+        </a>
+        <a href="./update_details.php">
+          <span class="material-icons-sharp">receipt_long</span>
+          <h3>Update Details</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">insights</span>
+          <h3>Review Us</h3>
+        </a>
+        <a href="../Landing/login.php">
+          <span class="material-icons-sharp">logout </span>
+          <h3>logout</h3>
+        </a>
 
-            <!-- !if somthing needed for right side add here -->
+      </div>
+    </aside>
+    <!---------------- END OF ASIDE---------------->
+    <main>
+
+      <h2 class="form-heading">Place your order here</h2>
+
+      <div class="form-container">
+        <div class="left-align">
+          <form method="POST">
+
+
+            <label for="order-type">Select Order Type:</label>
+            <select id="order-type" name="order-type" required>
+              <option value=""></option>
+              <option value="standard">Standard</option>
+              <option value="express">Express</option>
+              <option value="custom">Custom</option>
+            </select>
+
+            <br><br>
+
+            <label for="material-type" required>Select Material Type:</label>
+            <select id="material-type" name="material-type-1">
+              <option value=""></option>
+              <option value="cotton">Cotton</option>
+              <option value="silk">Silk</option>
+              <option value="polyester">Polyester</option>
+              <option value="wool">Wool</option>
+            </select>
+
+            <label for="material-type">Select Material Type:</label>
+            <select id="material-type" name="material-type-2" required>
+              <option value=""></option>
+              <option value="cotton">Cotton</option>
+              <option value="silk">Silk</option>
+              <option value="polyester">Polyester</option>
+              <option value="wool">Wool</option>
+            </select>
+
+            <label for="material-type">Select Material Type:</label>
+            <select id="material-type" name="material-type-3">
+              <option value=""></option>
+              <option value="cotton">Cotton</option>
+              <option value="silk">Silk</option>
+              <option value="polyester">Polyester</option>
+              <option value="wool">Wool</option>
+            </select>
+
+            <br><br>
+
+            <span class="color-code">
+              <label for="color-code" required>Color Code 1:</label>
+              <input type="color" id="color-code-1" name="color-code-1">
+
+              <br><br>
+
+              <label for="color-code">Color Code 2:</label>
+              <input type="color" id="color-code" name="color-code-2">
+
+              <br><br>
+
+              <label for="color-code">Color Code 3:</label>
+              <input type="color" id="color-code" name="color-code-3">
+            </span>
+            <br><br>
+
+
+            <br><br>
+
+            <label for="embroidered">Embroidered:</label>
+            <input style="margin:10px" type="radio" id="embroidered-yes" name="embroidered" value="yes">
+            <label for="embroidered-yes">Yes</label>
+            <input style="margin:10px" type="radio" id="embroidered-no" name="embroidered" value="no">
+            <label for="embroidered-no">No</label>
+
+            <br>
+            <br>
+
+            <label for="collar">Collar:</label>
+            <select id="collar" name="collar" required>
+              <option value=""></option>
+              <option value="round">Round</option>
+              <option value="v-neck">V-neck</option>
+              <option value="polo">Polo</option>
+              <option value="button-down">Button-down</option>
+            </select>
+
+            <label for="qty">Quantity</label>
+            <input type="text" name="quantity" required>
+
+            <label for="order-deadline">Order Deadline:</label>
+            <input type="date" id="order-deadline" name="order-deadline" required>
+
+            <br><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+            <br><br>
+            <input type="submit" value="Place Order" class="btn-submit">
+          </form>
         </div>
+      </div>
 
+
+
+
+
+
+      <div class="view-order-details">
+
+        <h3> <a href="./display_order.php"> <span class="material-icons-sharp">arrow_back</span>View Previous orders</a>
+        </h3>
+
+      </div>
+
+    </main>
+    <!-------------------------------------- END OF MAIN---------------------------------------->
+
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp">menu</span>
+        </button>
+        <div class="theme-toggler">
+          <span class="material-icons-sharp light active" onclick="lightmode()">light_mode</span>
+          <span class="material-icons-sharp dark" onclick="darkmode()">dark_mode</span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p>Hey, <b>
+                <?php
+                echo $_SESSION['username'];
+                ?>
+              </b></p>
+            <small class="text-muted">
+              <?php
+              echo $_SESSION['userid'];
+              ?>
+            </small>
+          </div>
+          <div class="profile-photo">
+
+            <?php
+
+            //this is used to add a user male user photo for gender male users and female photo for gender female users
+            $sql = "SELECT * FROM register_user where User_id = '$_SESSION[userid]';";
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+
+              if ($row['Gender'] == 'male') {
+                echo "<img src='./images/male.png'>";
+              } else {
+                echo "<img src='./images/female.jpg'>";
+              }
+            }
+
+            ?>
+          </div>
+        </div>
+      </div>
+      <!---------END OF RIGHT TOP---------->
+
+      <!-- !if somthing needed for right side add here -->
     </div>
 
-<script src="script.js"></script>
-<script>
-//create function name dark
-function lightmode(){
-  //remove class active
-  document.querySelector('.light').classList.add('active');
-  document.querySelector('.dark').classList.remove('active');
-}
-function darkmode(){
-  //remove class active
-  document.querySelector('.dark').classList.add('active');
-  document.querySelector('.light').classList.remove('active');
-}
-</script>
+    <!-- !if somthing needed for right side add here -->
+  </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    //create function name dark
+    function lightmode() {
+      //remove class active
+      document.querySelector('.light').classList.add('active');
+      document.querySelector('.dark').classList.remove('active');
+    }
+    function darkmode() {
+      //remove class active
+      document.querySelector('.dark').classList.add('active');
+      document.querySelector('.light').classList.remove('active');
+    }
+  </script>
 </body>
 
 </html>

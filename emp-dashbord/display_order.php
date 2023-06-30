@@ -7,7 +7,7 @@ if (!isset($_SESSION['userid']) && !isset($_SESSION['username'])) {
   header("location: ../Landing/login.php");
 }
 
-//auto logout when user is inactive
+//!auto logout when user is inactive
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
   // last request was more than 5min minutes ago
   session_unset(); // unset $_SESSION variable for the run-time 
@@ -278,7 +278,7 @@ if (isset($_GET['Order_Id'])) {
                 if ($row['Gender'] == 'male') {
                   echo "<img src='./images/male.png'>";
                 } else {
-                  echo "<img src='./images/female.png'>";
+                  echo "<img src='./images/female.jpg'>";
                 }
               }
 
