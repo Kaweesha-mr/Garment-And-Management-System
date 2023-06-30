@@ -24,6 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $dob = $_POST['dob'];
   $Haddress = remove_sql_injection($_POST['Haddress'],$conn);
   $Daddress = remove_sql_injection($_POST['Daddress'],$conn);
+  $gender = remove_sql_injection($_POST['gender'],$conn);
 
   //passwords are passed into php variables including md5 hashing
   $password =  $_POST['password'];
@@ -41,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($verify == 1){
     
       //send query if email,fullname,password,repassword are not empty
-    $sql = "INSERT INTO `register_user` (`username`, `email`, `Passwords`, `DOB`, `HAddress_lane`, `D_address_lane`) VALUES ('$username', '$email', '$Hashedpassword', '$dob','$Haddress', '$Daddress')";
+    $sql = "INSERT INTO `register_user` (`username`, `email`, `Passwords`, `DOB`, `HAddress_lane`, `D_address_lane`,`gender`) VALUES ('$username', '$email', '$Hashedpassword', '$dob','$Haddress', '$Daddress','$gender')";
 
     if($conn->query($sql)) {
 

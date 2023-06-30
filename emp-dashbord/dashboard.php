@@ -213,12 +213,31 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                         echo $_SESSION['username'];
                         ?>
                         </b></p>
-                        <small class="text-muted">                        <?php
+                        <small class="text-muted">                        
+                        <?php
                         echo $_SESSION['userid'];
                         ?></small>
                     </div>
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg">
+
+                        <?php
+
+                        //this is used to add a user male user photo for gender male users and female photo for gender female users
+                        $sql = "SELECT * FROM register_user where User_id = '$_SESSION[userid]';";
+                        $result = mysqli_query($conn, $sql);
+                        $resultCheck = mysqli_num_rows($result);
+
+                        while($row = mysqli_fetch_assoc($result)){
+
+                            if($row['Gender'] == 'male'){
+                                echo "<img src='./images/male.png'>";
+                            }
+                            else{
+                                echo "<img src='./images/female.png'>";
+                            }
+                        }
+
+                        ?>
                     </div>
                 </div>
             </div>
@@ -233,7 +252,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 <script>
 
-    //create function name dark
+    //!create function name dark
 function lightmode(){
   //remove class active
   document.querySelector('.light').classList.add('active');
@@ -245,6 +264,11 @@ function darkmode(){
   document.querySelector('.light').classList.remove('active');
 }
 
+
+
+
+//https://www.plus2net.com/javascript_tutorial/clock.php
+//this website is used to get below code
 window.addEventListener("load", () => {
   clock();
   function clock() {
