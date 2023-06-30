@@ -155,7 +155,7 @@
 
                 <p class="input-field-address">
                     <label for="">Job title:</label>
-                    <select name="cars" id="cars">
+                    <select name="title" id="title">
                         <option value="Supervisor">Supervisor</option>
                         <option value="Machin Operator">Machin Operator</option>
                         <option value="Designer">Designer</option>
