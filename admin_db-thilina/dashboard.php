@@ -4,7 +4,7 @@
 
     // Perform the database query
     $query = "SELECT COUNT(*) AS total_rows FROM order_tbl";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);  //execute the query
     $row = mysqli_fetch_assoc($result);
     $totalRows = $row['total_rows'];
 
@@ -17,6 +17,23 @@
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $totalRowsAppOrd = $row['total_rows_app_ord'];
+
+    $userid = array();
+    $query = "SELECT User_Id FROM order_tbl";
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_assoc($result)){
+        $userid[] = $row['User_Id'];
+    }
+
+    $desc = array();
+    $query = "SELECT Description FROM order_tbl ORDER BY Order_Id DESC";
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_assoc($result)){
+        $desc[] = $row['Description'];
+    }
+    
   
 
 ?>
@@ -28,13 +45,16 @@
 
     $count = 0;
 
-    $query = "SELECT * FROM order_tbl";
+    $query = "  SELECT Order_Type, SUM(Quantity) AS 'totle of orders'
+                FROM order_tbl
+                GROUP BY Order_Type";
+
     $res = mysqli_query($conn, $query);
 
     while($row = mysqli_fetch_array($res))
     {
         $test[$count] ["label"] = $row['Order_Type'];
-        $test[$count] ["y"] = $row["Quantity"];
+        $test[$count] ["y"] = $row["totle of orders"];
 
         $count =$count +1;
     }
@@ -119,7 +139,7 @@
                             animationEnabled: true,
                             theme: "light2",
                             title:{
-                                text: "Sells for types"
+                                text: "Sells of types"
                             },
                             axisY: {
                                 title: "Quantity"
@@ -138,7 +158,7 @@
 
 
                     <div id="chartContainer"></div>
-                    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                    <script src="canvasjs/canvasjs-chart-3.7.10/canvasjs.min.js"></script>
                     
                 </div>
 
@@ -175,10 +195,19 @@
                             <div class="calendar_month">
                                 <span class="material-symbols-rounded">mail</span>
                             </div>
-                            <div class="card-inner">
                                 <p class="card-Qnt">Messages</p>
-                                <br>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repudiandae dolores officia earum doloribus nobis sint quas distinctio veniam rem cumque, iste placeat architecto doloremque quae, quis eaque. Perspiciatis, corrupti!</p>
+
+                            <div class="card-inner">
+                                
+                                <div class="msgbox">
+                                    <p class="msg-n"><?php echo $userid[0]; ?></p>
+                                    <p class="msg"><?php echo $desc[0]; ?></p>
+                                </div>
+                                <div class="msgbox">
+                                    <p class="msg-n"><?php echo $userid[1]; ?></p>
+                                    <p class="msg"><?php echo $desc[1]; ?></p>
+                                </div>
+                                   
                             </div>
                             
                     </div>

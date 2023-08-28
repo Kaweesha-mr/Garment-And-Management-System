@@ -186,7 +186,10 @@
 
                 <p class="input-field">
                     <label for="">gender:</label>
-                    <input type="text" name="gender" maxlength="10" required <?php echo 'value="' . $gender . '"'; ?>>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
                 </p>
 
                 <p class="input-field-address">
@@ -196,8 +199,9 @@
 
                 <p class="input-field-address">
                     <label for="">Password:</label>
-                    <span>******</span>
-                    <a href="change-password.php" class="cancel">Change Password</a>
+                    <input type="password" name="pw" placeholder="************" readonly>
+                    
+                    
                 </p>
 
                 <p class="input-field-address">
@@ -210,6 +214,15 @@
                 <p class="input-field-address">
                     <label for="">Job title:</label>
                     <input type="text" name="title" maxlength="100" required <?php echo 'value="' . $title . '"'; ?>>
+                    <select name="title" id="title">
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Machin Operator">Machin Operator</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Sample Maker">Sample Maker</option>
+                        <option value="Cutter">Cutter</option>
+                        <option value="Trimmer">Trimmer</option>
+                        <option value="Paacker">Packer</option>
+                    </select>
                 </p>
 
                 <p class="input-field-address">
@@ -219,12 +232,25 @@
 
                 <p class="input-field-address">
                     <label for="">Insure:</label>
-                    <input type="text" name="insure" maxlength="100" required <?php echo 'value="' . $insure . '"'; ?>>
+                    <select name="insure" id="insure">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </p>
 
                 <p class="input-field-address">
                     <label for="">Working Zone:</label>
                     <input type="text" name="zone" maxlength="20" required <?php echo 'value="' . $zone . '"'; ?>>
+                    <select name="zone" id="zone">
+                        <option value="Marketing Department">Marketing</option>
+                        <option value="Design Department">Design Department</option>
+                        <option value="Merchandise Department">Merchandise Department</option>
+                        <option value="Sampling Department">Sampling Department</option>
+                        <option value="Cuttin Department">Cuttin Department</option>
+                        <option value="Trims and Accessory Department">Trims and Accessory Department</option>
+                        <option value="Washing Department">Washing Department</option>
+                        <option value="Finishing Department">Finishing Department</option>
+                    </select>
                 </p>
 
                 <!-- <p class="input-field-address">

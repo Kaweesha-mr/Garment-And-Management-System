@@ -324,7 +324,7 @@ body{
 }
 
 
-/* charts */
+/* -------------------Charts----------------------- */
 
 .charts{
     display: grid;
@@ -342,6 +342,10 @@ body{
     background-color: aliceblue;
     box-shadow: 5px 5px 10px rgb(172, 174, 180);
     transition: all 0.3s ease;
+}
+
+.main-content .container-right .card-r-u:hover{
+    box-shadow: 15px 15px 14px rgb(172, 174, 180);
 }
 
 .main-content .container-right .card-r #day{
@@ -366,6 +370,22 @@ body{
 
 .card-r:hover{
     box-shadow: 15px 15px 14px rgb(172, 174, 180);
+}
+
+.msgbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: rgb(219, 215, 215);
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.msg-n{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(54, 74, 74);
 }
 
 /*========================================= ORDER PANEL============================== */

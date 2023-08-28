@@ -106,8 +106,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['ADNloggedin'] = true;
             $_SESSION['ADNusername'] = $username;
 
-            //get user id from user id
-            $sql = "SELECT ADNname,Email FROM `admin` WHERE `username_ADN` = '$username'";
+        //get user id from user id
+        $sql = "SELECT Name,Email FROM `admin` WHERE `username_ADN` = '$username'";
 
             //run the query and print output using script
             $result = mysqli_query($conn, $sql);
