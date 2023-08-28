@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
   <!-- boot starp include -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-  
+
 
 
   <!-- !styles for main landing page -->
@@ -41,7 +40,6 @@
 </head>
 
 <body>
-
   <!-- !navigation Bar -->
   <header>
     <div class="nav-bar">
@@ -53,14 +51,14 @@
           <a href="./about us/aboutUs.html"> About Us</a>
           <!-- make this button blue ane make it red when hover -->
           <a href="login.php"><button type="button" class="btn btn-dark btnlogin">Login</button></a>
-          
+
         </div>
       </div>
-    </div>      
+    </div>
   </header>
 
-  
-    <!-- !navigation Bar ended-->
+
+  <!-- !navigation Bar ended-->
 
 
   <section class="home">
@@ -70,7 +68,7 @@
       <a href="#"><i class="uil uil-whatsapp"></i></a>
     </div>
 
-   <!-- ! slider with animation starts here -->
+    <!-- ! slider with animation starts here -->
     <div class="swiper bg-slider">
       <!-- Image slide 1 -->
       <div class="swiper-wrapper dark-layer">
@@ -156,7 +154,7 @@
     </div>
   </section>
   <!-- navigation bar completed here -->
-     <!-- ! slider with animation ends -->
+  <!-- ! slider with animation ends -->
 
   <!-- !Cards deisgn starts here -->
   <section class="Cards">
@@ -166,7 +164,9 @@
         <img src="./Img/card1.jpeg" class="card-img" alt="">
         <div class="card-body">
           <h1 class="card-title">Discover Stylish and Trendy Garments</h1>
-          <p class="card-info">Explore our collection of fashionable garments that blend style and comfort seamlessly. From casual wear to formal attire, our website offers a wide range of clothing options to suit every occasion and personal style. </p>
+          <p class="card-info">Explore our collection of fashionable garments that blend style and comfort seamlessly.
+            From casual wear to formal attire, our website offers a wide range of clothing options to suit every
+            occasion and personal style. </p>
 
           <button class="card-btn">read more<i class="uil uil-arrow-right"></i></button>
         </div>
@@ -176,7 +176,9 @@
         <img src="./Img/card2.jpg" class="card-img" alt="">
         <div class="card-body">
           <h1 class="card-title">Quality Craftsmanship and Durability</h1>
-          <p class="card-info">Experience garments that are crafted with meticulous attention to detail and a commitment to exceptional quality. Our website features garments made from premium fabrics and constructed using advanced techniques to ensure longevity and durability. </p>
+          <p class="card-info">Experience garments that are crafted with meticulous attention to detail and a commitment
+            to exceptional quality. Our website features garments made from premium fabrics and constructed using
+            advanced techniques to ensure longevity and durability. </p>
 
           <button class="card-btn">read more<i class="uil uil-arrow-right"></i></button>
         </div>
@@ -188,7 +190,9 @@
         <div class="card-body">
           <h1 class="card-title">Unleash Your Personal Style</h1>
 
-          <p class="card-info">Express your individuality with our diverse range of garments designed to empower your unique fashion sense. Our website showcases an array of clothing options, including versatile separates, statement pieces, and timeless classics.</p>
+          <p class="card-info">Express your individuality with our diverse range of garments designed to empower your
+            unique fashion sense. Our website showcases an array of clothing options, including versatile separates,
+            statement pieces, and timeless classics.</p>
 
           <button class="card-btn">read more<i class="uil uil-arrow-right"></i></button>
         </div>
@@ -203,7 +207,7 @@
               earum nemo similique ea reiciendis.</p>
 
             <button class="card-btn"> read more<i class="uil uil-arrow-right"></i></button>
-            
+
 
           </div>
 
@@ -211,8 +215,13 @@
       </div>
   </section>
   <!-- !Cards deisgn ends here -->
+  <!-- add t shirt icon from font awesome -->
+
 
   <!-- !counting cards starts here -->
+
+
+
 
   <section id="section_counter">
     <div class="container-counting">
@@ -221,15 +230,18 @@
     <div class="container-counting">
       <div class="counter-grid">
         <div class="counter-item">
-          <img src="images/web-design.png" alt="Image" class="counter-img" />
+          <i class="fas fa-tshirt"></i>
           <h1 class="counter" data-target="200">0</h1>
         </div>
         <div class="counter-item">
-          <img src="images/web-development.png" alt="Image" class="counter-img" />
+
+          <!-- add transport icon -->
+          <i class="fas fa-truck"></i>
           <h1 class="counter" data-target="300">0</h1>
         </div>
         <div class="counter-item">
-          <img src="images/ux-design.png" alt="Image" class="counter-img" />
+          <!-- add swing machine icon -->
+          <i class="fas fa-people-carry"></i>
           <h1 class="counter" data-target="250">0</h1>
         </div>
       </div>
@@ -372,10 +384,11 @@
   <!-- !iconicons icons pack js is added here -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  
+
   <script>
 
     // !swiper js starts here
+
     var swiper = new Swiper(".bg-slider-thumbs", {
       loop: true,
       spaceBetween: 0,
@@ -388,6 +401,11 @@
         swiper: swiper,
       },
     });
+
+    //make slider auto slide within 3s
+    swiper2.autoplay.start();
+
+
     // !swiper js ends here
   </script>
 
@@ -399,4 +417,3 @@
 <script src="./JS/feedback.js"></script>
 
 </html>
-

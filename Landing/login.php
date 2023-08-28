@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $result = mysqli_query($conn, $sql);
     $result = mysqli_fetch_array($result);
     if ($result[0] == null) {
-        //get user id for username from database
+        // get admin id for username from database
         $sql = "SELECT `AdminId` FROM `admin` WHERE `username_ADN` = '$username'";
         $result = mysqli_query($conn, $sql);
         $result = mysqli_fetch_array($result);
@@ -32,110 +32,103 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //check if username 1st 3 letters contain prefix USR
     $prefix = substr($result[0], 0, 3);
 
-    //prinr prefix using script
-    echo '<script>alert("' . $prefix . '")</script>';
-
     //if prefix is USR then login as user
     if ($prefix == "USR") {
 
-    //get the password in the database
-    $sql = "SELECT `Passwords` FROM `register_user` WHERE `username` = '$username'";
-    $result = mysqli_query($conn, $sql);
-    $result = mysqli_fetch_array($result);
-
-
-    //store result in a variable
-    $result = $result[0];
-
-    //verify the password
-    $verify = password_verify($password, $result);
-
-    //script to print veriify
-    echo '<script>alert("' . $verify . '")</script>';
-
-    //if password is verifyied then login
-    if ($verify == 1) {
-        //create a js alert to say successfully registered
-        echo '<script>alert("Successfully Logged In")</script>';
-
-        //session to login user
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
-
-        //get user id from user id
-        $sql = "SELECT User_id FROM `register_user` WHERE `username` = '$username'";
-
-        //run the query and print output using script
+        //get the password in the database
+        $sql = "SELECT `Passwords` FROM `register_user` WHERE `username` = '$username'";
         $result = mysqli_query($conn, $sql);
-
-        //get the value os result array and store it in a variable
         $result = mysqli_fetch_array($result);
 
-        //store the resluts in session names userid
-        $_SESSION['userid'] = $result[0];
+        //store result in a variable
+        $result = $result[0];
 
-        //print the userid using script
-        echo '<script>alert("' . $_SESSION['userid'] . '")</script>';
+        //verify the password
+        $verify = password_verify($password, $result);
 
-        //redirect to dashboard in emp-dashbord file
-        header("location: ../emp-dashbord/dashboard.php");
-    }
-    else {
-        //create a js alert to say error
-        echo '<script>alert("Invalid Username or Password")</script>';
-    }
-    }//if prefix is ADN then login as admin
+        //script to print veriify
+        echo '<script>alert("' . $verify . '")</script>';
+
+        //if password is verifyied then login
+        if ($verify == 1) {
+            //create a js alert to say successfully registered
+            echo '<script>alert("Successfully Logged In")</script>';
+
+            //session to login user
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+
+            //get user id from user id
+            $sql = "SELECT User_id FROM `register_user` WHERE `username` = '$username'";
+
+            //run the query and print output using script
+            $result = mysqli_query($conn, $sql);
+
+            //get the value os result array and store it in a variable
+            $result = mysqli_fetch_array($result);
+
+            //store the resluts in session names userid
+            $_SESSION['userid'] = $result[0];
+
+            //print the userid using script
+            echo '<script>alert("' . $_SESSION['userid'] . '")</script>';
+
+            //redirect to dashboard in emp-dashbord file
+            header("location: ../emp-dashbord/dashboard.php");
+        } else {
+            //create a js alert to say error
+            echo '<script>alert("Invalid Username or Password")</script>';
+        }
+    } //if prefix is ADN then login as admin
     else if ($prefix == "ADN") {
 
-        // !thilin's login system
+        // !thilin's login system admin
 
         //get the password in the database
-    $sql = "SELECT `Password` FROM `admin` WHERE `username_ADN` = '$username'";
-    $result = mysqli_query($conn, $sql);
-    $result = mysqli_fetch_array($result);
+        $sql = "SELECT `Password` FROM `admin` WHERE `username_ADN` = '$username'";
+        $result = mysqli_query($conn, $sql);
+        $result = mysqli_fetch_array($result);
 
 
-    //store result in a variable
-    $result = $result[0];
+        //store result in a variable
+        $result = $result[0];
 
-    //verify the password
-    $verify = password_verify($password, $result);
+        //verify the password
+        $verify = password_verify($password, $result);
 
-    //if password is verifyied then login
-    if ($verify == 1) {
+        //if password is verifyied then login
+        if ($verify == 1) {
 
-        //create a js alert to say successfully registered
-        echo '<script>alert("Successfully Logged In")</script>';
+            //create a js alert to say successfully registered
+            echo '<script>alert("Successfully Logged In")</script>';
 
-        //session to login user
-        $_SESSION['ADNloggedin'] = true;
-        $_SESSION['ADNusername'] = $username;
+            //session to login user
+            $_SESSION['ADNloggedin'] = true;
+            $_SESSION['ADNusername'] = $username;
 
         //get user id from user id
         $sql = "SELECT Name,Email FROM `admin` WHERE `username_ADN` = '$username'";
 
-        //run the query and print output using script
-        $result = mysqli_query($conn, $sql);
+            //run the query and print output using script
+            $result = mysqli_query($conn, $sql);
 
-        //get the value os result array and store it in a variable
-        $result = mysqli_fetch_array($result);
+            //get the value os result array and store it in a variable
+            $result = mysqli_fetch_array($result);
 
-        //store the resluts in session names userid
-        $_SESSION['ADNname'] = $result[0];
-        $_SESSION['ADNEmail'] = $result[1];
+            //store the resluts in session names userid
+            $_SESSION['ADNname'] = $result[0];
+            $_SESSION['ADNEmail'] = $result[1];
 
-        //redirect to dashboard in emp-dashbord file
-        header("location: ../admin_db-thilina/dashboard.php");
-    }
-    else {
-        //create a js alert to say error
-        echo '<script>alert("Invalid Username or Password")</script>';
-    }
+            //redirect to dashboard in emp-dashbord file
+            header("location: ../admin_db-thilina/dashboard.php");
+        } else {
+            //create a js alert to say error
+            echo '<script>alert("Invalid Username or Password")</script>';
+        }
 
 
         //!thilin's login system ended
-    }
-    else {
+    } else {
         //create a js alert to say error
         echo '<script>alert("Invalid Username or Password")</script>';
     }
@@ -187,6 +180,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <button>Login</button>
 
             <span>If you Don't have an Account <a href="./Registration.php"> Sign Up</a> </span>
+
+            <!-- back to home -->
+            <a href="./Landing.html"><i style="color:black;" class="fas fa-home"></i></a>
         </form>
     </div>
     </div>
